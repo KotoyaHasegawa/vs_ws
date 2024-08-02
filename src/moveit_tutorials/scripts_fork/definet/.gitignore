@@ -1,0 +1,9 @@
+.catkin_tools/
+build/
+devel/
+logs/
+*.png
+*.csv
+*.bag
+__pycache__
+*.pt
