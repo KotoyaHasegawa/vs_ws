@@ -70,9 +70,9 @@ def Move():
 	# euler_z = random.uniform(desired_pose[5] - 0.04366, desired_pose[5] + 0.04366)#差5度
 
 
-	current_pose.position.x = desired_pose[0] + 0.01 #差+-0.025
-	current_pose.position.y = desired_pose[1] #差0.02
-	current_pose.position.z = desired_pose[2] + 0.01#差+-0.025
+	# current_pose.position.x = desired_pose[0] + 0.01 #差+-0.025
+	# current_pose.position.y = desired_pose[1] #差0.02
+	# current_pose.position.z = desired_pose[2] + 0.01#差+-0.025
 	euler_x = desired_pose[3]#差5度
 	euler_y = desired_pose[4]#差5度
 	euler_z = desired_pose[5]#差5度

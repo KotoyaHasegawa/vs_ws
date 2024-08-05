@@ -8,8 +8,8 @@ from cv_bridge import CvBridge
 def process_image(msg):
     bridge = CvBridge()
     orig = bridge.imgmsg_to_cv2(msg, "bgr8")
-    # orig = orig[ 200 : 560 ,720 : 1360 ] #remove
-    orig = orig[ 70 : 430 ,720 : 1360 ] #input
+    orig = orig[ 200 : 560 ,720 : 1360 ] #remove
+    # orig = orig[ 70 : 430 ,720 : 1360 ] #input
     # orig = bridge.imgmsg_to_cv2(msg, "mono8") ###for UI camera
     cv2.imshow('desired image', orig)
     # cv2.waitKey(0)
