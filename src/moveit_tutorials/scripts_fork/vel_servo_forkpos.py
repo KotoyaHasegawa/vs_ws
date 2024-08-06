@@ -45,6 +45,8 @@ from geometry_msgs.msg import Pose
 from robot_helpers.robot_helpers.ros import moveit
 from robot_helpers.robot_helpers import spatial
 from scipy.spatial.transform import Rotation
+
+from jikken_data import DATA
 #number of pixels
 # nop = 2073600
 nop = 230400
@@ -53,7 +55,8 @@ pinv_int_manip = np.empty((6,6))
 I_dsr_vec = np.empty((nop, 1))
 lmbd = 0.25
 
-rmseth = 0.0 #5.0 
+rmseth = 5.0 #5.0 
+iteration = 1000
 
 time_series = []
 rmse_data = []
@@ -79,6 +82,8 @@ dist_rot_z = []
 
 error_rot_axis = []
 error_rot_ang = []
+
+last_msg = None
 
 #robot helpers
 moveit_client = moveit.MoveItClient("manipulator")
@@ -144,14 +149,6 @@ def quaternion_to_euler(current_pose):
     e = tf.transformations.euler_from_quaternion((current_pose[0],current_pose[1],current_pose[2],current_pose[3]))
     return e[0], e[1], e[2]
 
-
-
-
-def signal_handler(sig, frame):
-
-
-    sys.exit(0)
-
 # def ik(go_pose, current_euler_x, current_euler_y, current_euler_z, moveit_client):
     
 #     # Get current joint states
@@ -202,6 +199,63 @@ def signal_handler(sig, frame):
 #     moveit_client.set_pose_target(current_pose)
 #     moveit_client.go(wait=True)
 
+##ikfast
+# def ik(current_joint, current_euler, pose_euler_deff):
+#     pose_dsr = np.array(current_euler) + np.array(pose_euler_deff)
+#     pose_quat = [pose_dsr[0], pose_dsr[1], pose_dsr[2], 0.0, 0.0, 0.0, 0.0]
+#     # print("\n-----------------------------\n")
+#     # print("pose_euler:")
+#     # print(pose_dsr)
+
+#     ur5e_arm = ur_kinematics.URKinematics('ur5e')
+#     joint_angles = current_joint # in radians
+#     pose_quat[3], pose_quat[4], pose_quat[5], pose_quat[6]= euler_to_quaternion(pose_dsr[3],pose_dsr[4], pose_dsr[5] )
+#     pose_quat = [pose_dsr[0], pose_dsr[1], pose_dsr[2], -1*pose_quat[3], -1*pose_quat[4], -1*pose_quat[5], -1*pose_quat[6]]
+
+#     # print("\n-----------------------------\n")
+#     # print("input_pose_quaternion:")
+#     # print(pose_quat)
+#     joint_angles_quat = ur5e_arm.inverse(pose_quat, False, q_guess=joint_angles)
+#     # print("\n-----------------------------\n")
+#     # print("output_joint_angles")
+#     # print(joint_angles_quat)
+#     # print(ur5e_arm.forward(current_joint))
+#     # print("inverse() one from quat", joint_angles_quat)
+
+#     deff = np.array([joint_angles_quat]) - np.array([current_joint]) 
+#     # print("\n-----------------------------\n")
+#     # print("output_joint_angles - current_joint_angles")
+#     # print(deff)
+#     return (deff.T)
+
+##ikfast(original)
+# def ik(current_joint, current_euler, pose_euler_deff):
+#     pose_dsr = np.array(current_euler) + np.array(pose_euler_deff)
+#     transform_matrix = pose_to_rigid_transformation_matrix(pose_dsr)
+#     # print("\n-----------------------------\n")
+#     # print("pose_euler:")
+#     # print(pose_dsr)
+
+#     ur5e_arm = ur_kinematics.URKinematics('ur5e')
+#     joint_angles = current_joint # in radians
+#     pose_quat[3], pose_quat[4], pose_quat[5], pose_quat[6]= euler_to_quaternion(pose_dsr[3],pose_dsr[4], pose_dsr[5] )
+#     pose_quat = [pose_dsr[0], pose_dsr[1], pose_dsr[2], -1*pose_quat[3], -1*pose_quat[4], -1*pose_quat[5], -1*pose_quat[6]]
+
+#     # print("\n-----------------------------\n")
+#     # print("input_pose_quaternion:")
+#     # print(pose_quat)
+#     joint_angles_quat = ur5e_arm.inverse(pose_quat, False, q_guess=joint_angles)
+#     # print("\n-----------------------------\n")
+#     # print("output_joint_angles")
+#     # print(joint_angles_quat)
+#     # print(ur5e_arm.forward(current_joint))
+#     # print("inverse() one from quat", joint_angles_quat)
+
+#     deff = np.array([joint_angles_quat]) - np.array([current_joint]) 
+#     # print("\n-----------------------------\n")
+#     # print("output_joint_angles - current_joint_angles")
+#     # print(deff)
+#     return (deff.T)
 
 def ik(go_pose, current_euler_x, current_euler_y, current_euler_z, moveit_client):
     
@@ -250,66 +304,69 @@ def ik(go_pose, current_euler_x, current_euler_y, current_euler_z, moveit_client
 
     return joint_diffs
 
+
+def signal_handler(sig, frame):
+
+    global pinv_int_mat_double
+    global pinv_int_manip
+    global I_dsr_vec
     
+    global rmseth
+    
+    global base_joint_data
+    global shoulder_joint_data
+    global elbow_joint_data
+    global wrist1_joint_data
+    global wrist2_joint_data
+    global wrist3_joint_data
+    
+    global joint_vel_values_data
+    
+    global time_series
+    global rmse_data
+    global pose_data
+    global dist_data
 
-# def ik(current_joint, current_euler, pose_euler_deff):
-#     pose_dsr = np.array(current_euler) + np.array(pose_euler_deff)
-#     pose_quat = [pose_dsr[0], pose_dsr[1], pose_dsr[2], 0.0, 0.0, 0.0, 0.0]
-#     # print("\n-----------------------------\n")
-#     # print("pose_euler:")
-#     # print(pose_dsr)
+    global dist_trans_x
+    global dist_trans_y
+    global dist_trans_z
+    global dist_rot_x
+    global dist_rot_y
+    global dist_rot_z   
 
-#     ur5e_arm = ur_kinematics.URKinematics('ur5e')
-#     joint_angles = current_joint # in radians
-#     pose_quat[3], pose_quat[4], pose_quat[5], pose_quat[6]= euler_to_quaternion(pose_dsr[3],pose_dsr[4], pose_dsr[5] )
-#     pose_quat = [pose_dsr[0], pose_dsr[1], pose_dsr[2], -1*pose_quat[3], -1*pose_quat[4], -1*pose_quat[5], -1*pose_quat[6]]
+    global error_rot_axis
+    global error_rot_ang
 
-#     # print("\n-----------------------------\n")
-#     # print("input_pose_quaternion:")
-#     # print(pose_quat)
-#     joint_angles_quat = ur5e_arm.inverse(pose_quat, False, q_guess=joint_angles)
-#     # print("\n-----------------------------\n")
-#     # print("output_joint_angles")
-#     # print(joint_angles_quat)
-#     # print(ur5e_arm.forward(current_joint))
-#     # print("inverse() one from quat", joint_angles_quat)
+    global last_msg
 
-#     deff = np.array([joint_angles_quat]) - np.array([current_joint]) 
-#     # print("\n-----------------------------\n")
-#     # print("output_joint_angles - current_joint_angles")
-#     # print(deff)
-#     return (deff.T)
-
-
-# def ik(current_joint, current_euler, pose_euler_deff):
-#     pose_dsr = np.array(current_euler) + np.array(pose_euler_deff)
-#     transform_matrix = pose_to_rigid_transformation_matrix(pose_dsr)
-#     # print("\n-----------------------------\n")
-#     # print("pose_euler:")
-#     # print(pose_dsr)
-
-#     ur5e_arm = ur_kinematics.URKinematics('ur5e')
-#     joint_angles = current_joint # in radians
-#     pose_quat[3], pose_quat[4], pose_quat[5], pose_quat[6]= euler_to_quaternion(pose_dsr[3],pose_dsr[4], pose_dsr[5] )
-#     pose_quat = [pose_dsr[0], pose_dsr[1], pose_dsr[2], -1*pose_quat[3], -1*pose_quat[4], -1*pose_quat[5], -1*pose_quat[6]]
-
-#     # print("\n-----------------------------\n")
-#     # print("input_pose_quaternion:")
-#     # print(pose_quat)
-#     joint_angles_quat = ur5e_arm.inverse(pose_quat, False, q_guess=joint_angles)
-#     # print("\n-----------------------------\n")
-#     # print("output_joint_angles")
-#     # print(joint_angles_quat)
-#     # print(ur5e_arm.forward(current_joint))
-#     # print("inverse() one from quat", joint_angles_quat)
-
-#     deff = np.array([joint_angles_quat]) - np.array([current_joint]) 
-#     # print("\n-----------------------------\n")
-#     # print("output_joint_angles - current_joint_angles")
-#     # print(deff)
-#     return (deff.T)
+    if last_msg is None:
+        print("No image data received.")
+        sys.exit(1)
 
 
+    print('stop')
+    vel_input.data = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    vel_pub.publish(vel_input)
+    print('stop command sent')
+
+    dsr_img = cv2.imread('./input_dsrim/kensyo_desired_image.png', cv2.IMREAD_GRAYSCALE)
+    init_img = cv2.imread('./servo_data/kensyo_initial_image.png', cv2.IMREAD_GRAYSCALE)
+
+    image_raw = last_msg
+    bridge = CvBridge()
+    bgr = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
+    bgr = bgr[ 200 : 560 ,720 : 1360 ]
+
+    get_data = DATA(bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
+                dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
+                time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
+                rmseth, iteration)
+    
+    get_data.main()
+
+    sys.exit(0)
+
+    
 
 def main(msg):
     global pinv_int_mat_double
@@ -343,6 +400,9 @@ def main(msg):
     global error_rot_ang
 
     global moveit_client
+
+    global last_msg  # Use the global variable
+    last_msg = msg
     
     # rmse = 100
     
@@ -376,8 +436,8 @@ def main(msg):
     dI2 = dI**2
     Isum = np.sum(dI2)
     rmse = math.sqrt(Isum / nop)
-    print("\n-----------------------------\n")
-    print("\n-----------------------------\n")
+    # print("\n-----------------------------\n")
+    # print("\n-----------------------------\n")
     print('rmse = %f' % rmse)
     
     rospy.wait_for_service('getpose')
@@ -394,9 +454,7 @@ def main(msg):
 
 
 
-
-    
-    if rmse < rmseth or len(rmse_data) > 1000:#(time.time() - start_time) > 33.333:
+    if rmse < rmseth or len(rmse_data) > iteration:#(time.time() - start_time) > 33.333:
     # if abs(desired_pose[0] - current_pose_x) < 0.0002 and abs(desired_pose[1] - current_pose_y) < 0.0002:
         print('stop')
         vel_input.data = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
@@ -404,256 +462,19 @@ def main(msg):
         print('stop command sent')
 
         dsr_img = cv2.imread('./input_dsrim/kensyo_desired_image.png', cv2.IMREAD_GRAYSCALE)
+        init_img = cv2.imread('./servo_data/kensyo_initial_image.png', cv2.IMREAD_GRAYSCALE)
 
         image_raw = msg
         bridge = CvBridge()
         bgr = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
         bgr = bgr[ 200 : 560 ,720 : 1360 ]
-        cv2.imwrite('./servo_data/kensyo_last_image.png', bgr)
-        gry = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+
+        get_data = DATA(bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
+                 dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
+                 time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
+                 rmseth, iteration)
         
-
-        init_img = cv2.imread('./servo_data/kensyo_initial_image.png', cv2.IMREAD_GRAYSCALE)
-
-        # 画素値の差分を計算
-        difference_init = cv2.absdiff(dsr_img, init_img)
-        difference_image_path = './servo_data/init_difference_image.jpg'
-        cv2.imwrite(difference_image_path, difference_init)
-
-        difference_last = cv2.absdiff(dsr_img, gry)
-        # 差分画像を保存
-        difference_image_path = './servo_data/last_difference_image.jpg'
-        cv2.imwrite(difference_image_path, difference_last)
-        # filename = './servo_data/loop_rmse_data.csv'
-        # filename2 = './servo_data/joint_vel_data.csv'
-        # filename3 = './servo_data/pose_data.csv'
-        # filename4 = './servo_data/2posedist.csv'
-        # with open (filename, 'w') as f, open(filename2, 'w')as f2, open(filename3, 'w')as f3 , open(filename4, 'w')as f4:
-        #     writer = csv.writer(f)
-        #     writer.writerow(rmse_data)
-        #     writer2 = csv.writer(f2)
-        #     writer2.writerow(joint_vel_values_data)
-        #     writer3 = csv.writer(f3)
-        #     writer3.writerow(pose_data)
-        #     writer4 = csv.writer(f4)
-        #     writer4.writerow(dist_data)
-
-        filename = './servo_data/loop_rmse_data.csv'
-        filename2 = './servo_data/2posedist.csv'
-        filename3 = './servo_data/y_dist.csv'
-        filename4 = './servo_data/rotation_axis.csv'
-        filename5 = './servo_data/rotation_angle.csv'
-        filename6 = './servo_data/last_position_traslation.csv'
-
-        with open (filename, 'w') as f, open(filename2, 'w')as f2, open(filename3, 'w')as f3, \
-        open(filename4, 'w')as f4, open(filename5, 'w')as f5, open(filename6, 'w')as f6:
-            writer = csv.writer(f)
-            writer.writerow(rmse_data)
-            writer2 = csv.writer(f2)
-            writer2.writerow(dist_data)
-            writer3 = csv.writer(f3)
-            writer3.writerow(dist_trans_y)
-            writer4 = csv.writer(f4)
-            writer4.writerow(error_rot_axis)
-            writer5 = csv.writer(f5)
-            writer5.writerow(error_rot_ang)
-            writer6 = csv.writer(f6)
-            writer6.writerow(["2dist", "x", "y", "z", "rx", "ry", "rz"])
-            writer6.writerow([dist_data[-1], dist_trans_x[-1], dist_trans_y[-1], dist_trans_z[-1] ,
-                              dist_rot_x[-1], dist_rot_y[-1], dist_rot_z[-1]])
-            
-
-###################　関節速度グラフ　################################################### 
-        #6つのグラフの配置
-        fig = plt.figure(figsize = (10,10))
-        ax1 = fig.add_subplot(3,2,1)
-        ax2 = fig.add_subplot(3,2,2)
-        ax3 = fig.add_subplot(3,2,3)
-        ax4 = fig.add_subplot(3,2,4)
-        ax5 = fig.add_subplot(3,2,5)
-        ax6 = fig.add_subplot(3,2,6)
-        
-        #各ループごとの各ジョイント角プロット
-        ax1.plot(time_series, base_joint_data, color = 'blue', label = 'current joint velocity')
-        ax2.plot(time_series, shoulder_joint_data, color = 'blue', label = 'current joint velocity')
-        ax3.plot(time_series, elbow_joint_data, color = 'blue', label = 'current joint velocity')
-        ax4.plot(time_series, wrist1_joint_data, color = 'blue', label = 'current joint velocity')
-        ax5.plot(time_series, wrist2_joint_data, color = 'blue', label = 'current joint velocity')
-        ax6.plot(time_series, wrist3_joint_data, color = 'blue', label = 'current joint velocity')
-        
-        # #目標角度をプロットscrewdriver
-        ax1.axhline(y = 0.0, color = 'red')
-        ax2.axhline(y = 0.0, color = 'red')
-        ax3.axhline(y = 0.0, color = 'red')
-        ax4.axhline(y = 0.0, color = 'red')
-        ax5.axhline(y = 0.0, color = 'red')
-        ax6.axhline(y = 0.0, color = 'red')
-        
-        #x軸のラベル
-        ax1.set_xlabel('Time[s]')
-        ax2.set_xlabel('Time[s]')
-        ax3.set_xlabel('Time[s]')
-        ax4.set_xlabel('Time[s]')
-        ax5.set_xlabel('Time[s]')
-        ax6.set_xlabel('Time[s]')
-        
-        #y軸のラベル
-        ax1.set_ylabel('base joint velocity[rad/s]')
-        ax2.set_ylabel('shoulder joint velocity[rad/s]')
-        ax3.set_ylabel('elbow joint velocity[rad/s]')
-        ax4.set_ylabel('wrist1 joint velocity[rad/s]')
-        ax5.set_ylabel('wrist2 joint velocity[rad/s]')
-        ax6.set_ylabel('wrist3 joint velocity[rad/s]')
-        
-        #凡例表示
-        ax1.legend(ncol = 2, loc = 'lower right')
-        ax2.legend(ncol = 2, loc = 'lower right')
-        ax3.legend(ncol = 2, loc = 'lower right')
-        ax4.legend(ncol = 2, loc = 'lower right')
-        ax5.legend(ncol = 2, loc = 'lower right')
-        ax6.legend(ncol = 2, loc = 'lower right')
-        
-        #重なり解消
-        plt.tight_layout()
-        
-        ax1.grid()
-        ax2.grid()
-        ax3.grid()
-        ax4.grid()
-        ax5.grid()
-        ax6.grid()
-        
-        #縦軸横軸の最大値、最小値、目盛り自動設定のグラフ保存
-        fig.savefig('./servo_data/joint_vel_values.png')
-        
-        # y-axisの最大値と最小値を計算
-        y_min = min(min(base_joint_data), min(shoulder_joint_data), min(elbow_joint_data), min(wrist1_joint_data), min(wrist2_joint_data), min(wrist3_joint_data))
-        y_max = max(max(base_joint_data), max(shoulder_joint_data), max(elbow_joint_data), max(wrist1_joint_data), max(wrist2_joint_data), max(wrist3_joint_data))
-
-        # 各サブプロットのy-axisのスケールを一致させる
-        ax1.set_ylim(y_min, y_max)
-        ax2.set_ylim(y_min, y_max)
-        ax3.set_ylim(y_min, y_max)
-        ax4.set_ylim(y_min, y_max)
-        ax5.set_ylim(y_min, y_max)
-        ax6.set_ylim(y_min, y_max)
-
-        # 保存
-        fig.savefig('./servo_data/joint_values_double_scaled.png')
-        
-########################################################################################################################################
-
-        #generate graph
-        # fig_rmse = plt.figure()
-        # plt.xlabel('Time[s]')
-        # plt.ylabel('RMSE')
-        # plt.plot(time_series, rmse_data, 'b-')
-        # plt.ylim([rmseth, 50])
-        # plt.grid()
-        # fig_rmse.savefig('./servo_data/rmse_double.png')
-
-        fig_rmse_it = plt.figure()
-        iteration = np.linspace(0, len(rmse_data), len(rmse_data))
-        plt.xlabel('iteration')
-        plt.ylabel('RMSE')
-        plt.plot(iteration, rmse_data, 'b-')
-        plt.ylim([rmseth, 35])
-        plt.grid()
-        fig_rmse_it.savefig('./servo_data/rmse_iteration.png')
-
-        fig_dist = plt.figure()
-        iteration = np.linspace(0, len(dist_data), len(dist_data))
-        plt.xlabel('iteration')
-        plt.ylabel('Distance in XZ plane[mm]')
-        plt.plot(iteration, dist_data, 'b-')
-        plt.ylim([0.0, 30.0])
-        plt.grid()
-        fig_dist.savefig('./servo_data/2posedist.png')
-    
-        fig_y_dist = plt.figure()
-        iteration = np.linspace(0, len(dist_trans_y), len(dist_trans_y))
-        plt.xlabel('iteration')
-        plt.ylabel('Distance on Y axis[mm]')
-        plt.plot(iteration, dist_trans_y, 'b-')
-        plt.ylim([0.0, 5.0])
-        plt.grid()
-        fig_y_dist.savefig('./servo_data/ydist.png')
-
-        rot_axis_dist = plt.figure()
-        iteration = np.linspace(0, len(error_rot_axis), len(error_rot_axis))
-        plt.xlabel('iteration')
-        plt.ylabel('Error of rotation axis[deg]')
-        plt.plot(iteration, error_rot_axis, 'b-')
-        plt.ylim([0.0, 2.0])
-        plt.grid()
-        rot_axis_dist.savefig('./servo_data/rot_axis.png')
-
-        rot_ang_dist = plt.figure()
-        iteration = np.linspace(0, len(error_rot_ang), len(error_rot_ang))
-        plt.xlabel('iteration')
-        plt.ylabel('Error of rotation angle[deg]')
-        plt.plot(iteration, error_rot_ang, 'b-')
-        plt.ylim([0.0, 2.0])
-        plt.grid()
-        rot_ang_dist.savefig('./servo_data/rot_ang.png')      
-
-
-        print('2dist = %f' % dist_data[-1])        
-        print('x = %f' % dist_trans_x[-1])
-        print('y = %f' % dist_trans_y[-1])
-        print('z = %f' % dist_trans_z[-1])
-        print('rx = %f' % dist_rot_x[-1])
-        print('ry = %f' % dist_rot_y[-1])
-        print('rz = %f' % dist_rot_z[-1])
-
-
-
-        fig_rt_dist = plt.figure()
-        ax1 = fig_rt_dist.add_subplot()
-        ax2 = ax1.twinx() 
-
-        ax1.plot(time_series, dist_trans_x, 'r-', label = "X axis translation")
-        ax1.plot(time_series, dist_trans_y, 'b-', label = "Y axis translation")
-        ax1.plot(time_series, dist_trans_z,'g-', label = "Z axis translation")
-        ax2.plot(time_series, dist_rot_x, 'k--', label = "X axis rotation" ,markersize = 1)
-        ax2.plot(time_series, dist_rot_y, 'y--', label = "Y axis rotation" ,markersize = 1)
-        ax2.plot(time_series, dist_rot_z, 'm--', label = "Z axis rotation" ,markersize = 1)
-
-        ax1.set_xlabel('Time[s]')  #x軸ラベル
-        ax1.set_ylabel("Position error[mm]")  #y1軸ラベル
-        ax2.set_ylabel("Rotation error[deg]")  #y2軸ラベル
-        h1, l1 = ax1.get_legend_handles_labels()
-        h2, l2 = ax2.get_legend_handles_labels()
-        ax1.legend(h1+h2, l1+l2 ,loc='upper right')
-        ax1.set_ylim([0, 30])
-        ax2.set_ylim([0, 2.0])
-
-        ax1.grid()
-        fig_rt_dist.savefig('./servo_data/trans_rot_dist.png')     
-
-        fig_rt_dist = plt.figure()
-        iteration = np.linspace(0, len(rmse_data), len(rmse_data))
-        ax1 = fig_rt_dist.add_subplot()
-        ax2 = ax1.twinx() 
-
-        ax1.plot(iteration, dist_trans_x, 'r-', label = "X axis translation")
-        ax1.plot(iteration, dist_trans_y, 'b-', label = "Y axis translation")
-        ax1.plot(iteration, dist_trans_z,'g-', label = "Z axis translation")
-        ax2.plot(iteration, dist_rot_x, 'k--', label = "X axis rotation" ,markersize = 1)
-        ax2.plot(iteration, dist_rot_y, 'y--', label = "Y axis rotation" ,markersize = 1)
-        ax2.plot(iteration, dist_rot_z, 'm--', label = "Z axis rotation" ,markersize = 1)
-
-        ax1.set_xlabel('iteration')  #x軸ラベル
-        ax1.set_ylabel("Position error[mm]")  #y1軸ラベル
-        ax2.set_ylabel("Rotation error[deg]")  #y2軸ラベル
-        h1, l1 = ax1.get_legend_handles_labels()
-        h2, l2 = ax2.get_legend_handles_labels()
-        ax1.legend(h1+h2, l1+l2 ,loc='upper right')
-        ax1.set_ylim([0, 30])
-        ax2.set_ylim([0, 2.0])
-
-        ax1.grid()
-        fig_rt_dist.savefig('./servo_data/trans_rot_dist_iteration.png')  
+        get_data.main()
 
         rospy.signal_shutdown('finish')
     
@@ -668,21 +489,21 @@ def main(msg):
         # vel_pub.publish(vel_input) #プログラミングROS P109では速度の値だけf分岐させてpublish部分はif分岐の外においてた
 
 
-        # moveit
-        go_pose_deff = np.dot(pinv_int_mat_double, dI)
-        # go_pose_deff = lmbd*(np.dot(pinv_int_mat_double, dI)) 
-        go_pose_deff  =go_pose_deff.T     
-        go_pose_deff  = go_pose_deff.flatten()
-        joint_deff = ik(go_pose_deff,euler_x, euler_y, euler_z ,moveit_client)	
-        vel_input.data = 0.2*(joint_deff.T)        
-        vel_pub.publish(vel_input) #プログラミングROS P109では速度の値だけf分岐させてpublish部分はif分岐の外においてた
-
-
-        # # マニピュレータヤコビアン
-        # go_pose = lmbd*(np.dot(pinv_int_mat_double, dI)) 
-        # vel_input.data = np.dot(pinv_int_manip, go_pose)
-        # print(vel_input.data)
+        # # moveit
+        # go_pose_deff = np.dot(pinv_int_mat_double, dI)
+        # # go_pose_deff = lmbd*(np.dot(pinv_int_mat_double, dI)) 
+        # go_pose_deff  =go_pose_deff.T     
+        # go_pose_deff  = go_pose_deff.flatten()
+        # joint_deff = ik(go_pose_deff,euler_x, euler_y, euler_z ,moveit_client)	
+        # vel_input.data = 0.2*(joint_deff.T)        
         # vel_pub.publish(vel_input) #プログラミングROS P109では速度の値だけf分岐させてpublish部分はif分岐の外においてた
+
+
+        # マニピュレータヤコビアン
+        go_pose = lmbd*(np.dot(pinv_int_mat_double, dI)) 
+        vel_input.data = np.dot(pinv_int_manip, go_pose)
+        # print(vel_input.data)
+        vel_pub.publish(vel_input) #プログラミングROS P109では速度の値だけf分岐させてpublish部分はif分岐の外においてた
 
         #serviceで関節角速度取得
         rospy.wait_for_service('getvel')
@@ -728,8 +549,6 @@ def main(msg):
         error_rotation_angle = np.abs(np.arccos(desired_quaternion[3])*2- np.arccos(current_quaternion[3])*2)*180 / math.pi
 
         
-
-
         current_time = time.time() - start_time
         time_series.append(current_time)
         rmse_data.append(rmse)
