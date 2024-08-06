@@ -4,7 +4,7 @@
 import sys
 import rospy
 from demo_shoki import ShokiMotion
-from demo_motion import HomeMotion, CollaborativeMotion, WithdrawMotion, InputMotion
+from demo_motion import Motion, MotionAfterVS
 import moveit_commander
 
 
@@ -12,11 +12,9 @@ class DEMO():
     def __init__(self):
         self.move_group = moveit_commander.MoveGroupCommander("manipulator")
 
-        self.homo_motion = HomeMotion(self.move_group)
-        self.collaborative_motion = CollaborativeMotion(self.move_group)
+        self.motion = Motion(self.move_group)
+        self.motion_after_avs = MotionAfterVS(self.move_group)
         self.shoki_motion = ShokiMotion(self.move_group)
-        self.withdraw_motion = WithdrawMotion(self.move_group)
-        self.input_motion  = InputMotion(self.move_group)
 
 
     def shoki_AVS_withdraw(self, csv):
@@ -26,19 +24,19 @@ class DEMO():
     ####################################################################
     ####################################################################
         #withdraw
-        self.withdraw_motion.zdescend()
+        self.motion_after_avs.withdraw_motion()
 
 
     def shoki_AVS_input(self, csv):
         #collaborative
-        self.collaborative_motion.people_with_robot()
+        self.motion.people_with_robot()
         #shoki
         self.shoki_motion.move(csv)
         #AVS
     ####################################################################
     ####################################################################
         #input
-        self.input_motion.input()
+        self.motion_after_avs.input()
 
 
     def main(self):
@@ -66,7 +64,7 @@ class DEMO():
             print("\n-----------------------------\n")
             print("\n-----------------------------\n")
 
-        self.homo_motion.move()
+        self.motion.home_motion()
 
 
 

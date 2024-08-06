@@ -9,7 +9,7 @@ from time import sleep
 import tf.transformations
 
 
-class HomeMotion():
+class Motion():
     def __init__(self, move_group):
         moveit_commander.roscpp_initialize(sys.argv)
         # rospy.init_node('withdraw', anonymous=True)
@@ -17,7 +17,24 @@ class HomeMotion():
         self.move_group.set_max_velocity_scaling_factor(0.3)
         self.move_group.set_max_acceleration_scaling_factor(0.3)
 
-    def move(self):
+    def euler_to_quaternion(self, eule_x, euler_y, euler_z):
+        q = tf.transformations.quaternion_from_euler(eule_x, euler_y, euler_z)
+        return -1*q[0], -1*q[1], -1*q[2], -1*q[3]
+
+    def quaternion_to_euler(self, current_pose):
+        e = tf.transformations.euler_from_quaternion((current_pose.x, current_pose.y, current_pose.z, current_pose.w))
+        return e[0], e[1], e[2]
+
+    def plan_and_excute(self, target_pose, text):
+        waypoints = [target_pose]
+        (plan, fraction) = self.move_group.compute_cartesian_path(waypoints, eef_step=0.06, jump_threshold=0.00)
+        self.move_group.execute(plan, wait=True)
+        self.move_group.set_pose_target(target_pose)
+        self.move_group.go(wait=True)
+        print(text)
+
+
+    def home_motion(self):
         joint_goal2_deg = [-31.18, -76.67, -115.35, -169.04, -30.93, 0.60] #remove
         # joint_goal2_deg = [-31.43, -86.04, -130.66, -144.02, -30.80,  0.27] #remove2
         # joint_goal2_deg = [-31.03, -86.21, -130.15, -144.52, -30.41,  0.14] #remove2fromimg	
@@ -43,15 +60,6 @@ class HomeMotion():
         print("\ncurrent pose:")   
         print(self.move_group.get_current_pose())  
         
-
-class CollaborativeMotion():
-    def __init__(self, move_group):
-        moveit_commander.roscpp_initialize(sys.argv)
-        # rospy.init_node('withdraw', anonymous=True)
-        self.move_group = move_group
-        self.move_group.set_max_velocity_scaling_factor(0.3)
-        self.move_group.set_max_acceleration_scaling_factor(0.3)
-
     def people_with_robot(self):
         # get current pose and taget pose
         joint_goal2_deg = [-21.80, -87.40, -97.90, -174.91, -109.56, -0.22] #moveplay
@@ -61,7 +69,7 @@ class CollaborativeMotion():
         self.move_group.go(wait=True)
 
 
-class WithdrawMotion():
+class MotionAfterVS():
     def __init__(self, move_group):
         moveit_commander.roscpp_initialize(sys.argv)
         # rospy.init_node('withdraw', anonymous=True)
@@ -83,9 +91,9 @@ class WithdrawMotion():
         self.move_group.execute(plan, wait=True)
         self.move_group.set_pose_target(target_pose)
         self.move_group.go(wait=True)
-        print(text)
+        print(text)   
 
-    def zdescend(self):
+    def withdraw_motion(self):
         current_pose = self.move_group.get_current_pose().pose
         target_pose = current_pose
 
@@ -112,24 +120,6 @@ class WithdrawMotion():
 
         target_pose.position.y = 0.28018
         self.plan_and_excute(target_pose, 'finish withdraw motion')
-
-
-
-class InputMotion():
-    def __init__(self, move_group):
-        moveit_commander.roscpp_initialize(sys.argv)
-        # rospy.init_node('withdraw', anonymous=True)
-        self.move_group = move_group
-        self.move_group.set_max_velocity_scaling_factor(0.08)
-        self.move_group.set_max_acceleration_scaling_factor(0.08)
-
-    def plan_and_excute(self, target_pose, text):
-        waypoints = [target_pose]
-        (plan, fraction) = self.move_group.compute_cartesian_path(waypoints, eef_step=0.06, jump_threshold=0.00)
-        self.move_group.execute(plan, wait=True)
-        self.move_group.set_pose_target(target_pose)
-        self.move_group.go(wait=True)
-        print(text)   
 
     def input(self):
 
