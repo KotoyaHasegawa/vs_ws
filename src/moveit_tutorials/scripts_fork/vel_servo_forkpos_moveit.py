@@ -32,7 +32,6 @@ import random
 
 import atexit
 
-
 #for velocity control
 from std_msgs.msg import Float64MultiArray
 #for joint states servicecall
@@ -203,140 +202,6 @@ def ik(initial_joint_values, go_pose, current_euler_x, current_euler_y, current_
     moveit_client.clear_path_constraints()
 
     return success
-
-
-# def ik(go_pose, current_euler_x, current_euler_y, current_euler_z, moveit_client):
-#     # Get current joint states
-#     current_joint_values = moveit_client.get_current_joint_values()
-#     rospy.loginfo("Current joint values: %s", current_joint_values)
-    
-#     # Create pose goal with current end effector pose
-#     current_pose = moveit_client.get_current_pose().pose
-#     rospy.loginfo("Current end effector pose: %s", current_pose)
-
-#     with open('./dsrth_result/desired_pose.csv', 'r') as f:
-#         reader = csv.reader(f)
-#         for row in reader:
-#             desired_pose = [float(x) for x in row]
-
-#     current_pose.position.x = random.uniform(desired_pose[0] - 0.025, desired_pose[0] + 0.025) #差+-0.025
-#     current_pose.position.y = desired_pose[1] #差0.02
-#     current_pose.position.z = random.uniform(desired_pose[2] - 0.025, desired_pose[2] + 0.025)#差+-0.025
-
-#     # Convert euler angles to quaternion and add to current orientation
-#     euler_x = desired_pose[3]#差5度
-#     euler_y = desired_pose[4]#差5度
-#     euler_z = desired_pose[5]#差5度
-
-
-#     current_pose.orientation.x, current_pose.orientation.y, current_pose.orientation.z ,current_pose.orientation.w = euler_to_quaternion(euler_x, euler_y, euler_z)
-
-#     rospy.loginfo("Pose goal: %s", current_pose)
-
-#     # 制約を定義
-#     constraints = moveit_msgs.msg.Constraints()
-#     joints_name = ['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint', 'wrist_1_joint', 'wrist_2_joint', 'wrist_3_joint']
-#     joints_goal = current_joint_values
-#     tolerances_deg = [90, 120, 120, 120, 120, 120]
-#     tolerances = [x * np.pi / 180 for x in tolerances_deg]
-
-#     for i in range(6):
-#         joint_constraint = moveit_msgs.msg.JointConstraint()
-#         joint_constraint.joint_name = joints_name[i]
-#         joint_constraint.position = joints_goal[i]
-#         joint_constraint.tolerance_above = tolerances[i]
-#         joint_constraint.tolerance_below = tolerances[i]
-#         joint_constraint.weight = 1.0
-#         constraints.joint_constraints.append(joint_constraint)
-
-#     # 制約をMoveGroupに適用
-#     moveit_client.set_path_constraints(constraints)
-
-#     # Cartesian pathの計算
-#     waypoints = [current_pose]
-#     (plan, fraction) = moveit_client.compute_cartesian_path(waypoints, eef_step=0.008, jump_threshold=0.0)
-#     rospy.loginfo("Computed Cartesian path with fraction: %f", fraction)
-
-#     # プランの確認
-#     if not plan or len(plan.joint_trajectory.points) == 0:
-#         rospy.logerr("Plan was not created correctly.")
-#         return False
-
-#     rospy.loginfo("Plan: %s", plan)
-
-#     # プランの詳細を出力
-#     for point in plan.joint_trajectory.points:
-#         rospy.loginfo("Positions: %s", point.positions)
-#         rospy.loginfo("Velocities: %s", point.velocities)
-#         rospy.loginfo("Accelerations: %s", point.accelerations)
-#         rospy.loginfo("Time from start: %s", point.time_from_start)
-
-#     # プランの実行
-#     success = moveit_client.execute(plan, wait=True)
-
-#     if success:
-#         rospy.loginfo("Plan executed successfully")
-#     else:
-#         rospy.logwarn("Plan execution failed")
-
-#     # ポーズターゲットを元に戻す
-#     moveit_client.set_pose_target(current_pose)
-#     moveit_client.go(wait=True)
-    
-#     # 制約をクリア
-#     moveit_client.clear_path_constraints()
-
-#     return success
-
-
-
-##robot helpers
-# def ik(go_pose, current_euler_x, current_euler_y, current_euler_z, moveit_client):
-    
-#     # Get current joint states
-#     current_joint_values = moveit_client.move_group.get_current_joint_values()
-    
-#     # Create pose goal with current end effector pose
-#     current_pose = moveit_client.move_group.get_current_pose().pose
-#     pose_goal = Pose()
-#     pose_goal.position.x = current_pose.position.x + go_pose[0]
-#     pose_goal.position.y = current_pose.position.y + go_pose[1]
-#     pose_goal.position.z = current_pose.position.z + go_pose[2]
-#     pose_goal_position = [pose_goal.position.x, pose_goal.position.y, pose_goal.position.z]
-    
-#     # Convert euler angles to quaternion and add to current orientation
-#     goal_euler = [0.0, 0.0, 0.0]
-#     goal_euler[0] = current_euler_x #+ go_pose[3]
-#     goal_euler[1] = current_euler_y #+ go_pose[4]
-#     goal_euler[2] = current_euler_z #+ go_pose[5]
-#     goal_euler = np.array(goal_euler)
-
-#     pose_goal.orientation.x ,pose_goal.orientation.y, pose_goal.orientation.z, pose_goal.orientation.w= euler_to_quaternion(goal_euler[0], goal_euler[1], goal_euler[2])   
-#     goal_quat = np.array([pose_goal.orientation.x, pose_goal.orientation.y, pose_goal.orientation.z, pose_goal.orientation.w])
-
-#     pose_goal = spatial.Transform(goal_quat, pose_goal_position)
-#     print(pose_goal.translation)
-#     print(pose_goal.rotation)
-#     # moveit_client.goto(pose_goal)
-#     # joint_goal = moveit_client.move_group.get_current_joint_values()
-#     # waypoints = [pose_goal]
-#     # Plan to the new goal
-#     success, plan =moveit_client.plan(pose_goal)
-#     # plan  = group.plan()
-#     # print(plan)
-#     print(current_joint_values)
-#     joint_goal = plan.joint_trajectory.points[-1].positions
-#     print(joint_goal)
-    
-    
-#     # Calculate joint angle differences (current - goal)
-#     joint_diffs = np.array([[ goal - current for goal, current in zip(joint_goal, current_joint_values)]])
-#     if np.any(np.abs(joint_diffs) > 1):
-#         joint_diffs = np.zeros_like(joint_diffs)
-    
-#     print(joint_diffs)
-
-#     return joint_diffs
 
 
 def signal_handler(sig, frame):
@@ -514,16 +379,6 @@ def main(msg):
         rospy.signal_shutdown('finish')
     
     else:
-        # # ikfast
-        # current_joint = moveit_client.move_group.get_current_joint_values()
-        # current_pose_euler = [current_pose_x, current_pose_y, current_pose_z, euler_x, euler_y, euler_z]
-        # go_pose_deff = lmbd*(np.dot(pinv_int_mat_double, dI)) 
-        # go_pose_deff  =go_pose_deff .T     
-        # go_pose_deff  = go_pose_deff.flatten()
-        # vel_input.data = ik(current_joint,current_pose_euler,go_pose_deff)		
-        # vel_pub.publish(vel_input) #プログラミングROS P109では速度の値だけf分岐させてpublish部分はif分岐の外においてた
-
-
         # moveit
         # go_pose_deff = np.dot(pinv_int_mat_double, dI)
         go_pose_deff = lmbd*(np.dot(pinv_int_mat_double, dI)) 
@@ -534,86 +389,82 @@ def main(msg):
         # vel_input.data = 0.2*(joint_deff.T)        
         # vel_pub.publish(vel_input) #プログラミングROS P109では速度の値だけf分岐させてpublish部分はif分岐の外においてた
 
+##############################################################################################################################
+#################################    data      ###############################################################################
+##############################################################################################################################
 
-    #     # # マニピュレータヤコビアン
-    #     # go_pose = lmbd*(np.dot(pinv_int_mat_double, dI)) 
-    #     # vel_input.data = np.dot(pinv_int_manip, go_pose)
-    #     # print(vel_input.data)
-    #     # vel_pub.publish(vel_input) #プログラミングROS P109では速度の値だけf分岐させてpublish部分はif分岐の外においてた
-
-    #     #serviceで関節角速度取得
-    #     rospy.wait_for_service('getvel')
-    #     getvel_client = rospy.ServiceProxy('getvel', GetCurrentJointVel)
-    #     resvel = getvel_client()
-    #     # print(resvel)
+        #serviceで関節角速度取得
+        rospy.wait_for_service('getvel')
+        getvel_client = rospy.ServiceProxy('getvel', GetCurrentJointVel)
+        resvel = getvel_client()
+        # print(resvel)
         
-    #     current_base_vel = resvel.current_joint_vel[0]
-    #     current_shoulder_vel = resvel.current_joint_vel[1]
-    #     current_elbow_vel = resvel.current_joint_vel[2]
-    #     current_wrist1_vel = resvel.current_joint_vel[3]
-    #     current_wrist2_vel = resvel.current_joint_vel[4]
-    #     current_wrist3_vel = resvel.current_joint_vel[5]
+        current_base_vel = resvel.current_joint_vel[0]
+        current_shoulder_vel = resvel.current_joint_vel[1]
+        current_elbow_vel = resvel.current_joint_vel[2]
+        current_wrist1_vel = resvel.current_joint_vel[3]
+        current_wrist2_vel = resvel.current_joint_vel[4]
+        current_wrist3_vel = resvel.current_joint_vel[5]
         
-    #     ###pose が単位mで出力される
-    #     ### 距離がしきい値以上で速度計算される場合に距離算出+append
-    #     # dist = 1000*math.sqrt((desired_pose[0] - current_pose_x)**2 + (desired_pose[1] - current_pose_y)**2 + (desired_pose[2] - current_pose_z)**2)
-    #     dist = 1000*math.sqrt((desired_pose[0] - current_pose_x)**2  + (desired_pose[2] - current_pose_z)**2) ###x,z軸方向だけの距離を出す
+        ###pose が単位mで出力される
+        ### 距離がしきい値以上で速度計算される場合に距離算出+append
+        # dist = 1000*math.sqrt((desired_pose[0] - current_pose_x)**2 + (desired_pose[1] - current_pose_y)**2 + (desired_pose[2] - current_pose_z)**2)
+        dist = 1000*math.sqrt((desired_pose[0] - current_pose_x)**2  + (desired_pose[2] - current_pose_z)**2) ###x,z軸方向だけの距離を出す
 
-    #     trans_x_dist = 1000*math.sqrt((desired_pose[0] - current_pose_x)**2)
-    #     trans_y_dist = 1000*math.sqrt((desired_pose[1] - current_pose_y)**2)
-    #     trans_z_dist = 1000*math.sqrt((desired_pose[2] - current_pose_z)**2)
-    #     rot_x_dist = math.sqrt((desired_pose[3] - euler_x)**2)*180 / math.pi
-    #     rot_y_dist = math.sqrt((desired_pose[4] - euler_y)**2)*180 / math.pi
-    #     rot_z_dist = math.sqrt((desired_pose[5] - euler_z)**2)*180 / math.pi      
+        trans_x_dist = 1000*math.sqrt((desired_pose[0] - current_pose_x)**2)
+        trans_y_dist = 1000*math.sqrt((desired_pose[1] - current_pose_y)**2)
+        trans_z_dist = 1000*math.sqrt((desired_pose[2] - current_pose_z)**2)
+        rot_x_dist = math.sqrt((desired_pose[3] - euler_x)**2)*180 / math.pi
+        rot_y_dist = math.sqrt((desired_pose[4] - euler_y)**2)*180 / math.pi
+        rot_z_dist = math.sqrt((desired_pose[5] - euler_z)**2)*180 / math.pi      
  
-    #     desired_quaternion = [0, 0, 0, 0]
-    #     desired_quaternion[0], desired_quaternion[1], desired_quaternion[2], desired_quaternion[3] = euler_to_quaternion(desired_pose[3], desired_pose[4], desired_pose[5])
-    #     desired_quaternion = np.array(desired_quaternion)
-    #     current_quaternion = np.abs(np.array(rot)) #inputのとき
-    #     # current_quaternion = np.array(rot)
+        desired_quaternion = [0, 0, 0, 0]
+        desired_quaternion[0], desired_quaternion[1], desired_quaternion[2], desired_quaternion[3] = euler_to_quaternion(desired_pose[3], desired_pose[4], desired_pose[5])
+        desired_quaternion = np.array(desired_quaternion)
+        current_quaternion = np.abs(np.array(rot)) #inputのとき
+        # current_quaternion = np.array(rot)
 
-    #     lamd_xd = desired_quaternion[0]/math.sqrt(1.0-(desired_quaternion[3])**2)
-    #     lamd_yd = desired_quaternion[1]/math.sqrt(1.0-(desired_quaternion[3])**2)
-    #     lamd_zd = desired_quaternion[2]/math.sqrt(1.0-(desired_quaternion[3])**2)
+        lamd_xd = desired_quaternion[0]/math.sqrt(1.0-(desired_quaternion[3])**2)
+        lamd_yd = desired_quaternion[1]/math.sqrt(1.0-(desired_quaternion[3])**2)
+        lamd_zd = desired_quaternion[2]/math.sqrt(1.0-(desired_quaternion[3])**2)
 
-    #     lamd_xc = current_quaternion[0]/math.sqrt(1.0-(current_quaternion[3])**2)
-    #     lamd_yc = current_quaternion[1]/math.sqrt(1.0-(current_quaternion[3])**2)
-    #     lamd_zc = current_quaternion[2]/math.sqrt(1.0-(current_quaternion[3])**2)
+        lamd_xc = current_quaternion[0]/math.sqrt(1.0-(current_quaternion[3])**2)
+        lamd_yc = current_quaternion[1]/math.sqrt(1.0-(current_quaternion[3])**2)
+        lamd_zc = current_quaternion[2]/math.sqrt(1.0-(current_quaternion[3])**2)
 
-    #     # error_rotation_axis = np.abs((np.arccos(desired_quaternion[0]*current_quaternion[0]+desired_quaternion[1]*current_quaternion[1]+desired_quaternion[2]*current_quaternion[2]))*180 / math.pi)  
-    #     error_rotation_axis =  np.abs((np.arccos(lamd_xd*lamd_xc+lamd_yd*lamd_yc+lamd_zd*lamd_zc))*180 / math.pi)  
-    #     error_rotation_angle = np.abs(np.arccos(desired_quaternion[3])*2- np.arccos(current_quaternion[3])*2)*180 / math.pi
-
-        
-    #     current_time = time.time() - start_time
-    #     time_series.append(current_time)
-    #     rmse_data.append(rmse)
-
-    #     base_joint_data.append(current_base_vel)
-    #     shoulder_joint_data.append(current_shoulder_vel)
-    #     elbow_joint_data.append(current_elbow_vel)
-    #     wrist1_joint_data.append(current_wrist1_vel)
-    #     wrist2_joint_data.append(current_wrist2_vel)
-    #     wrist3_joint_data.append(current_wrist3_vel)
-
-    #     joint_vel_values_data.append([current_base_vel, current_shoulder_vel, current_elbow_vel, current_wrist1_vel, current_wrist2_vel, current_wrist3_vel])
-    #     pose_data.append([current_pose_x, current_pose_y, current_pose_z])
-    #     dist_data.append(dist)
-
-    #     dist_trans_x.append(trans_x_dist)
-    #     dist_trans_y.append(trans_y_dist)
-    #     dist_trans_z.append(trans_z_dist)
-    #     dist_rot_x.append(rot_x_dist)
-    #     dist_rot_y.append(rot_y_dist)
-    #     dist_rot_z.append(rot_z_dist)  
-
-    #     error_rot_axis.append(error_rotation_axis)
-    #     error_rot_ang.append(error_rotation_angle)
-
+        # error_rotation_axis = np.abs((np.arccos(desired_quaternion[0]*current_quaternion[0]+desired_quaternion[1]*current_quaternion[1]+desired_quaternion[2]*current_quaternion[2]))*180 / math.pi)  
+        error_rotation_axis =  np.abs((np.arccos(lamd_xd*lamd_xc+lamd_yd*lamd_yc+lamd_zd*lamd_zc))*180 / math.pi)  
+        error_rotation_angle = np.abs(np.arccos(desired_quaternion[3])*2- np.arccos(current_quaternion[3])*2)*180 / math.pi
 
         
-    #     return rmse, time_series, rmse_data, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, joint_vel_values_data, 
-    # pose_data, dist_data,dist_trans_x, dist_trans_y, dist_trans_z, dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang
+        current_time = time.time() - start_time
+        time_series.append(current_time)
+        rmse_data.append(rmse)
+
+        base_joint_data.append(current_base_vel)
+        shoulder_joint_data.append(current_shoulder_vel)
+        elbow_joint_data.append(current_elbow_vel)
+        wrist1_joint_data.append(current_wrist1_vel)
+        wrist2_joint_data.append(current_wrist2_vel)
+        wrist3_joint_data.append(current_wrist3_vel)
+
+        joint_vel_values_data.append([current_base_vel, current_shoulder_vel, current_elbow_vel, current_wrist1_vel, current_wrist2_vel, current_wrist3_vel])
+        pose_data.append([current_pose_x, current_pose_y, current_pose_z])
+        dist_data.append(dist)
+
+        dist_trans_x.append(trans_x_dist)
+        dist_trans_y.append(trans_y_dist)
+        dist_trans_z.append(trans_z_dist)
+        dist_rot_x.append(rot_x_dist)
+        dist_rot_y.append(rot_y_dist)
+        dist_rot_z.append(rot_z_dist)  
+
+        error_rot_axis.append(error_rotation_axis)
+        error_rot_ang.append(error_rotation_angle)
+
+
+        return rmse, time_series, rmse_data, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, joint_vel_values_data, 
+    pose_data, dist_data,dist_trans_x, dist_trans_y, dist_trans_z, dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang
         
 
     
@@ -640,22 +491,154 @@ if __name__ == '__main__':
         switch_to_scaled_pos()
         rospy.signal_shutdown('finish')
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##################################################################################################################
+##################################### IK Define #################################################################
+
+
+
+# def ik(go_pose, current_euler_x, current_euler_y, current_euler_z, moveit_client):
+#     # Get current joint states
+#     current_joint_values = moveit_client.get_current_joint_values()
+#     rospy.loginfo("Current joint values: %s", current_joint_values)
     
-#     Exception RuntimeError: 'main thread is not in main loop' in <bound method StringVar.__del__ of <Tkinter.StringVar instance at 0x7f63d3100460>> ignored
-# Error in atexit._run_exitfuncs:
-# Traceback (most recent call last):
-#   File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
-#     func(*targs, **kargs)
-#   File "/home/kappa/.local/lib/python2.7/site-packages/matplotlib/_pylab_helpers.py", line 78, in destroy_all
-#     manager.destroy()
-#   File "/home/kappa/.local/lib/python2.7/site-packages/matplotlib/backends/_backend_tk.py", line 560, in destroy
-#     self.window.destroy()
-#   File "/usr/lib/python2.7/lib-tk/Tkinter.py", line 1872, in destroy
-#     for c in self.children.values(): c.destroy()
-#   File "/home/kappa/.local/lib/python2.7/site-packages/matplotlib/backends/_backend_tk.py", line 658, in destroy
-#     Tk.Frame.destroy(self, *args)
-#   File "/usr/lib/python2.7/lib-tk/Tkinter.py", line 2109, in destroy
-#     for c in self.children.values(): c.destroy()
-#   File "/usr/lib/python2.7/lib-tk/Tkinter.py", line 2110, in destroy
-#     self.tk.call('destroy', self._w)
-# RuntimeError: main thread is not in main loop
+#     # Create pose goal with current end effector pose
+#     current_pose = moveit_client.get_current_pose().pose
+#     rospy.loginfo("Current end effector pose: %s", current_pose)
+
+#     with open('./dsrth_result/desired_pose.csv', 'r') as f:
+#         reader = csv.reader(f)
+#         for row in reader:
+#             desired_pose = [float(x) for x in row]
+
+#     current_pose.position.x = random.uniform(desired_pose[0] - 0.025, desired_pose[0] + 0.025) #差+-0.025
+#     current_pose.position.y = desired_pose[1] #差0.02
+#     current_pose.position.z = random.uniform(desired_pose[2] - 0.025, desired_pose[2] + 0.025)#差+-0.025
+
+#     # Convert euler angles to quaternion and add to current orientation
+#     euler_x = desired_pose[3]#差5度
+#     euler_y = desired_pose[4]#差5度
+#     euler_z = desired_pose[5]#差5度
+
+
+#     current_pose.orientation.x, current_pose.orientation.y, current_pose.orientation.z ,current_pose.orientation.w = euler_to_quaternion(euler_x, euler_y, euler_z)
+
+#     rospy.loginfo("Pose goal: %s", current_pose)
+
+#     # 制約を定義
+#     constraints = moveit_msgs.msg.Constraints()
+#     joints_name = ['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint', 'wrist_1_joint', 'wrist_2_joint', 'wrist_3_joint']
+#     joints_goal = current_joint_values
+#     tolerances_deg = [90, 120, 120, 120, 120, 120]
+#     tolerances = [x * np.pi / 180 for x in tolerances_deg]
+
+#     for i in range(6):
+#         joint_constraint = moveit_msgs.msg.JointConstraint()
+#         joint_constraint.joint_name = joints_name[i]
+#         joint_constraint.position = joints_goal[i]
+#         joint_constraint.tolerance_above = tolerances[i]
+#         joint_constraint.tolerance_below = tolerances[i]
+#         joint_constraint.weight = 1.0
+#         constraints.joint_constraints.append(joint_constraint)
+
+#     # 制約をMoveGroupに適用
+#     moveit_client.set_path_constraints(constraints)
+
+#     # Cartesian pathの計算
+#     waypoints = [current_pose]
+#     (plan, fraction) = moveit_client.compute_cartesian_path(waypoints, eef_step=0.008, jump_threshold=0.0)
+#     rospy.loginfo("Computed Cartesian path with fraction: %f", fraction)
+
+#     # プランの確認
+#     if not plan or len(plan.joint_trajectory.points) == 0:
+#         rospy.logerr("Plan was not created correctly.")
+#         return False
+
+#     rospy.loginfo("Plan: %s", plan)
+
+#     # プランの詳細を出力
+#     for point in plan.joint_trajectory.points:
+#         rospy.loginfo("Positions: %s", point.positions)
+#         rospy.loginfo("Velocities: %s", point.velocities)
+#         rospy.loginfo("Accelerations: %s", point.accelerations)
+#         rospy.loginfo("Time from start: %s", point.time_from_start)
+
+#     # プランの実行
+#     success = moveit_client.execute(plan, wait=True)
+
+#     if success:
+#         rospy.loginfo("Plan executed successfully")
+#     else:
+#         rospy.logwarn("Plan execution failed")
+
+#     # ポーズターゲットを元に戻す
+#     moveit_client.set_pose_target(current_pose)
+#     moveit_client.go(wait=True)
+    
+#     # 制約をクリア
+#     moveit_client.clear_path_constraints()
+
+#     return success
+
+
+
+##robot helpers
+# def ik(go_pose, current_euler_x, current_euler_y, current_euler_z, moveit_client):
+    
+#     # Get current joint states
+#     current_joint_values = moveit_client.move_group.get_current_joint_values()
+    
+#     # Create pose goal with current end effector pose
+#     current_pose = moveit_client.move_group.get_current_pose().pose
+#     pose_goal = Pose()
+#     pose_goal.position.x = current_pose.position.x + go_pose[0]
+#     pose_goal.position.y = current_pose.position.y + go_pose[1]
+#     pose_goal.position.z = current_pose.position.z + go_pose[2]
+#     pose_goal_position = [pose_goal.position.x, pose_goal.position.y, pose_goal.position.z]
+    
+#     # Convert euler angles to quaternion and add to current orientation
+#     goal_euler = [0.0, 0.0, 0.0]
+#     goal_euler[0] = current_euler_x #+ go_pose[3]
+#     goal_euler[1] = current_euler_y #+ go_pose[4]
+#     goal_euler[2] = current_euler_z #+ go_pose[5]
+#     goal_euler = np.array(goal_euler)
+
+#     pose_goal.orientation.x ,pose_goal.orientation.y, pose_goal.orientation.z, pose_goal.orientation.w= euler_to_quaternion(goal_euler[0], goal_euler[1], goal_euler[2])   
+#     goal_quat = np.array([pose_goal.orientation.x, pose_goal.orientation.y, pose_goal.orientation.z, pose_goal.orientation.w])
+
+#     pose_goal = spatial.Transform(goal_quat, pose_goal_position)
+#     print(pose_goal.translation)
+#     print(pose_goal.rotation)
+#     # moveit_client.goto(pose_goal)
+#     # joint_goal = moveit_client.move_group.get_current_joint_values()
+#     # waypoints = [pose_goal]
+#     # Plan to the new goal
+#     success, plan =moveit_client.plan(pose_goal)
+#     # plan  = group.plan()
+#     # print(plan)
+#     print(current_joint_values)
+#     joint_goal = plan.joint_trajectory.points[-1].positions
+#     print(joint_goal)
+    
+    
+#     # Calculate joint angle differences (current - goal)
+#     joint_diffs = np.array([[ goal - current for goal, current in zip(joint_goal, current_joint_values)]])
+#     if np.any(np.abs(joint_diffs) > 1):
+#         joint_diffs = np.zeros_like(joint_diffs)
+    
+#     print(joint_diffs)
+
+#     return joint_diffs
