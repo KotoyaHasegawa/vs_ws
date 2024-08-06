@@ -35,7 +35,11 @@ class ShokiMotion():
         self.move_group.execute(plan, wait=True)
         self.move_group.set_pose_target(target_pose)
         self.move_group.go(wait=True)
+        print("\n-----------------------------\n")
+        print("\n-----------------------------\n")
         print(text)
+        print("\n-----------------------------\n")
+        print("\n-----------------------------\n")
 
     def move(self, csv_file):
         current_pose = self.move_group.get_current_pose().pose

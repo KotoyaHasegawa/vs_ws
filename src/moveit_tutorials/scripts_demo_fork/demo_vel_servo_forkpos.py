@@ -374,8 +374,7 @@ def main(msg):
         error_rot_axis.append(error_rotation_axis)
         error_rot_ang.append(error_rotation_angle)
 
-
-        
+    
         return rmse, time_series, rmse_data, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, joint_vel_values_data, 
     pose_data, dist_data,dist_trans_x, dist_trans_y, dist_trans_z, dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang
         

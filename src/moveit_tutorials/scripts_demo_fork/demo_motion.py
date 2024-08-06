@@ -31,7 +31,11 @@ class Motion():
         self.move_group.execute(plan, wait=True)
         self.move_group.set_pose_target(target_pose)
         self.move_group.go(wait=True)
+        print("\n-----------------------------\n")
+        print("\n-----------------------------\n")
         print(text)
+        print("\n-----------------------------\n")
+        print("\n-----------------------------\n")
 
 
     def home_motion(self):
@@ -91,7 +95,11 @@ class MotionAfterVS():
         self.move_group.execute(plan, wait=True)
         self.move_group.set_pose_target(target_pose)
         self.move_group.go(wait=True)
-        print(text)   
+        print("\n-----------------------------\n")
+        print("\n-----------------------------\n")
+        print(text)
+        print("\n-----------------------------\n")
+        print("\n-----------------------------\n")
 
     def withdraw_motion(self):
         current_pose = self.move_group.get_current_pose().pose
