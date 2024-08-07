@@ -135,8 +135,8 @@ def zdescend():
     waypoints = [target_pose]
     (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06, jump_threshold=0.00 )
     move_group.execute(plan, wait=True)
-    print('chukei')
-    print(target_pose)
+    # print('chukei')
+    # print(target_pose)
     move_group.set_pose_target(target_pose)
     move_group.go(wait=True)
 
@@ -149,8 +149,8 @@ def zdescend():
     waypoints = [target_pose]
     (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06, jump_threshold=0.00 )
     move_group.execute(plan, wait=True)
-    print('chukei')
-    print(target_pose)
+    # print('chukei')
+    # print(target_pose)
     move_group.set_pose_target(target_pose)
     move_group.go(wait=True)
     
@@ -163,7 +163,7 @@ def zdescend():
     move_group.set_pose_target(target_pose)
     move_group.go(wait=True)
     ### taiki
-    print('ascended to z=22.4mm')
+    # print('ascended to z=22.4mm')
 
     # joint_goal2_deg = [-21.80, -87.40, -97.90, -174.91, -109.56, -0.22] #moveplay
     # joint_goal2 = [x * pi/180 for x in joint_goal2_deg]

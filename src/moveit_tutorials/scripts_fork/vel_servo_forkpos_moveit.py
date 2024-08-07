@@ -54,10 +54,10 @@ nop = 230400
 pinv_int_mat_double = np.empty((6,6))
 pinv_int_manip = np.empty((6,6))
 I_dsr_vec = np.empty((nop, 1))
-lmbd = 0.15
+lmbd = 0.1
 
-rmseth = 0.0 #5.0 
-iteration = 1000
+rmseth = 5.0 #5.0 
+iteration = 300
 
 time_series = []
 rmse_data = []
@@ -306,21 +306,24 @@ def main(msg):
     
     # rmse = 100
     
-    with open('./dsrth_result/desired_pose.csv', 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            desired_pose = [float(x) for x in row]
+    # with open('./dsrth_result/desired_pose.csv', 'r') as f:
+    #     reader = csv.reader(f)
+    #     for row in reader:
+    #         desired_pose = [float(x) for x in row]
 
     # with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
     #     reader = csv.reader(f)
     #     for row in reader:
     #         desired_pose = [float(x) for x in row]
 
-    # with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
-    #     reader = csv.reader(f)
-    #     for row in reader:
-    #         desired_pose = [float(x) for x in row]
-        
+    with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            desired_pose = [float(x) for x in row]
+
+
+    if desired_pose[5] > 0 :
+        desired_pose[5] = desired_pose[5] - 6.283    
     
     image_raw = msg
     bridge = CvBridge()

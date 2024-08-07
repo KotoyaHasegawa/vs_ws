@@ -10,7 +10,7 @@ def run_script(script_name, with_error_img=False):
         if with_error_img:
             # Start the error image process in a new process group
             error_img_process = subprocess.Popen(
-                ["rosrun", "moveit_tutorials", "demo_error_video.py"],
+                ["rosrun", "moveit_tutorials", "error_img.py"],
                 preexec_fn=os.setsid
             )
             main_process = subprocess.run(
@@ -28,11 +28,11 @@ def run_script(script_name, with_error_img=False):
 
 if __name__ == "__main__":
     scripts = [
-        ("demo_people_robot.py", False),
-        ("demo_shoki2.py", False),
+        #("demo_people_robot.py", False),
+        ("shoki2.py", False),
         ("demo_init_image.py", False),
-        ("demo_vel_servo_forkpos.py", True),
-        ("demo_withdraw.py", False)
+        ("vel_servo_forkpos_moveit.py", True),
+        ("withdraw.py", False)
     ]
     start_script = scripts[0][0]
     if len(sys.argv) > 1:

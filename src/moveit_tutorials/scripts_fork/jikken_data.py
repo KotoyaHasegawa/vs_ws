@@ -166,7 +166,7 @@ class DATA():
         plt.ylabel('RMSE')
         plt.plot(iteration, self.rmse_data, 'b-')
         plt.xlim([0, self.iteration])
-        plt.ylim([self.rmseth, 35])
+        plt.ylim([self.rmseth, 20])
         plt.grid()
         fig_rmse_it.savefig('./servo_data/rmse_iteration.png')
 
@@ -238,8 +238,6 @@ class DATA():
         h1, l1 = ax1.get_legend_handles_labels()
         h2, l2 = ax2.get_legend_handles_labels()
         ax1.legend(h1+h2, l1+l2 ,loc='upper right')
-        ax1.set_xlim([0, self.iteration])
-        ax2.set_xlim([0, self.iteration])
         ax1.set_ylim([0, 30])
         ax2.set_ylim([0, 2.0])
 
@@ -264,8 +262,6 @@ class DATA():
         h1, l1 = ax1.get_legend_handles_labels()
         h2, l2 = ax2.get_legend_handles_labels()
         ax1.legend(h1+h2, l1+l2 ,loc='upper right')
-        ax1.set_xlim([0, self.iteration])
-        ax2.set_xlim([0, self.iteration])
         ax1.set_ylim([0, 30])
         ax2.set_ylim([0, 2.0])
 
