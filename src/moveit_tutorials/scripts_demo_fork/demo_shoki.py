@@ -42,6 +42,7 @@ class ShokiMotion():
         print("\n-----------------------------\n")
 
     def move(self, csv_file):
+
         current_pose = self.move_group.get_current_pose().pose
 
         with open(csv_file, 'r') as f:
@@ -58,7 +59,7 @@ class ShokiMotion():
 
         shoki_pose = ["shoki  pose", current_pose.position.x, current_pose.position.y, current_pose.position.z, euler_x, euler_y, euler_z]
         shoki_delta = ["shoki  delata", current_pose.position.x - desired_pose[0], current_pose.position.y - desired_pose[1], current_pose.position.z - desired_pose[2],
-                       euler_x - desired_pose[3], euler_y - desired_pose[4], euler_z - desired_pose[5]]
+                    euler_x - desired_pose[3], euler_y - desired_pose[4], euler_z - desired_pose[5]]
         shoki_delta = [shoki_delta[0]] + [shoki_delta[1], shoki_delta[2], shoki_delta[3]] + [float(x) * 180 / pi for x in shoki_delta[4:]]
         filename = './servo_data/shoki_pose.csv'
         with open(filename, 'w') as f:
@@ -89,8 +90,10 @@ class ShokiMotion():
         self.move_group.set_path_constraints(constraints)
         self.plan_and_excute(current_pose, 'Move to a point near the target')
 
-    def shutdown(self):
-        moveit_commander.roscpp_shutdown()
+        
+
+    #def shutdown(self):
+        # moveit_commander.roscpp_shutdown()
 
 
 

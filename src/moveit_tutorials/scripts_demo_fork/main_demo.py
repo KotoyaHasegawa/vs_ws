@@ -3,10 +3,12 @@
 
 import sys
 import rospy
+import time
+
 from demo_shoki import ShokiMotion
 from demo_motion import Motion, MotionAfterVS
 import moveit_commander
-
+from demo_vel_servo_forkpos import ServoNode
 
 class DEMO():
     def __init__(self):
@@ -15,14 +17,19 @@ class DEMO():
         self.motion = Motion(self.move_group)
         self.motion_after_avs = MotionAfterVS(self.move_group)
         self.shoki_motion = ShokiMotion(self.move_group)
-
+        # self.AVS = ServoNode()
 
     def shoki_AVS_withdraw(self, csv):
         #shoki
         self.shoki_motion.move(csv)
+        time.sleep(1)
         #AVS
-    ####################################################################
-    ####################################################################
+        self.AVS = ServoNode()
+        self.AVS.run(csv)
+        rospy.signal_shutdown('AVS withdraw complete')
+        #wait for shutdown
+        while not rospy.is_shutdown():
+            pass
         #withdraw
         self.motion_after_avs.withdraw_motion()
         #collaborative
@@ -32,6 +39,7 @@ class DEMO():
     def shoki_AVS_input(self, csv):
         #shoki
         self.shoki_motion.move(csv)
+        # rospy.signal_shutdown('finish')
         #AVS
     ####################################################################
     ####################################################################
@@ -48,14 +56,17 @@ class DEMO():
             #上段
             self.shoki_AVS_withdraw('./dsrth_result/withdraw/desired_pose.csv')
             # self.shoki_AVS_input('./dsrth_result/input/desired_pose.csv')
+            time.sleep(15)
 
             #中断
             self.shoki_AVS_withdraw('./dsrth_result/withdraw/desired_pose_mid.csv')
             # shoki_AVS_input('./dsrth_result/input/desired_pose_mid.csv')
+            time.sleep(15)
 
             #下段
             self.shoki_AVS_withdraw('./dsrth_result/withdraw/desired_pose_down.csv')
             # shoki_AVS_input('./dsrth_result/input/desired_pose_down.csv')
+            time.sleep(15)
 
             
             print("\n-----------------------------\n")
@@ -65,8 +76,6 @@ class DEMO():
             print("\n-----------------------------\n")
 
         self.motion.home_motion()
-
-
 
 if __name__ == "__main__":
     moveit_commander.roscpp_initialize(sys.argv)

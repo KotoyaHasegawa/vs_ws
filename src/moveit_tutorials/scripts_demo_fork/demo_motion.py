@@ -39,6 +39,7 @@ class Motion():
 
 
     def home_motion(self):
+        # rospy.init_node('home_motio')
         joint_goal2_deg = [-31.18, -76.67, -115.35, -169.04, -30.93, 0.60] #remove
         # joint_goal2_deg = [-31.43, -86.04, -130.66, -144.02, -30.80,  0.27] #remove2
         # joint_goal2_deg = [-31.03, -86.21, -130.15, -144.52, -30.41,  0.14] #remove2fromimg	
@@ -62,15 +63,21 @@ class Motion():
         
         current_pose = self.move_group.get_current_pose().pose
         print("\ncurrent pose:")   
-        print(self.move_group.get_current_pose())  
+        print(self.move_group.get_current_pose()) 
+
+        # moveit_commander.roscpp_shutdown 
         
     def people_with_robot(self):
+
+        # rospy.init_node('people_with_robot')
         # get current pose and taget pose
         joint_goal2_deg = [-21.80, -87.40, -97.90, -174.91, -109.56, -0.22] #moveplay
         joint_goal2 = [x * pi/180 for x in joint_goal2_deg]
         self.move_group.set_joint_value_target(joint_goal2)
         print("Delivering drawers to people")
         self.move_group.go(wait=True)
+
+        # moveit_commander.roscpp_shutdown
 
 
 class MotionAfterVS():
@@ -102,6 +109,7 @@ class MotionAfterVS():
         print("\n-----------------------------\n")
 
     def withdraw_motion(self):
+        # rospy.init_node('descend')
         current_pose = self.move_group.get_current_pose().pose
         target_pose = current_pose
 
@@ -129,7 +137,12 @@ class MotionAfterVS():
         target_pose.position.y = 0.28018
         self.plan_and_excute(target_pose, 'finish withdraw motion')
 
+        # moveit_commander.roscpp_shutdown()  
+
+
     def input(self):
+
+        # rospy.init_node('input')
 
         # Get current pose
         # このときorientationも取得されるのでz方向の制御量だけ入力すればいい
@@ -179,5 +192,6 @@ class MotionAfterVS():
         waypoints = [target_pose]
         self.plan_and_excute(target_pose, 'finish input motion')
 
+        # moveit_commander.roscpp_shutdown()   
 
 
