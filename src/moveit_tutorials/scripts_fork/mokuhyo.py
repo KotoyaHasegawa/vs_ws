@@ -52,10 +52,10 @@ def Move():
 	print(move_group.get_current_joint_values())
 
 
-	# joint_goal2_deg = [-31.18, -76.67, -115.35, -169.04, -30.93, 0.60] #remove
+	joint_goal2_deg = [-31.18, -76.67, -115.35, -169.04, -30.93, 0.60] #remove
 	# joint_goal2_deg = [-31.00, -86.12, -130.29, -144.43, -30.70,  0.43] #remove2fromimg	
 	# joint_goal2_deg = [-32.13, -106.53, -138.06, -117.63, -31.81, 1.32] #remove3
-	joint_goal2_deg = [-31.95, -106.57, -138.21, -116.09, -31.77,  0.21] #remove3fromimg	
+	# joint_goal2_deg = [-31.95, -106.57, -138.21, -116.09, -31.77,  0.21] #remove3fromimg	
 
       
 	# joint_goal2_deg = [-30.34, -75.81, -114.68, -170.82, -29.33, 2.11] #input

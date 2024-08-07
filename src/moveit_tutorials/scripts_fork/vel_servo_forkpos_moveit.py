@@ -54,7 +54,7 @@ nop = 230400
 pinv_int_mat_double = np.empty((6,6))
 pinv_int_manip = np.empty((6,6))
 I_dsr_vec = np.empty((nop, 1))
-lmbd = 0.1
+lmbd = 0.075
 
 rmseth = 5.0 #5.0 
 iteration = 300
