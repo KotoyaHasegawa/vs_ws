@@ -26,8 +26,8 @@ def MovetoGoal(goal):
 
 	# joint_goal = [1.60414, -1.90515, 2.10868, -0.18457, 1.31903, -3.15687] 
  
-	joint_goal_deg = [-31.18, -76.67, -115.35, -169.04, -30.93, 0.60] #remove
-	# joint_goal_deg = [-30.34, -75.81, -114.68, -170.82, -29.33, 2.11]  #input
+	# joint_goal_deg = [-31.18, -76.67, -115.35, -169.04, -30.93, 0.60] #remove
+	joint_goal_deg = [-30.34, -75.81, -114.68, -170.82, -29.33, 2.11] #input
 
 	joint_goal = [x * pi/180 for x in joint_goal_deg]
 

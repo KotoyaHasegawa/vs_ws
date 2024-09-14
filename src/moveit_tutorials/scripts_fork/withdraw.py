@@ -144,7 +144,7 @@ def zdescend():
     # Update Z coordinate
     current_pose = move_group.get_current_pose().pose
     target_pose = current_pose
-    target_pose.position.z = current_pose.position.z + 0.011#上段
+    target_pose.position.z = current_pose.position.z + 0.013#上段
     # target_pose.position.z = current_pose.position.z + 0.005##上段
     waypoints = [target_pose]
     (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06, jump_threshold=0.00 )

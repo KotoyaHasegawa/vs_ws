@@ -10,8 +10,8 @@ from cv_bridge import CvBridge
 # def process_image(msg):
 #     bridge = CvBridge()
 #     orig = bridge.imgmsg_to_cv2(msg, "bgr8")
-#     orig = orig[ 200 : 560 ,720 : 1360 ]#remove
-#     # orig = orig[ 70 : 430 ,720 : 1360 ] #input
+#     orig = orig[ 250 : 610 ,720 : 1360 ] #remove
+#     # orig = orig[ 83 : 145 ,470 : 1632 ] #input
 #     gry = cv2.cvtColor(orig , cv2.COLOR_BGR2GRAY)
 #     # 画像ファイルのパス
 #     # image_path1 = './old_data/data_new_6_input/20240119_011227_image.png'
@@ -33,31 +33,49 @@ fourcc_1 = cv2.VideoWriter_fourcc(*'mp4v')
 # video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (1920, 1080), False)
 # video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (1920, 1080))
 
-video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (640, 360), False)
-video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (640, 360))
+#withdraw
+# video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (640, 360), False)
+# video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (640, 360))
+# #input
+video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (1162, 62), False)
+video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (1162, 62))
+video_writer_full = cv2.VideoWriter('./servo_data/difference_full_video.mp4', fourcc, 30.0, (1920, 1080), False)
+video_writer_1_full = cv2.VideoWriter('./servo_data/outuput_full_video.mp4', fourcc_1, 30.0, (1920, 1080))
+
 
 
 def process_image(msg):
     bridge = CvBridge()
-    orig = bridge.imgmsg_to_cv2(msg, "bgr8")
-    orig = orig[ 200 : 560 ,720 : 1360 ]
+    orig_full = bridge.imgmsg_to_cv2(msg, "bgr8")
+    # orig = orig_full[ 250 : 610 ,720 : 1360 ]#withdrraw
+    orig = orig_full[ 83 : 145 ,470 : 1632 ] #input
+    gry_full = cv2.cvtColor(orig_full, cv2.COLOR_BGR2GRAY)
     gry = cv2.cvtColor(orig , cv2.COLOR_BGR2GRAY)
     # 画像ファイルのパス
     image_path1 = './input_dsrim/kensyo_desired_image.png'
+    image_path1_full = './input_dsrim/kensyo_desired_image(full).png'
+    # image_path1 = './data/desired_im.png'
     image1 = cv2.imread(image_path1, cv2.IMREAD_GRAYSCALE)
+    image1_full = cv2.imread(image_path1_full, cv2.IMREAD_GRAYSCALE)
+	
     # 画素値の差分を計算
     difference = cv2.absdiff(image1, gry)
-
+    difference_full = cv2.absdiff(image1_full, gry_full)
     # 差分画像を動画に書き込む
     video_writer.write(difference)
     video_writer_1.write(orig)
+    video_writer_full.write(difference_full)
+    video_writer_1_full.write(orig_full)
+
 
     cv2.imshow('Difference Image', difference)
     if cv2.waitKey(1) & 0xff == 27:
-        # cv2.imwrite('./difference_image.jpg', orig)
+        cv2.imwrite('./difference_image.jpg', orig)
         print('Image saved and exiting...')
         video_writer.release()
         video_writer_1.release()
+        video_writer_full.release()
+        video_writer_1_full.release()
         rospy.signal_shutdown("ESC pressed")
  
 def start_node():

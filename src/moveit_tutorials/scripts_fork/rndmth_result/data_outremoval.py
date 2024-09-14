@@ -81,10 +81,11 @@ f1.closed
 
 data2=out_removal_pose(data2,idx)
 #リンク3の値を調整
-data2_adjusted = adjust_negative_values(data2)
+# data2_adjusted = adjust_negative_values(data2)
 f2=open('rndmth_result/random_poseordel.csv','w')#newline=''
 writer=csv.writer(f2)
-writer.writerows(data2_adjusted)
+# writer.writerows(data2_adjusted)
+writer.writerows(data2)
 f2.closed
 
 

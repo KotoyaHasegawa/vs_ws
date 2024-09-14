@@ -38,7 +38,12 @@ print('henkan start')
 # csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avs7.csv', header=None)
 # csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avs8.csv', header=None)
 # csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avs9.csv', header=None)
-csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avspos.csv', header=None)
+
+
+
+
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avspos.csv', header=None)#取り出し
+csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_input_avspos.csv', header=None)#格納
 
 print('read csv file')
 csvdata.to_pickle('./pinv_int_mat_pickle/pinv_int_mat_double.pickle')
@@ -46,12 +51,12 @@ print('done')
 
 
 
+#mainpulatopr jacobi
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mnipulator_jac.csv', header=None)
 
-csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mnipulator_jac.csv', header=None)
-
-print('read csv file')
-csvdata.to_pickle('./pinv_int_mat_pickle/pinv_int_mnipulator_jac.pickle')
-print('done')
+# print('read csv file')
+# csvdata.to_pickle('./pinv_int_mat_pickle/pinv_int_mnipulator_jac.pickle')
+# print('done')
 
 
 ###normalized

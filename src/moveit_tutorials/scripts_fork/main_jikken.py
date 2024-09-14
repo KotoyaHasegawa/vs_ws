@@ -31,8 +31,13 @@ if __name__ == "__main__":
         #("demo_people_robot.py", False),
         ("shoki2.py", False),
         ("demo_init_image.py", False),
-        ("vel_servo_forkpos_moveit.py", True),
-        ("withdraw.py", False)
+        ("vel_servo_forkpos_moveit_input.py", True),
+        # ("vel_servo_forkpos_moveit_withdraw.py", True),
+        ("input.py", False),
+        ("mokuhyo.py", False),
+        # ("withdraw.py", False),
+
+        
     ]
     start_script = scripts[0][0]
     if len(sys.argv) > 1:
@@ -49,4 +54,5 @@ if __name__ == "__main__":
             # time.sleep(2)
         for script, with_error_img in scripts[:start_index]:
             run_script(script, with_error_img)
-            # time.sleep(2)
+
+        time.sleep(30)

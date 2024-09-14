@@ -54,10 +54,14 @@ nop = 230400
 pinv_int_mat_double = np.empty((6,6))
 pinv_int_manip = np.empty((6,6))
 I_dsr_vec = np.empty((nop, 1))
-lmbd = 0.075
+lmbd = 0.04 #withdraw
 
-rmseth = 5.0 #5.0 
-iteration = 300
+
+rmseth = 6.0 #5.0 #withdraw
+
+
+
+iteration = 500
 
 time_series = []
 rmse_data = []
@@ -255,13 +259,13 @@ def signal_handler(sig, frame):
 
     image_raw = last_msg
     bridge = CvBridge()
-    bgr = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
-    bgr = bgr[ 200 : 560 ,720 : 1360 ]
+    bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
+    bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdrawts
 
-    get_data = DATA(bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
-                dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
-                time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
-                rmseth, iteration)
+    get_data = DATA( bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
+                 dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
+                 time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
+                 rmseth, iteration)
     
     get_data.main()
 
@@ -306,30 +310,30 @@ def main(msg):
     
     # rmse = 100
     
-    # with open('./dsrth_result/desired_pose.csv', 'r') as f:
-    #     reader = csv.reader(f)
-    #     for row in reader:
-    #         desired_pose = [float(x) for x in row]
+    with open('./dsrth_result/desired_pose.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            desired_pose = [float(x) for x in row]
 
     # with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
     #     reader = csv.reader(f)
     #     for row in reader:
     #         desired_pose = [float(x) for x in row]
 
-    with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            desired_pose = [float(x) for x in row]
+    # with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+    #     reader = csv.reader(f)
+    #     for row in reader:
+    #         desired_pose = [float(x) for x in row]
 
-
+    #withdraw
     if desired_pose[5] > 0 :
         desired_pose[5] = desired_pose[5] - 6.283    
     
     image_raw = msg
     bridge = CvBridge()
-    bgr = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
-    bgr= bgr[ 200 : 560 ,720 : 1360 ]
-    # bgr = bridge.imgmsg_to_cv2(image_raw, 'mono8') ###UI camera
+    bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
+    bgr= bgr_full[ 250 : 610 ,720 : 1360 ]#withdraw
+    # bgr = bridge.imgmsg_to_cv2(image_raw, 'mono8') ###UI camera6
     gry = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
     gry2 = np.array(gry, dtype = 'float64')
     I_vec = gry2.reshape(-1,1)
@@ -352,6 +356,8 @@ def main(msg):
     current_pose_z = respose.trans[2]
     rot = respose.rot 
     euler_x, euler_y, euler_z = quaternion_to_euler(rot)
+
+    #withdraw
     if euler_z > 0 :
         euler_z = euler_z - 6.283
 
@@ -369,10 +375,10 @@ def main(msg):
 
         image_raw = msg
         bridge = CvBridge()
-        bgr = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
-        bgr = bgr[ 200 : 560 ,720 : 1360 ]
+        bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
+        bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdraw
 
-        get_data = DATA(bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
+        get_data = DATA(bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
                  time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
                  rmseth, iteration)

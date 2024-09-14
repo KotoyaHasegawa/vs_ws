@@ -6,13 +6,15 @@ import numpy as np
 
 
 class DATA():
-    def __init__(self, bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
+    def __init__(self, bgr_full, bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
                  time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
                  rmseth, iteration):
+        self.bgr_full = bgr_full
         self.bgr= bgr
         self.dsr_img = dsr_img
         self.init_img = init_img
+        self.last_img_full = cv2.cvtColor(bgr_full, cv2.COLOR_BGR2GRAY)
         self.last_img = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
 
         self.rmse_data = rmse_data
@@ -43,18 +45,31 @@ class DATA():
     def hand_eye_last_img(self):
         #位置決め後￥ハンドアイ画像        
         bgr = self.bgr
+        bgr_full = self.bgr_full
         cv2.imwrite('./servo_data/kensyo_last_image.png', bgr)
-        gry = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+        cv2.imwrite('./servo_data/kensyo_last_image.png', bgr_full)
     
     def init_difference_img(self):
         difference_init = cv2.absdiff(self.dsr_img, self.init_img)
         difference_image_path = './servo_data/init_difference_image.jpg'
         cv2.imwrite(difference_image_path, difference_init)      
+        
+        dsr_img_full = cv2.imread('./input_dsrim/kensyo_desired_image(full).png', cv2.IMREAD_GRAYSCALE)
+        init_img_full = cv2.imread('./servo_data/kensyo_initial_image_full.png', cv2.IMREAD_GRAYSCALE)
+        difference_init_full = cv2.absdiff(dsr_img_full , init_img_full)
+        difference_image_path_full = './servo_data/init_difference_image_full.jpg'
+        cv2.imwrite(difference_image_path_full, difference_init_full)      
+
 
     def last_difference_img(self):
         difference_init = cv2.absdiff(self.dsr_img, self.last_img)
         difference_image_path = './servo_data/last_difference_image.jpg'
         cv2.imwrite(difference_image_path, difference_init) 
+
+        dsr_img_full = cv2.imread('./input_dsrim/kensyo_desired_image(full).png', cv2.IMREAD_GRAYSCALE)
+        difference_init_full = cv2.absdiff(dsr_img_full , self.last_img_full)
+        difference_image_path_full = './servo_data/last_difference_image_full.jpg'
+        cv2.imwrite(difference_image_path_full, difference_init_full) 
 
     def save_csv(self):
         filename = './servo_data/loop_rmse_data.csv'
@@ -166,7 +181,7 @@ class DATA():
         plt.ylabel('RMSE')
         plt.plot(iteration, self.rmse_data, 'b-')
         plt.xlim([0, self.iteration])
-        plt.ylim([self.rmseth, 20])
+        plt.ylim([self.rmseth, 60])
         plt.grid()
         fig_rmse_it.savefig('./servo_data/rmse_iteration.png')
 

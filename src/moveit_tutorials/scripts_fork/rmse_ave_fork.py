@@ -11,13 +11,16 @@ import  numpy as np
 import math
 import statistics
 # I_dsr_vec = np.empty((1105920, 1)) ###for UI
-I_dsr_vec = np.empty((2073600, 1))
+I_dsr_vec = np.empty((92160, 1))
 rsme_data = []
 # nop = 1105920 ###for UI
-nop = 2073600 ###realsense
+# nop = 230400 # withdraw
+nop = 72044 # input
+# nop = 115200 ###realsense
 def gen_I_dsr_vec():
     global I_dsr_vec
     I_dsr_orig = cv2.imread('./input_dsrim/kensyo_desired_image.png')
+    # I_dsr_orig = cv2.imread('./data/desired_im.png')
     I_dsr_gry = cv2.cvtColor(I_dsr_orig, cv2.COLOR_BGR2GRAY)
     I_dsr_arr = np.array(I_dsr_gry, dtype='float64')
     I_dsr_vec = I_dsr_arr.reshape(-1,1)
@@ -28,7 +31,8 @@ def process_image(msg):
     global rsme_data
     bridge = CvBridge()
     orig = bridge.imgmsg_to_cv2(msg, "bgr8")
-    orig = orig[ 200 : 560 ,720 : 1360 ]
+    # orig = orig[ 250 : 610 ,720 : 1360 ]#withdraw
+    orig = orig[ 83 : 145 ,470 : 1632 ] #input
     gray = cv2.cvtColor(orig, cv2.COLOR_BGR2GRAY)
     arr = np.array(gray, dtype = 'float64')
     vec = arr.reshape(-1,1)
@@ -37,6 +41,7 @@ def process_image(msg):
     dI2 = dI**2
     Isum = np.sum(dI2)
     rsme = math.sqrt(Isum / nop)
+    # print(rsme)
     rsme_data.append(rsme)
     return rsme_data
             
