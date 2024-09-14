@@ -9,8 +9,6 @@ def process_image(msg):
     bridge = CvBridge()
     orig = bridge.imgmsg_to_cv2(msg, "bgr8")
     orig = orig[ 200 : 560 ,720 : 1360 ]
-    # orig = orig[ 100 : 600 ,550 : 1640] 
-    # orig = bridge.imgmsg_to_cv2(msg, "mono8") ###for UI camera
     cv2.imshow('desired image', orig)
     # cv2.waitKey(0)
     if cv2.waitKey(1) & 0xff == 27:

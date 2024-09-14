@@ -31,7 +31,7 @@ from moveit_tutorials.srv import GettfPose
 #for switch controller
 from controller_manager_msgs.srv import SwitchController
 
-from jikken_data_python.demo_data import DATA
+from demo_data import DATA
 
 class ServoNode:
     def __init__(self):
@@ -41,10 +41,12 @@ class ServoNode:
         self.pinv_int_mat_double = np.empty((6,6))
         self.pinv_int_manip = np.empty((6,6))
         self.I_dsr_vec = np.empty((self.nop, 1))
-        self.lmbd = 0.08
+        self.lmbd = 0.05
 
-        self.rmseth = 12.0
-        self.iteration = 200
+        self.rmseth = 12.5
+        self.iteration = 300
+
+        self.threshhold_value = 128
 
         self.time_series = []
         self.rmse_data = []
@@ -116,6 +118,7 @@ class ServoNode:
     def gen_dsrimvec(self):
         I_dsr = cv2.imread('./input_dsrim/kensyo_desired_image.png')
         I_dsr_gry = cv2.cvtColor(I_dsr, cv2.COLOR_BGR2GRAY)
+        # I_dsr_gry = cv2.threshold(I_dsr_gry, self.threshhold_value, 255, cv2.THRESH_BINARY)#2values
         I_dsr_arr = np.array(I_dsr_gry, dtype = 'float64')
         self.I_dsr_vec = I_dsr_arr.reshape(-1,1)
 
@@ -215,6 +218,7 @@ class ServoNode:
 
     def main_callback(self, msg):
         self.last_msg = msg
+
     
         # with open('./dsrth_result/desired_pose.csv', 'r') as f:
         #     reader = csv.reader(f)
@@ -237,6 +241,8 @@ class ServoNode:
         bgr = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
         bgr = bgr[200 : 560, 720 : 1360]
         gry = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+        # gry = cv2.threshold(gry, self.threshhold_value, 255, cv2.THRESH_BINARY)#2values
+        
         gry2 = np.array(gry, dtype='float64')
         I_vec = gry2.reshape(-1, 1)
 

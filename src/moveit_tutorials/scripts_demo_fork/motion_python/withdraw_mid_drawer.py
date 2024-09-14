@@ -5,8 +5,8 @@ import sys
 import rospy
 import time
 
-from motion_python.demo_shoki import ShokiMotion
-from motion_python.demo_motion import Motion, MotionAfterVS
+from demo_shoki import ShokiMotion
+from demo_motion import Motion, MotionAfterVS
 import moveit_commander
 from demo_vel_servo_forkpos import ServoNode
 

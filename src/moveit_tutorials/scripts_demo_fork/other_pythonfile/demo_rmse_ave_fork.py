@@ -19,7 +19,8 @@ def gen_I_dsr_vec():
     global I_dsr_vec
     I_dsr_orig = cv2.imread('./input_dsrim/kensyo_desired_image.png')
     I_dsr_gry = cv2.cvtColor(I_dsr_orig, cv2.COLOR_BGR2GRAY)
-    I_dsr_arr = np.array(I_dsr_gry, dtype='float64')
+    # I_dsr_gry  = cv2.threshold(I_dsr_gry , 128, 255, cv2.THRESH_BINARY)#2values
+    I_dsr_arr = np.array(I_dsr_gry, dtype='float64')#2values
     I_dsr_vec = I_dsr_arr.reshape(-1,1)
     return I_dsr_vec 
 
@@ -30,7 +31,8 @@ def process_image(msg):
     orig = bridge.imgmsg_to_cv2(msg, "bgr8")
     orig = orig[ 200 : 560 ,720 : 1360 ]
     gray = cv2.cvtColor(orig, cv2.COLOR_BGR2GRAY)
-    arr = np.array(gray, dtype = 'float64')
+    # gray  = cv2.threshold(gray , 128, 255, cv2.THRESH_BINARY)#2values
+    arr = np.array(gray, dtype = 'float64')#2values
     vec = arr.reshape(-1,1)
     #画像偏差
     dI = I_dsr_vec - vec ###目標-現在

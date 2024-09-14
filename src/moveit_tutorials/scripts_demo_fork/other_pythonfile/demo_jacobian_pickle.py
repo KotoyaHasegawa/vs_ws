@@ -6,7 +6,10 @@ import pandas as pd
 
 ###double
 print('henkan start')
-csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_remove_avspos_1st.csv', header=None)
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_remove_avspos_1st.csv', header=None)#pice of 1500
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avspos3000.csv', header=None)#pice of 3000
+csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avspos.csv', header=None)
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avspos_2value.csv', header=None)
 
 print('read csv file')
 csvdata.to_pickle('./pinv_int_mat_pickle/pinv_int_mat_double.pickle')

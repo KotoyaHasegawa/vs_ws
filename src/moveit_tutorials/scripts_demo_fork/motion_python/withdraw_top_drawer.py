@@ -5,8 +5,8 @@ import sys
 import rospy
 import time
 
-from motion_python.demo_shoki import ShokiMotion
-from motion_python.demo_motion import Motion, MotionAfterVS
+from demo_shoki import ShokiMotion
+from demo_motion import Motion, MotionAfterVS
 import moveit_commander
 from demo_vel_servo_forkpos import ServoNode
 
@@ -21,6 +21,8 @@ class DEMO():
         # self.AVS = ServoNode()
 
     def shoki_AVS_withdraw(self, csv):
+
+        self.motion.people_with_robot()
         #shoki
         self.shoki_motion.move(csv)
         time.sleep(1)
@@ -29,7 +31,7 @@ class DEMO():
         self.AVS.run(csv)
         #withdraw
         self.motion_after_avs.withdraw_motion()
-        #collaborative
+        # #collaborative
         self.motion.people_with_robot()
 
 

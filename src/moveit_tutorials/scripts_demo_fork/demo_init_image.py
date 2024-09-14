@@ -8,12 +8,16 @@ from cv_bridge import CvBridge
 
 def process_image(msg):
     bridge = CvBridge()
-    orig = bridge.imgmsg_to_cv2(msg, "bgr8")
-    orig = orig[ 200 : 560 ,720 : 1360 ]
+    orig_full = bridge.imgmsg_to_cv2(msg, "bgr8")
+    #orig = orig_full[ 250 : 610 ,720 : 1360 ]#withdraw
+    orig = orig_full[ 83 : 145 ,470 : 1632 ] #input
+    # gray = cv2.cvtColor(orig, cv2.COLOR_BGR2GRAY)#2values
+    # gray   = cv2.threshold(gray  , 128, 255, cv2.THRESH_BINARY)#2values
     # print(orig.shape)
     # orig = bridge.imgmsg_to_cv2(msg, "mono8") ###for UI camera
     # cv2.imshow('initial image', orig)
-    cv2.imwrite('./servo_data/kensyo_initial_image.png', orig)
+    cv2.imwrite('./servo_data/kensyo_initial_image.png', orig)#2values
+    cv2.imwrite('./servo_data/kensyo_initial_image_full.png', orig_full)
     print("\n-----------------------------\n")
     print("\n-----------------------------\n")
     print ('init picture')

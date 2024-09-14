@@ -29,8 +29,8 @@ def run_script(script_name, with_error_img=False):
 if __name__ == "__main__":
     scripts = [
         ("withdraw_top_drawer.py", False),
-        ("withdraw_mid_drawer.py", False),
-        ("withdraw_down_drawer.py", False)
+        # ("withdraw_mid_drawer.py", False),
+        # ("withdraw_down_drawer.py", False)
     ]
     start_script = scripts[0][0]
     if len(sys.argv) > 1:
