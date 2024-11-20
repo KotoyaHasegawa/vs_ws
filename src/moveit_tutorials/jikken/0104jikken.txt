@@ -1,0 +1,90 @@
+^Ckappa@kappa-MP-i1640:~/catkin_ws/src/moveit_tutorials/_scripts$ rosrun moveit_tutorials servo.py 
+[INFO] [1672828355.149071]: servo node started
+csvyometa
+214.691984177
+read csv file values
+hi
+subscribed
+500000000
+0.5
+0.03
+dsrim path
+dssr im yometa
+dsrimvec gen
+moveit settei
+[ INFO] [1672828569.931672310]: Loading robot model 'ur3_robot'...
+[ WARN] [1672828569.997213641]: IK plugin for group 'manipulator' relies on deprecated API. Please implement initialize(RobotModel, ...).
+[ INFO] [1672828570.000113012]: IK Using joint shoulder_link -6.28319 6.28319
+[ INFO] [1672828570.000139813]: IK Using joint upper_arm_link -6.28319 6.28319
+[ INFO] [1672828570.000159077]: IK Using joint forearm_link -3.14159 3.14159
+[ INFO] [1672828570.000177677]: IK Using joint wrist_1_link -6.28319 6.28319
+[ INFO] [1672828570.000196214]: IK Using joint wrist_2_link -6.28319 6.28319
+[ INFO] [1672828570.000214189]: IK Using joint wrist_3_link -6.28319 6.28319
+[ INFO] [1672828570.000237270]: Looking in common namespaces for param name: manipulator/position_only_ik
+[ INFO] [1672828570.001257049]: Looking in common namespaces for param name: manipulator/solve_type
+[ INFO] [1672828570.002663209]: Using solve type Distance
+[ INFO] [1672828571.118931315]: Ready to take commands for planning group manipulator.
+moveit settei owari
+imageraw henkan
+keisanmae
+keisan
+(6, 2073600)
+(6, 1)
+(6, 1)
+[[-0.04711485]
+ [ 0.00525453]
+ [ 0.01443607]
+ [-0.00239268]
+ [ 0.03136301]
+ [-0.        ]]
+<type 'numpy.ndarray'>
+[-0.04711485  0.00525453  0.01443607 -0.00239268  0.03136301 -0.        ]
+^Ckappa@kappa-MP-i1640:~/catkin_ws/src/moveit_tutorials/_scripts$ 
+kappa@kappa-MP-i1640:~/catkin_ws/src/moveit_tutorials/_scripts$ 
+kappa@kappa-MP-i1640:~/catkin_ws/src/moveit_tutorials/_scripts$ rosrun moveit_tutorials servo.py 
+[INFO] [1672828647.716828]: servo node started
+csvyometa
+216.19253397
+read csv file values
+hi
+subscribed
+500000000
+0.5
+0.03
+dsrim path
+dssr im yometa
+dsrimvec gen
+moveit settei
+[ INFO] [1672828863.977430658]: Loading robot model 'ur3_robot'...
+[ WARN] [1672828864.044159611]: IK plugin for group 'manipulator' relies on deprecated API. Please implement initialize(RobotModel, ...).
+[ INFO] [1672828864.047103818]: IK Using joint shoulder_link -6.28319 6.28319
+[ INFO] [1672828864.047130232]: IK Using joint upper_arm_link -6.28319 6.28319
+[ INFO] [1672828864.047148850]: IK Using joint forearm_link -3.14159 3.14159
+[ INFO] [1672828864.047167208]: IK Using joint wrist_1_link -6.28319 6.28319
+[ INFO] [1672828864.047185492]: IK Using joint wrist_2_link -6.28319 6.28319
+[ INFO] [1672828864.047203390]: IK Using joint wrist_3_link -6.28319 6.28319
+[ INFO] [1672828864.047224173]: Looking in common namespaces for param name: manipulator/position_only_ik
+[ INFO] [1672828864.048273566]: Looking in common namespaces for param name: manipulator/solve_type
+[ INFO] [1672828864.049730050]: Using solve type Distance
+^C[ INFO] [1672828864.997425340]: Ready to take commands for planning group manipulator.
+moveit settei owari
+imageraw henkan
+keisanmae
+keisan
+(6, 2073600)
+(6, 1)
+(6, 1)
+[[-0.04393072]
+ [ 0.03122135]
+ [ 0.03883237]
+ [-0.03062299]
+ [ 0.03958232]
+ [-0.        ]]
+<type 'numpy.ndarray'>
+[-0.04393072  0.03122135  0.03883237 -0.03062299  0.03958232 -0.        ]
+Segmentation fault (コアダンプ)
+
+
+目標のジョイント角とはかけ離れた値になってしまったがこの2回の結果が似ていた。
+予定通りではないけど解が収束しているという認識でいいのかも
+

@@ -1,0 +1,2 @@
+set(moveit_tutorials_MESSAGE_FILES "msg/EmptyAction.msg;msg/EmptyActionGoal.msg;msg/EmptyActionResult.msg;msg/EmptyActionFeedback.msg;msg/EmptyGoal.msg;msg/EmptyResult.msg;msg/EmptyFeedback.msg;msg/ValidJointsAction.msg;msg/ValidJointsActionGoal.msg;msg/ValidJointsActionResult.msg;msg/ValidJointsActionFeedback.msg;msg/ValidJointsGoal.msg;msg/ValidJointsResult.msg;msg/ValidJointsFeedback.msg")
+set(moveit_tutorials_SERVICE_FILES "srv/GetCurrentImage.srv;srv/GetCurrentImageData.srv;srv/GetCurrentCount.srv;srv/GetCurrentJointVel.srv;srv/GettfPose.srv")

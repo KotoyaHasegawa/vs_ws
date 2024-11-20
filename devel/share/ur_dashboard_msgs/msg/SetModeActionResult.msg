@@ -1,0 +1,1 @@
+/home/kotoyah/vs_ws/devel/.private/ur_dashboard_msgs/share/ur_dashboard_msgs/msg/SetModeActionResult.msg

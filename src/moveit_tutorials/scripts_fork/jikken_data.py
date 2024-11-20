@@ -47,7 +47,7 @@ class DATA():
         bgr = self.bgr
         bgr_full = self.bgr_full
         cv2.imwrite('./servo_data/kensyo_last_image.png', bgr)
-        cv2.imwrite('./servo_data/kensyo_last_image.png', bgr_full)
+        cv2.imwrite('./servo_data/kensyo_last_image(full).png', bgr_full)
     
     def init_difference_img(self):
         difference_init = cv2.absdiff(self.dsr_img, self.init_img)
@@ -78,9 +78,10 @@ class DATA():
         filename4 = './servo_data/rotation_axis.csv'
         filename5 = './servo_data/rotation_angle.csv'
         filename6 = './servo_data/last_position_traslation.csv'
+        filename7 = './servo_data/time.csv'
 
         with open (filename, 'w') as f, open(filename2, 'w')as f2, open(filename3, 'w')as f3, \
-        open(filename4, 'w')as f4, open(filename5, 'w')as f5, open(filename6, 'w')as f6:
+        open(filename4, 'w')as f4, open(filename5, 'w')as f5, open(filename6, 'w')as f6, open(filename7, 'w')as f7:
             writer = csv.writer(f)
             writer.writerow(self.rmse_data)
             writer2 = csv.writer(f2)
@@ -95,6 +96,9 @@ class DATA():
             writer6.writerow(["2dist", "x", "y", "z", "rx", "ry", "rz"])
             writer6.writerow([self.dist_data[-1], self.dist_trans_x[-1], self.dist_trans_y[-1], self.dist_trans_z[-1] ,
                                 self.dist_rot_x[-1], self.dist_rot_y[-1], self.dist_rot_z[-1]])
+            writer7 = csv.writer(f7)
+            writer7.writerow(self.time_series)
+            
                 
     def joint_vel_data(self):
         #6つのグラフの配置

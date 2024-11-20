@@ -1,0 +1,8 @@
+[01m[K/home/kotoyah/vs_ws/src/moveit_tutorials/doc/move_group_interface/src/move_group_interface_tutorial.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/kotoyah/vs_ws/src/moveit_tutorials/doc/move_group_interface/src/move_group_interface_tutorial.cpp:306:110:[m[K [01;35m[Kwarning: [m[K‘[01m[Kdouble moveit::planning_interface::MoveGroupInterface::computeCartesianPath(const std::vector<geometry_msgs::Pose_<std::allocator<void> > >&, double, double, moveit_msgs::RobotTrajectory&, bool, moveit_msgs::MoveItErrorCodes*)[m[K’ is deprecated: Drop jump_threshold [[01;35m[K-Wdeprecated-declarations[m[K]
+  306 |   double fraction = move_group_interface.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory[01;35m[K)[m[K;
+      |                                                                                                              [01;35m[K^[m[K
+In file included from [01m[K/home/kotoyah/vs_ws/src/moveit_tutorials/doc/move_group_interface/src/move_group_interface_tutorial.cpp:37[m[K:
+[01m[K/opt/ros/noetic/include/moveit/move_group_interface/move_group_interface.h:783:3:[m[K [01;36m[Knote: [m[Kdeclared here
+  783 |   [01;36m[KcomputeCartesianPath[m[K(const std::vector<geometry_msgs::Pose>& waypoints, double eef_step, double /*jump_threshold*/,
+      |   [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K

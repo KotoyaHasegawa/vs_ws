@@ -56,10 +56,10 @@ pinv_int_mat_double = np.empty((6,6))
 pinv_int_manip = np.empty((6,6))
 I_dsr_vec = np.empty((nop, 1))
 # lmbd = 0.075 #withdraw
-lmbd = 0.04#input
+lmbd = 0.035#input
 
 # rmseth = 5.0 #5.0 #withdraw
-rmseth = 8.0#8.0 #input
+rmseth = 0.0#8.0 #input
 
 
 iteration = 500
@@ -261,7 +261,7 @@ def signal_handler(sig, frame):
     bridge = CvBridge()
     bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
     # bgr = bgr[ 200 : 560 ,720 : 1360 ]#withdraw
-    bgr = bgr_full[ 83 : 145 ,470 : 1632 ] #input
+    bgr = bgr_full[ 83 : 145 ,470 : 1632 ]  #input
 
     get_data = DATA( bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
@@ -379,7 +379,7 @@ def main(msg):
         bridge = CvBridge()
         bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
         # bgr = bgr[ 200 : 560 ,720 : 1360 ]#withdraw
-        bgr= bgr_full[ 83 : 145 ,470 : 1632 ]#input
+        bgr= bgr_full[ 83 : 145 ,470 : 1632 ] #input
 
         get_data = DATA(bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 

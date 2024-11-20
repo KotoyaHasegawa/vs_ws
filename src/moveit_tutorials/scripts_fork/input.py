@@ -42,7 +42,7 @@ def zdescend():
 
 
     waypoints = [target_pose]
-    (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06, jump_threshold=0.00 )
+    (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06)
     move_group.execute(plan, wait=True)
     print('chukei')
     print(target_pose)
@@ -52,7 +52,7 @@ def zdescend():
     target_pose = current_pose
     target_pose.position.z =  current_pose.position.z - 0.013 ###二回目の中継地点
     waypoints = [target_pose]
-    (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.01, jump_threshold=0.00 )
+    (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06)
     move_group.execute(plan, wait=True)
     print('chukei')
     print(target_pose)
@@ -62,7 +62,7 @@ def zdescend():
     target_pose = current_pose
     target_pose.position.y =  current_pose.position.y + 0.04523 ###二回目の中継地点
     waypoints = [target_pose]
-    (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.01, jump_threshold=0.00 )
+    (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06)
     move_group.execute(plan, wait=True)
     print('chukei')
     print(target_pose)
@@ -81,7 +81,7 @@ def zdescend():
     
     target_pose.position.y = 0.36018 ###ボルトの頭当たるくらい
     waypoints = [target_pose]
-    (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06, jump_threshold=0.00 )
+    (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06)
     move_group.execute(plan, wait=True)
     print('sasarucyokuzen')
     print(target_pose)

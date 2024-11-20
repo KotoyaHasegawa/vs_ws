@@ -10,12 +10,12 @@ from cv_bridge import CvBridge
 # def process_image(msg):
 #     bridge = CvBridge()
 #     orig = bridge.imgmsg_to_cv2(msg, "bgr8")
-#     orig = orig[ 250 : 610 ,720 : 1360 ] #remove
-#     # orig = orig[ 83 : 145 ,470 : 1632 ] #input
+#     # orig = orig[ 250 : 610 ,720 : 1360 ] #remove
+#     orig = orig[ 83 : 145 ,470 : 1632 ] #input
 #     gry = cv2.cvtColor(orig , cv2.COLOR_BGR2GRAY)
 #     # 画像ファイルのパス
 #     # image_path1 = './old_data/data_new_6_input/20240119_011227_image.png'
-#     # image_path1 = './data/20240727_163456_image.png'
+#     # image_path1 = './data/20240915_175357_image.png'
 #     image_path1 = './input_dsrim/kensyo_desired_image.png'
 #     image1 = cv2.imread(image_path1, cv2.IMREAD_GRAYSCALE)
 #     # 画素値の差分を計算
@@ -34,11 +34,11 @@ fourcc_1 = cv2.VideoWriter_fourcc(*'mp4v')
 # video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (1920, 1080))
 
 #withdraw
-# video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (640, 360), False)
-# video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (640, 360))
+video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (640, 360), False)
+video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (640, 360))
 # #input
-video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (1162, 62), False)
-video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (1162, 62))
+# video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (1162, 62), False)
+# video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (1162, 62))
 video_writer_full = cv2.VideoWriter('./servo_data/difference_full_video.mp4', fourcc, 30.0, (1920, 1080), False)
 video_writer_1_full = cv2.VideoWriter('./servo_data/outuput_full_video.mp4', fourcc_1, 30.0, (1920, 1080))
 
@@ -47,8 +47,9 @@ video_writer_1_full = cv2.VideoWriter('./servo_data/outuput_full_video.mp4', fou
 def process_image(msg):
     bridge = CvBridge()
     orig_full = bridge.imgmsg_to_cv2(msg, "bgr8")
-    # orig = orig_full[ 250 : 610 ,720 : 1360 ]#withdrraw
-    orig = orig_full[ 83 : 145 ,470 : 1632 ] #input
+    orig = orig_full[ 250 : 610 ,720 : 1360 ]#withdrraw
+    # orig = orig_full[ 83 : 145 ,470 : 1632 ] #input
+    # orig = orig_full[ 0 : 1080 ,0 : 1920 ] #definet
     gry_full = cv2.cvtColor(orig_full, cv2.COLOR_BGR2GRAY)
     gry = cv2.cvtColor(orig , cv2.COLOR_BGR2GRAY)
     # 画像ファイルのパス
@@ -68,7 +69,7 @@ def process_image(msg):
     video_writer_1_full.write(orig_full)
 
 
-    cv2.imshow('Difference Image', difference)
+    cv2.imshow('Difference Image', difference_full)
     if cv2.waitKey(1) & 0xff == 27:
         cv2.imwrite('./difference_image.jpg', orig)
         print('Image saved and exiting...')

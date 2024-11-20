@@ -1,0 +1,945 @@
+---------lambda = 0.1--------------
+
+
+
+[  2.10249983e+00  -6.28720262e-01   2.13857317e-01  -1.42574640e+00
+  -2.11150638e+00  -5.50095235e-04]
+moved
+Ith = 271689091
+subscribed
+Ith = 271689091
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 272103506
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.018992  ]
+ [ 0.00600658]
+ [-0.01341619]
+ [-0.00681505]
+ [-0.00834479]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.018992    0.00600658 -0.01341619 -0.00681505 -0.00834479 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.12165194e+00  -6.22384035e-01   2.00312716e-01  -1.43251983e+00
+  -2.11993405e+00  -5.14332448e-04]
+moved
+Ith = 272103506
+subscribed
+Ith = 272103506
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 273856166
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.01829055]
+ [ 0.00425496]
+ [-0.0114167 ]
+ [-0.00634796]
+ [-0.00871296]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.01829055  0.00425496 -0.0114167  -0.00634796 -0.00871296 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.14007357e+00  -6.17956802e-01   1.88863012e-01  -1.43888677e+00
+  -2.12855150e+00  -5.62016164e-04]
+moved
+Ith = 273856166
+subscribed
+Ith = 273856166
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 271893646
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.01429692]
+ [ 0.00336852]
+ [-0.00743651]
+ [-0.00616365]
+ [-0.00670958]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.01429692  0.00336852 -0.00743651 -0.00616365 -0.00670958 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.15471259e+00  -6.14460625e-01   1.81308515e-01  -1.44510400e+00
+  -2.13533718e+00  -5.02411519e-04]
+moved
+Ith = 271893646
+subscribed
+Ith = 271893646
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 273069712
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.01249218]
+ [ 0.00116004]
+ [-0.00832793]
+ [-0.00396632]
+ [-0.00681356]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.01249218  0.00116004 -0.00832793 -0.00396632 -0.00681356 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.16744470e+00  -6.13220624e-01   1.72812018e-01  -1.44900924e+00
+  -2.14226279e+00  -5.02411519e-04]
+moved
+Ith = 273069712
+subscribed
+Ith = 273069712
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 274376821
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.01201289]
+ [ 0.0001311 ]
+ [-0.00786511]
+ [-0.00402175]
+ [-0.00666852]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.01201289  0.0001311  -0.00786511 -0.00402175 -0.00666852 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.17956273e+00  -6.13184306e-01   1.64795245e-01  -1.45306914e+00
+  -2.14902427e+00  -5.26253377e-04]
+moved
+Ith = 274376821
+subscribed
+Ith = 274376821
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 272112377
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.00986858]
+ [-0.00036659]
+ [-0.00844701]
+ [-0.00214387]
+ [-0.00689402]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.00986858 -0.00036659 -0.00844701 -0.00214387 -0.00689402 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.18954821e+00  -6.13454549e-01   1.56236336e-01  -1.45514757e+00
+  -2.15598843e+00  -4.90490590e-04]
+moved
+Ith = 272112377
+subscribed
+Ith = 272112377
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 271634434
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.01019817]
+ [-0.00050078]
+ [-0.00760784]
+ [-0.00283166]
+ [-0.00936206]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.01019817 -0.00050078 -0.00760784 -0.00283166 -0.00936206 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.19986492e+00  -6.13864344e-01   1.48511507e-01  -1.45783761e+00
+  -2.16527905e+00  -4.66648732e-04]
+moved
+Ith = 271634434
+subscribed
+Ith = 271634434
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 272255232
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.01006867]
+ [-0.00062481]
+ [-0.007902  ]
+ [-0.0025557 ]
+ [-0.01078833]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.01006867 -0.00062481 -0.007902   -0.0025557  -0.01078833 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.21010543e+00  -6.14538645e-01   1.40408180e-01  -1.46048704e+00
+  -2.17608185e+00  -4.66648732e-04]
+moved
+Ith = 272255232
+subscribed
+Ith = 272255232
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 261566365
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.00622943]
+ [-0.00310378]
+ [-0.00533543]
+ [-0.00115955]
+ [-0.00798704]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.00622943 -0.00310378 -0.00533543 -0.00115955 -0.00798704 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.21651653e+00  -6.17628451e-01   1.34913348e-01  -1.46170444e+00
+  -2.18421587e+00  -4.66648732e-04]
+moved
+Ith = 261566365
+subscribed
+Ith = 261566365
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 264205283
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.00497281]
+ [-0.00410253]
+ [-0.00497542]
+ [-0.00027797]
+ [-0.00829356]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.00497281 -0.00410253 -0.00497542 -0.00027797 -0.00829356 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.22167837e+00  -6.21836311e-01   1.29763979e-01  -1.46185378e+00
+  -2.19243550e+00  -4.18488179e-04]
+moved
+Ith = 264205283
+subscribed
+Ith = 264205283
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 271597014
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.00735517]
+ [-0.0030548 ]
+ [-0.00622262]
+ [-0.00147156]
+ [-0.01037426]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.00735517 -0.0030548  -0.00622262 -0.00147156 -0.01037426 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.22899433e+00  -6.24943741e-01   1.23558149e-01  -1.46334730e+00
+  -2.20283796e+00  -4.42330037e-04]
+moved
+Ith = 271597014
+subscribed
+Ith = 271597014
+set dsrim path
+dssr im yometa
+dsrimvec generated
+imageraw conversion started
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisan
+Ith = 264812523
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+d_vel shape:
+(6, 1)
+d_joint_values type, shape and values:
+<type 'numpy.ndarray'>
+(6, 1)
+[[ 0.00394876]
+ [-0.00793554]
+ [-0.00465536]
+ [ 0.00082145]
+ [-0.00807185]
+ [-0.        ]]
+arr_d_joint_values type, shape and values
+<type 'numpy.ndarray'>
+(6,)
+[ 0.00394876 -0.00793554 -0.00465536  0.00082145 -0.00807185 -0.        ]
+new_joint_values type, shape, and values
+<type 'numpy.ndarray'>
+(6,)
+[  2.23307235e+00  -6.32985906e-01   1.18860250e-01  -1.46256444e+00
+  -2.21106317e+00  -4.06567250e-04]
+moved
+---------------
+-------------------------------角度の変化
+jikken3 no memo
+[  2.10249983e+00  -6.28720262e-01   2.13857317e-01  -1.42574640e+00
+  -2.11150638e+00  -5.50095235e-04]
+
+[  2.12165194e+00  -6.22384035e-01   2.00312716e-01  -1.43251983e+00
+  -2.11993405e+00  -5.14332448e-04]
+
+[  2.14007357e+00  -6.17956802e-01   1.88863012e-01  -1.43888677e+00
+  -2.12855150e+00  -5.62016164e-04]
+
+[  2.15471259e+00  -6.14460625e-01   1.81308515e-01  -1.44510400e+00
+  -2.13533718e+00  -5.02411519e-04]
+
+[  2.16744470e+00  -6.13220624e-01   1.72812018e-01  -1.44900924e+00
+  -2.14226279e+00  -5.02411519e-04]
+
+[  2.17956273e+00  -6.13184306e-01   1.64795245e-01  -1.45306914e+00
+  -2.14902427e+00  -5.26253377e-04]
+
+[  2.18954821e+00  -6.13454549e-01   1.56236336e-01  -1.45514757e+00
+  -2.15598843e+00  -4.90490590e-04]
+
+[  2.19986492e+00  -6.13864344e-01   1.48511507e-01  -1.45783761e+00
+  -2.16527905e+00  -4.66648732e-04]
+
+[  2.21010543e+00  -6.14538645e-01   1.40408180e-01  -1.46048704e+00
+  -2.17608185e+00  -4.66648732e-04]
+
+[  2.21651653e+00  -6.17628451e-01   1.34913348e-01  -1.46170444e+00
+  -2.18421587e+00  -4.66648732e-04]
+
+[  2.22167837e+00  -6.21836311e-01   1.29763979e-01  -1.46185378e+00
+  -2.19243550e+00  -4.18488179e-04]
+
+[  2.22899433e+00  -6.24943741e-01   1.23558149e-01  -1.46334730e+00
+  -2.20283796e+00  -4.42330037e-04]
+
+[  2.23307235e+00  -6.32985906e-01   1.18860250e-01  -1.46256444e+00
+  -2.21106317e+00  -4.06567250e-04]
+
+
+--------------
+そもそもの目標は
+joint_goal = [1.57, -0.92, 0.59, -1.22, -1.57, 0.0]
+-------------
+
+-----lambda = 0.01で再実験
+
+kappa@kappa-MP-i1640:~/catkin_ws/src/moveit_tutorials/_scripts$ rosrun moveit_tutorials servo.py 
+[INFO] [1672918613.055206]: servo node started
+elapsed time = 215.379000
+read csv file values
+moveit settings
+[ INFO] [1672918828.450460231]: Loading robot model 'ur3_robot'...
+[ WARN] [1672918828.513047830]: IK plugin for group 'manipulator' relies on deprecated API. Please implement initialize(RobotModel, ...).
+[ INFO] [1672918828.516050824]: IK Using joint shoulder_link -6.28319 6.28319
+[ INFO] [1672918828.516075948]: IK Using joint upper_arm_link -6.28319 6.28319
+[ INFO] [1672918828.516092948]: IK Using joint forearm_link -3.14159 3.14159
+[ INFO] [1672918828.516109873]: IK Using joint wrist_1_link -6.28319 6.28319
+[ INFO] [1672918828.516126280]: IK Using joint wrist_2_link -6.28319 6.28319
+[ INFO] [1672918828.516147434]: IK Using joint wrist_3_link -6.28319 6.28319
+[ INFO] [1672918828.516168364]: Looking in common namespaces for param name: manipulator/position_only_ik
+[ INFO] [1672918828.517193754]: Looking in common namespaces for param name: manipulator/solve_type
+[ INFO] [1672918828.518578183]: Using solve type Distance
+[ INFO] [1672918829.559308020]: Ready to take commands for planning group manipulator.
+moveit settings done
+dsrimvec generated
+hi
+-----subscribed-----
+Ith = 500000000
+imageraw conversion started
+keisan started
+Ith = 458285298
+arr_d_joint_values
+[ 0.00102068 -0.00157589 -0.00064978  0.00014919 -0.00098911 -0.        ]
+new_joint_goal values
+[  1.56271053e+00  -9.38607940e-01   5.94734813e-01  -1.22006786e+00
+  -1.56839654e+00  -2.36670123e-05]
+moved
+-----subscribed-----
+Ith = 458285298
+imageraw conversion started
+keisan started
+Ith = 458316309
+arr_d_joint_values
+[ 0.00103203 -0.00158797 -0.00065553  0.0001498  -0.00098338 -0.        ]
+new_joint_goal values
+[  1.56366757e+00  -9.40117286e-01   5.94202165e-01  -1.21994756e+00
+  -1.56932636e+00  -3.55879413e-05]
+moved
+-----subscribed-----
+Ith = 458316309
+imageraw conversion started
+keisan started
+Ith = 458267937
+arr_d_joint_values
+[ 0.0010216  -0.00157632 -0.00067617  0.00017079 -0.00097184 -0.        ]
+new_joint_goal values
+[  1.56474695e+00  -9.41782677e-01   5.93583089e-01  -1.21977066e+00
+  -1.57021367e+00  -3.55879413e-05]
+moved
+-----subscribed-----
+Ith = 458267937
+imageraw conversion started
+keisan started
+Ith = 458283585
+arr_d_joint_values
+[ 0.00101928 -0.00158589 -0.00066381  0.00016393 -0.00097915 -0.        ]
+new_joint_goal values
+[  1.56569020e+00  -9.43433041e-01   5.93104307e-01  -1.21957390e+00
+  -1.57110742e+00  -1.17460834e-05]
+moved
+-----subscribed-----
+Ith = 458283585
+imageraw conversion started
+keisan started
+Ith = 456899955
+arr_d_joint_values
+[ 0.00097861 -0.00167247 -0.0006847   0.00021222 -0.00084404 -0.        ]
+new_joint_goal values
+[  1.56672742e+00  -9.45244811e-01   5.92556994e-01  -1.21938161e+00
+  -1.57183538e+00  -3.55879413e-05]
+moved
+-----subscribed-----
+Ith = 456899955
+imageraw conversion started
+keisan started
+Ith = 455997166
+arr_d_joint_values
+[ 0.00098694 -0.0017275  -0.0006836   0.00025475 -0.00081645 -0.        ]
+new_joint_goal values
+[  1.56757344e+00  -9.47060334e-01   5.91875264e-01  -1.21926707e+00
+  -1.57265895e+00  -5.99066364e-05]
+moved
+-----subscribed-----
+Ith = 455997166
+imageraw conversion started
+keisan started
+Ith = 64158947
+arr_d_joint_values
+[ 0.00117078  0.00110674 -0.00058739 -0.00060892 -0.00192586 -0.        ]
+new_joint_goal values
+[  1.56864384e+00  -9.46166345e-01   5.91301036e-01  -1.21983129e+00
+  -1.57454703e+00   2.39684505e-05]
+moved
+-----subscribed-----
+Ith = 64158947
+imageraw conversion started
+keisan started
+Ith = 65472728
+arr_d_joint_values
+[ 0.00126112  0.001195   -0.00062649 -0.00067438 -0.00200128 -0.        ]
+new_joint_goal values
+[  1.56976366e+00  -9.45143478e-01   5.90831353e-01  -1.22043606e+00
+  -1.57645637e+00  -3.55879413e-05]
+moved
+-----subscribed-----
+Ith = 65472728
+imageraw conversion started
+keisan started
+Ith = 324270564
+arr_d_joint_values
+[ 0.00119886 -0.00096488 -0.00055898 -0.00020954 -0.00081911 -0.        ]
+new_joint_goal values
+[  1.57105407e+00  -9.46153707e-01   5.90264194e-01  -1.22060684e+00
+  -1.57738325e+00   2.39684505e-05]
+moved
+-----subscribed-----
+Ith = 324270564
+imageraw conversion started
+keisan started
+Ith = 361354639
+arr_d_joint_values
+[  9.15246892e-04  -1.58884499e-03  -2.46456286e-04   3.73417973e-05
+  -6.53771479e-04  -0.00000000e+00]
+new_joint_goal values
+[  1.57195576e+00  -9.47759954e-01   5.90133736e-01  -1.22058788e+00
+  -1.57796130e+00   8.38895794e-05]
+moved
+-----subscribed-----
+Ith = 361354639
+imageraw conversion started
+keisan started
+Ith = 391002758
+arr_d_joint_values
+[ 0.00074047 -0.00200279 -0.00030352  0.00034167 -0.00070319 -0.        ]
+new_joint_goal values
+[  1.57267910e+00  -9.49742696e-01   5.89956985e-01  -1.22030740e+00
+  -1.57871787e+00   9.58738019e-05]
+moved
+-----subscribed-----
+Ith = 391002758
+imageraw conversion started
+keisan started
+Ith = 381548089
+arr_d_joint_values
+[ 0.00079907 -0.00194837 -0.00033362  0.00030758 -0.00075998 -0.        ]
+new_joint_goal values
+[  1.57351626e+00  -9.51808294e-01   5.89735678e-01  -1.22017364e+00
+  -1.57936165e+00   1.07858024e-04]
+moved
+-----subscribed-----
+Ith = 381548089
+imageraw conversion started
+keisan started
+Ith = 232334624
+arr_d_joint_values
+[ 0.00159633  0.00023579 -0.00109648 -0.00054768 -0.0015144  -0.        ]
+new_joint_goal values
+[  1.57510376e+00  -9.51648781e-01   5.88625681e-01  -1.22080097e+00
+  -1.58076361e+00   9.58738019e-05]
+moved
+-----subscribed-----
+Ith = 232334624
+imageraw conversion started
+keisan started
+Ith = 124905001
+arr_d_joint_values
+[ 0.00147697  0.00098778 -0.00140119 -0.00048618 -0.0020877  -0.        ]
+new_joint_goal values
+[  1.57674417e+00  -9.50800472e-01   5.87218996e-01  -1.22106324e+00
+  -1.58287137e+00   9.58738019e-05]
+moved
+-----subscribed-----
+Ith = 124905001
+imageraw conversion started
+keisan started
+Ith = 138719003
+arr_d_joint_values
+[ 0.00152401  0.00079559 -0.0014546  -0.00046    -0.00221502 -0.        ]
+new_joint_goal values
+[  1.57833604e+00  -9.50022777e-01   5.85741271e-01  -1.22142045e+00
+  -1.58510774e+00   8.38895794e-05]
+moved
+-----subscribed-----
+Ith = 138719003
+imageraw conversion started
+keisan started
+Ith = 74857857
+arr_d_joint_values
+[ 0.00150515  0.00140551 -0.00079786 -0.00080075 -0.00226638 -0.        ]
+new_joint_goal values
+[  1.57986130e+00  -9.48670418e-01   5.84961306e-01  -1.22219273e+00
+  -1.58728055e+00   7.19053496e-05]
+moved
+-----subscribed-----
+Ith = 74857857
+imageraw conversion started
+keisan started
+Ith = 90176033
+arr_d_joint_values
+[ 0.00175765  0.00143902 -0.00117294 -0.00078577 -0.00214991 -0.        ]
+new_joint_goal values
+[  1.58167067e+00  -9.47211638e-01   5.83856188e-01  -1.22296930e+00
+  -1.58956162e+00   8.38895794e-05]
+moved
+-----subscribed-----
+Ith = 90176033
+imageraw conversion started
+keisan started
+Ith = 76481173
+arr_d_joint_values
+[ 0.00142424  0.00136387 -0.00071006 -0.00079073 -0.00226916 -0.        ]
+new_joint_goal values
+[  1.58319288e+00  -9.45801441e-01   5.83038276e-01  -1.22366949e+00
+  -1.59176607e+00   7.19053496e-05]
+moved
+-----subscribed-----
+Ith = 76481173
+imageraw conversion started
+keisan started
+Ith = 76585783
+arr_d_joint_values
+[ 0.00147262  0.00141208 -0.00075504 -0.00081068 -0.00227953 -0.        ]
+new_joint_goal values
+[  1.58459439e+00  -9.44531577e-01   5.82538403e-01  -1.22434890e+00
+  -1.59405382e+00   2.39684505e-05]
+moved
+-----subscribed-----
+Ith = 76585783
+imageraw conversion started
+keisan started
+Ith = 94356866
+arr_d_joint_values
+[ 0.0017215   0.00133796 -0.0011782  -0.00078722 -0.00206402 -0.        ]
+new_joint_goal values
+[  1.58645928e+00  -9.43144672e-01   5.81480089e-01  -1.22509267e+00
+  -1.59605513e+00   2.39684505e-05]
+moved
+-----subscribed-----
+Ith = 94356866
+imageraw conversion started
+keisan started
+Ith = 276421244
+arr_d_joint_values
+[  1.53402479e-03  -9.73002282e-05  -1.10958202e-03  -2.37334702e-04
+  -9.29989149e-04  -0.00000000e+00]
+new_joint_goal values
+[  1.58814017e+00  -9.43273872e-01   5.80291766e-01  -1.22516554e+00
+  -1.59701870e+00  -4.79857074e-05]
+moved
+-----subscribed-----
+Ith = 276421244
+imageraw conversion started
+keisan started
+Ith = 218031778
+arr_d_joint_values
+[ 0.0017579   0.00073263 -0.00159651 -0.00039055 -0.00146128 -0.        ]
+new_joint_goal values
+[  1.59006397e+00  -9.42551709e-01   5.78715742e-01  -1.22546276e+00
+  -1.59843691e+00  -1.17460834e-05]
+moved
+-----subscribed-----
+Ith = 218031778
+imageraw conversion started
+keisan started
+Ith = 184204183
+arr_d_joint_values
+[ 0.00181098  0.00108665 -0.00186583 -0.00036245 -0.00182008 -0.        ]
+new_joint_goal values
+[  1.59192474e+00  -9.41539174e-01   5.76853790e-01  -1.22599875e+00
+  -1.60037786e+00  -9.51925861e-05]
+moved
+-----subscribed-----
+Ith = 184204183
+imageraw conversion started
+keisan started
+Ith = 365281945
+arr_d_joint_values
+[ 0.0010017  -0.00144074 -0.00060277  0.00025996 -0.00033533 -0.        ]
+new_joint_goal values
+[  1.59301911e+00  -9.42940756e-01   5.76428844e-01  -1.22565196e+00
+  -1.60079903e+00  -9.51925861e-05]
+moved
+-----subscribed-----
+Ith = 365281945
+imageraw conversion started
+keisan started
+Ith = 78976768
+arr_d_joint_values
+[ 0.0016458   0.00151408 -0.00097641 -0.00081734 -0.00223215 -0.        ]
+new_joint_goal values
+[  1.59474110e+00  -9.41386880e-01   5.75552615e-01  -1.22665726e+00
+  -1.60280360e+00  -1.55274068e-04]
+moved
+-----subscribed-----
+Ith = 78976768
+imageraw conversion started
+keisan started
+Ith = 91446295
+arr_d_joint_values
+[ 0.00174983  0.00139101 -0.00120335 -0.0007753  -0.0022246  -0.        ]
+new_joint_goal values
+[  1.59666522e+00  -9.40025082e-01   5.74416352e-01  -1.22733428e+00
+  -1.60504959e+00  -2.02957784e-04]
+moved
+-----subscribed-----
+Ith = 91446295
+imageraw conversion started
+keisan started
+Ith = 100166342
+arr_d_joint_values
+[ 0.00171205  0.00125452 -0.00132818 -0.00068747 -0.00218415 -0.        ]
+new_joint_goal values
+[  1.59843513e+00  -9.38712457e-01   5.73082263e-01  -1.22797792e+00
+  -1.60720259e+00  -1.55274068e-04]
+moved
+-----subscribed-----
+Ith = 100166342
+imageraw conversion started
+keisan started
+Ith = 83865527
+arr_d_joint_values
+[ 0.00170434  0.00151375 -0.00099936 -0.00088425 -0.00220712 -0.        ]
+new_joint_goal values
+[  1.60022319e+00  -9.37219650e-01   5.72273343e-01  -1.22890570e+00
+  -1.60947861e+00  -1.55274068e-04]
+moved
+-----subscribed-----
+Ith = 83865527
+imageraw conversion started
+keisan started
+Ith = 94916752
+arr_d_joint_values
+[ 0.00178105  0.00136308 -0.00130361 -0.00074699 -0.00222251 -0.        ]
+new_joint_goal values
+[  1.60192830e+00  -9.35801049e-01   5.71143691e-01  -1.22963199e+00
+  -1.61171130e+00  -1.79115926e-04]
+moved
+-----subscribed-----
+Ith = 94916752
+imageraw conversion started
+keisan started
+Ith = 113719293
+arr_d_joint_values
+[ 0.00175079  0.00110011 -0.00160298 -0.0005506  -0.00228109 -0.        ]
+new_joint_goal values
+[  1.60358628e+00  -9.34830446e-01   5.69479139e-01  -1.23016707e+00
+  -1.61391517e+00  -2.02957784e-04]
+moved
+-----subscribed-----
+Ith = 113719293
+imageraw conversion started
+keisan started
+Ith = 146242309
+arr_d_joint_values
+[ 0.00180307  0.00110203 -0.00197503 -0.00036322 -0.00233889 -0.        ]
+new_joint_goal values
+[  1.60537485e+00  -9.33834318e-01   5.67610772e-01  -1.23039931e+00
+  -1.61632235e+00  -2.02957784e-04]
+moved
+-----subscribed-----
+Ith = 146242309
+imageraw conversion started
+keisan started
+Ith = 79498557
+arr_d_joint_values
+[ 0.00153559  0.00141346 -0.00080402 -0.00086308 -0.00225959 -0.        ]
+new_joint_goal values
+[  1.60697502e+00  -9.32373239e-01   5.66710396e-01  -1.23121054e+00
+  -1.61862818e+00  -1.91036855e-04]
+moved
+-----subscribed-----
+Ith = 79498557
+imageraw conversion started
+keisan started
+Ith = 82334521
+arr_d_joint_values
+[ 0.00145237  0.00133799 -0.00069237 -0.00085927 -0.0022912  -0.        ]
+new_joint_goal values
+[  1.60854451e+00  -9.31070642e-01   5.66043849e-01  -1.23200972e+00
+  -1.62088901e+00  -1.55274068e-04]
+moved
+
+
+-----------------Ith no henka
+
+Ith = 500000000
+Ith = 458285298
+Ith = 458316309
+Ith = 458267937
+Ith = 458283585
+Ith = 456899955
+Ith = 455997166
+Ith = 64158947<-----------------
+Ith = 65472728
+Ith = 324270564
+Ith = 361354639
+Ith = 391002758
+Ith = 381548089
+Ith = 232334624
+Ith = 124905001
+Ith = 138719003
+Ith = 74857857
+Ith = 90176033
+Ith = 76481173
+Ith = 76585783
+Ith = 94356866
+Ith = 276421244
+Ith = 218031778
+Ith = 184204183
+Ith = 365281945
+Ith = 78976768
+Ith = 91446295
+Ith = 100166342
+Ith = 83865527
+Ith = 94916752
+Ith = 113719293
+Ith = 146242309
+Ith = 79498557
+Ith = 82334521
+
+
+ゲインλが悪いのか
+そもそもプログラムが悪いのか
+閾値の設定が悪いのか
+そもそも、そもそもヤコビアンが悪いのか
+
+
+

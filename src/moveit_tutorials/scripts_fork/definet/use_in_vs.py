@@ -14,7 +14,7 @@ from collections import OrderedDict
 
 
 class DefiNet(nn.Module):
-    def __init__(self ,device  ,input_dim=(3, 512, 512),
+    def __init__(self ,device  ,input_dim,
                  conv_param={'filter_num':64, 'filter_size':3, 'pad':1, 'stride':1},
                  hidden_size=512, output_size=6,  loss_alfa=1.0, loss_beta=1.0,
                  init_weights: bool = True):
@@ -28,7 +28,7 @@ class DefiNet(nn.Module):
 
         # レイヤの生成
 
-        self.pool0 = nn.MaxPool2d(2, 2)
+        self.pool0 = nn.MaxPool2d(3, 3)
         # 1
         self.layers = OrderedDict()
         self.norm0 = nn.BatchNorm2d(filter_size)
@@ -103,9 +103,9 @@ class DefiNet(nn.Module):
 
 
     def Siamise_forward(self, x):
+        # x = self.pool0(x)
         x_norm = (x-255/2) / 255
-        x_norm = self.pool0(x_norm)
-        x_norm = self.cutting(x_norm)
+        # x_norm = self.cutting(x_norm)
 
         out_1 = self.relu2(self.conv2(self.relu1(self.conv1(x_norm))))
         # out_1 = self.relu2(self.norm1(self.conv2(self.relu1(self.norm1(self.conv1(x_norm))))))

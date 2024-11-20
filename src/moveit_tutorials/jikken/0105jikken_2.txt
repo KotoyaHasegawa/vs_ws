@@ -1,0 +1,189 @@
+kappa@kappa-MP-i1640:~/catkin_ws/src/moveit_tutorials/_scripts$ rosrun moveit_tutorials servo.py 
+[INFO] [1672898756.383723]: servo node started
+csvyometa
+elapsed time = 216.367269
+read csv file values
+hi
+subscribed
+Ith = 500000000
+lambda = 0.100000
+0.03
+set dsrim path
+dssr im yometa
+dsrimvec generated
+moveit settei
+[ INFO] [1672898972.838961231]: Loading robot model 'ur3_robot'...
+[ WARN] [1672898972.903256368]: IK plugin for group 'manipulator' relies on deprecated API. Please implement initialize(RobotModel, ...).
+[ INFO] [1672898972.906178336]: IK Using joint shoulder_link -6.28319 6.28319
+[ INFO] [1672898972.906204775]: IK Using joint upper_arm_link -6.28319 6.28319
+[ INFO] [1672898972.906223912]: IK Using joint forearm_link -3.14159 3.14159
+[ INFO] [1672898972.906242160]: IK Using joint wrist_1_link -6.28319 6.28319
+[ INFO] [1672898972.906260227]: IK Using joint wrist_2_link -6.28319 6.28319
+[ INFO] [1672898972.906277824]: IK Using joint wrist_3_link -6.28319 6.28319
+[ INFO] [1672898972.906298176]: Looking in common namespaces for param name: manipulator/position_only_ik
+[ INFO] [1672898972.907215493]: Looking in common namespaces for param name: manipulator/solve_type
+[ INFO] [1672898972.908516980]: Using solve type Distance
+[ INFO] [1672898974.044959583]: Ready to take commands for planning group manipulator.
+moveit settei owari
+imageraw henkan
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisanmae
+keisan
+Ith = 69983555
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+servo_vel shape:
+(6, 1)
+servo_goal shape and values:
+(6, 1)
+[[-0.00232323]
+ [-0.00114046]
+ [-0.00201933]
+ [ 0.00043934]
+ [-0.00629508]
+ [-0.        ]]
+test_servo_goal type and values
+<type 'numpy.ndarray'>
+[-0.00232323 -0.00114046 -0.00201933  0.00043934 -0.00629508 -0.        ]
+moved
+lambda = 0.100000
+0.03
+set dsrim path
+dssr im yometa
+dsrimvec generated
+moveit settei
+[ INFO] [1672898980.100504067]: Ready to take commands for planning group manipulator.
+moveit settei owari
+imageraw henkan
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisanmae
+keisan
+Ith = 69983555
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+servo_vel shape:
+(6, 1)
+servo_goal shape and values:
+(6, 1)
+[[-0.00232323]
+ [-0.00114046]
+ [-0.00201933]
+ [ 0.00043934]
+ [-0.00629508]
+ [-0.        ]]
+test_servo_goal type and values
+<type 'numpy.ndarray'>
+[-0.00232323 -0.00114046 -0.00201933  0.00043934 -0.00629508 -0.        ]
+
+
+
+-----------------------------------
+
+
+kappa@kappa-MP-i1640:~/catkin_ws/src/moveit_tutorials/_scripts$ rosrun moveit_tutorials servo.py 
+[INFO] [1672899312.858649]: servo node started
+csvyometa
+elapsed time = 214.655522
+read csv file values
+hi
+subscribed
+Ith = 500000000
+lambda = 0.100000
+0.03
+set dsrim path
+dssr im yometa
+dsrimvec generated
+moveit settei
+[ INFO] [1672899527.606422291]: Loading robot model 'ur3_robot'...
+[ WARN] [1672899527.670566043]: IK plugin for group 'manipulator' relies on deprecated API. Please implement initialize(RobotModel, ...).
+[ INFO] [1672899527.673024053]: IK Using joint shoulder_link -6.28319 6.28319
+[ INFO] [1672899527.673050203]: IK Using joint upper_arm_link -6.28319 6.28319
+[ INFO] [1672899527.673063584]: IK Using joint forearm_link -3.14159 3.14159
+[ INFO] [1672899527.673076905]: IK Using joint wrist_1_link -6.28319 6.28319
+[ INFO] [1672899527.673090911]: IK Using joint wrist_2_link -6.28319 6.28319
+[ INFO] [1672899527.673105099]: IK Using joint wrist_3_link -6.28319 6.28319
+[ INFO] [1672899527.673125105]: Looking in common namespaces for param name: manipulator/position_only_ik
+[ INFO] [1672899527.674039527]: Looking in common namespaces for param name: manipulator/solve_type
+[ INFO] [1672899527.675352145]: Using solve type Distance
+[ INFO] [1672899528.782043604]: Ready to take commands for planning group manipulator.
+moveit settei owari
+imageraw henkan
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisanmae
+keisan
+Ith = 80404800
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+servo_vel shape:
+(6, 1)
+servo_goal shape and values:
+(6, 1)
+[[ 0.01300881]
+ [ 0.01310408]
+ [-0.00541003]
+ [-0.00777151]
+ [-0.02245609]
+ [-0.        ]]
+test_servo_goal type and values
+<type 'numpy.ndarray'>
+[ 0.01300881  0.01310408 -0.00541003 -0.00777151 -0.02245609 -0.        ]
+moved
+lambda = 0.100000
+0.03
+set dsrim path
+dssr im yometa
+dsrimvec generated
+moveit settei
+[ INFO] [1672899534.300221356]: Ready to take commands for planning group manipulator.
+moveit settei owari
+imageraw henkan
+bgr shape:
+(1080, 1920, 3)
+gry shape:
+(1080, 1920)
+image column vector shape:
+(2073600, 1)
+keisanmae
+keisan
+Ith = 80404800
+pseudo inverse interaction matrix shape:
+(6, 2073600)
+servo_vel shape:
+(6, 1)
+servo_goal shape and values:
+(6, 1)
+[[ 0.01300881]
+ [ 0.01310408]
+ [-0.00541003]
+ [-0.00777151]
+ [-0.02245609]
+ [-0.        ]]
+test_servo_goal type and values
+<type 'numpy.ndarray'>
+[ 0.01300881  0.01310408 -0.00541003 -0.00777151 -0.02245609 -0.        ]
+^Cterminate called after throwing an instance of 'boost::exception_detail::clone_impl<boost::exception_detail::error_info_injector<boost::lock_error> >'
+pure virtual method called
+terminate called recursively
+中止 (コアダンプ)
+
+
+
+
+memo
+
+

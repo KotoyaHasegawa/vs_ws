@@ -15,7 +15,7 @@ I_dsr_vec = np.empty((92160, 1))
 rsme_data = []
 # nop = 1105920 ###for UI
 # nop = 230400 # withdraw
-nop = 72044 # input
+nop = 72044 # input 
 # nop = 115200 ###realsense
 def gen_I_dsr_vec():
     global I_dsr_vec

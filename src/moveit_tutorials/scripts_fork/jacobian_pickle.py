@@ -30,20 +30,23 @@ print('henkan start')
 # csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_input_avs2.csv', header=None)
 
 #治具変更
-# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avs3.csv', header=None)
-# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_input_avs3.csv', header=None)
-# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avs4.csv', header=None)
-# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avs5.csv', header=None)
-# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avs6.csv', header=None)
-# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avs7.csv', header=None)
-# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avs8.csv', header=None)
-# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avs9.csv', header=None)
 
 
 
 
 # csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avspos.csv', header=None)#取り出し
-csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_input_avspos.csv', header=None)#格納
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_input_avspos.csv', header=None)#格納
+
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_ibvspos.csv', header=None)#取り出し
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_input_ibvspos.csv', header=None)#格納
+
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_IBVS_withdraw_theta.csv', header=None)#取り出し
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_IBVS_input_theta.csv', header=None)#格納
+
+csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_AVS_withdraw_theta.csv', header=None)#取り出し
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_AVS_input_theta.csv', header=None)#格納
+
+
 
 print('read csv file')
 csvdata.to_pickle('./pinv_int_mat_pickle/pinv_int_mat_double.pickle')
@@ -52,11 +55,11 @@ print('done')
 
 
 #mainpulatopr jacobi
-# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mnipulator_jac.csv', header=None)
+csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mnipulator_jac.csv', header=None)
 
-# print('read csv file')
-# csvdata.to_pickle('./pinv_int_mat_pickle/pinv_int_mnipulator_jac.pickle')
-# print('done')
+print('read csv file')
+csvdata.to_pickle('./pinv_int_mat_pickle/pinv_int_mnipulator_jac.pickle')
+print('done')
 
 
 ###normalized

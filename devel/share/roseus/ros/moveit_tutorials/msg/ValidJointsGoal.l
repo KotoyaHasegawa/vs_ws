@@ -1,0 +1,1 @@
+/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/share/roseus/ros/moveit_tutorials/msg/ValidJointsGoal.l
