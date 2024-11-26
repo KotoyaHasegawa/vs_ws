@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/robot_model_and_robot_state_tutorial"
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/robot_model_and_robot_state_tutorial.pdb"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/robot_model_and_robot_state_tutorial"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/robot_model_and_robot_state_tutorial.pdb"
   "CMakeFiles/robot_model_and_robot_state_tutorial.dir/src/robot_model_and_robot_state_tutorial.cpp.o"
 )
 

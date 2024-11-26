@@ -1,8 +1,8 @@
-# Install script for directory: /home/kotoyah/vs_ws/src/moveit_tutorials/doc/move_group_python_interface
+# Install script for directory: /home/kotoya/vs_ws/src/moveit_tutorials/doc/move_group_python_interface
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kotoyah/vs_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/kotoya/vs_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,10 +38,10 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/moveit_tutorials" TYPE PROGRAM FILES "/home/kotoyah/vs_ws/build/moveit_tutorials/doc/move_group_python_interface/catkin_generated/installspace/move_group_python_interface_tutorial.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/moveit_tutorials" TYPE PROGRAM FILES "/home/kotoya/vs_ws/build/moveit_tutorials/doc/move_group_python_interface/catkin_generated/installspace/move_group_python_interface_tutorial.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/moveit_tutorials" TYPE DIRECTORY FILES "/home/kotoyah/vs_ws/src/moveit_tutorials/doc/move_group_python_interface/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/moveit_tutorials" TYPE DIRECTORY FILES "/home/kotoya/vs_ws/src/moveit_tutorials/doc/move_group_python_interface/launch")
 endif()
 

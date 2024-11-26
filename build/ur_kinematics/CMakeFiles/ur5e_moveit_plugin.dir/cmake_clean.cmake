@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoyah/vs_ws/devel/.private/ur_kinematics/lib/libur5e_moveit_plugin.pdb"
-  "/home/kotoyah/vs_ws/devel/.private/ur_kinematics/lib/libur5e_moveit_plugin.so"
+  "/home/kotoya/vs_ws/devel/.private/ur_kinematics/lib/libur5e_moveit_plugin.pdb"
+  "/home/kotoya/vs_ws/devel/.private/ur_kinematics/lib/libur5e_moveit_plugin.so"
   "CMakeFiles/ur5e_moveit_plugin.dir/src/ur_moveit_plugin.cpp.o"
 )
 

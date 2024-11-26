@@ -67,14 +67,14 @@ set(moveit_tutorials_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(moveit_tutorials_SOURCE_PREFIX /home/kotoyah/vs_ws/src/moveit_tutorials)
-  set(moveit_tutorials_DEVEL_PREFIX /home/kotoyah/vs_ws/devel/.private/moveit_tutorials)
+  set(moveit_tutorials_SOURCE_PREFIX /home/kotoya/vs_ws/src/moveit_tutorials)
+  set(moveit_tutorials_DEVEL_PREFIX /home/kotoya/vs_ws/devel/.private/moveit_tutorials)
   set(moveit_tutorials_INSTALL_PREFIX "")
   set(moveit_tutorials_PREFIX ${moveit_tutorials_DEVEL_PREFIX})
 else()
   set(moveit_tutorials_SOURCE_PREFIX "")
   set(moveit_tutorials_DEVEL_PREFIX "")
-  set(moveit_tutorials_INSTALL_PREFIX /home/kotoyah/vs_ws/install)
+  set(moveit_tutorials_INSTALL_PREFIX /home/kotoya/vs_ws/install)
   set(moveit_tutorials_PREFIX ${moveit_tutorials_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(moveit_tutorials_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/include;/home/kotoyah/vs_ws/src/moveit_tutorials/doc/interactivity/include;/usr/include/eigen3 " STREQUAL " ")
+if(NOT "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/include;/home/kotoya/vs_ws/src/moveit_tutorials/doc/interactivity/include;/usr/include/eigen3 " STREQUAL " ")
   set(moveit_tutorials_INCLUDE_DIRS "")
-  set(_include_dirs "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/include;/home/kotoyah/vs_ws/src/moveit_tutorials/doc/interactivity/include;/usr/include/eigen3")
+  set(_include_dirs "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/include;/home/kotoya/vs_ws/src/moveit_tutorials/doc/interactivity/include;/usr/include/eigen3")
   if(NOT "https://github.com/ros-planning/moveit_tutorials/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-planning/moveit_tutorials/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://docs.ros.org/en/melodic/api/moveit_tutorials/html/index.html " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/include;/home/kotoya
         message(FATAL_ERROR "Project 'moveit_tutorials' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'moveit_tutorials' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/kotoyah/vs_ws/src/moveit_tutorials/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'moveit_tutorials' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/kotoya/vs_ws/src/moveit_tutorials/${idir}'.  ${_report}")
     endif()
     _list_append_unique(moveit_tutorials_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib;/home/kotoyah/vs_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib;/home/kotoya/vs_ws/devel/lib;/opt/ros/noetic/lib;/home/kotoya/kototya_ws/devel/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -1,21 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/kotoyah/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp
+Change Dir: /home/kotoya/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_79563/fast && /usr/bin/make -f CMakeFiles/cmTC_79563.dir/build.make CMakeFiles/cmTC_79563.dir/build
-make[1]: Entering directory '/home/kotoyah/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_79563.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_79563.dir/src.c.o   -c /home/kotoyah/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_79563
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79563.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_79563.dir/src.c.o  -o cmTC_79563 
-/usr/bin/ld: CMakeFiles/cmTC_79563.dir/src.c.o: in function `main':
+Run Build Command(s):/usr/bin/make cmTC_21904/fast && /usr/bin/make -f CMakeFiles/cmTC_21904.dir/build.make CMakeFiles/cmTC_21904.dir/build
+make[1]: ディレクトリ '/home/kotoya/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp' に入ります
+Building C object CMakeFiles/cmTC_21904.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_21904.dir/src.c.o   -c /home/kotoya/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_21904
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_21904.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_21904.dir/src.c.o  -o cmTC_21904 
+/usr/bin/ld: CMakeFiles/cmTC_21904.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_79563.dir/build.make:87: cmTC_79563] Error 1
-make[1]: Leaving directory '/home/kotoyah/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_79563/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_21904.dir/build.make:87: cmTC_21904] エラー 1
+make[1]: ディレクトリ '/home/kotoya/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp' から出ます
+make: *** [Makefile:121: cmTC_21904/fast] エラー 2
 
 
 Source file was:
@@ -39,20 +39,20 @@ int main(void)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/kotoyah/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp
+Change Dir: /home/kotoya/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_aef6b/fast && /usr/bin/make -f CMakeFiles/cmTC_aef6b.dir/build.make CMakeFiles/cmTC_aef6b.dir/build
-make[1]: Entering directory '/home/kotoyah/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_aef6b.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_aef6b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_aef6b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aef6b.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_aef6b.dir/CheckFunctionExists.c.o  -o cmTC_aef6b  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
+Run Build Command(s):/usr/bin/make cmTC_1c6fb/fast && /usr/bin/make -f CMakeFiles/cmTC_1c6fb.dir/build.make CMakeFiles/cmTC_1c6fb.dir/build
+make[1]: ディレクトリ '/home/kotoya/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp' に入ります
+Building C object CMakeFiles/cmTC_1c6fb.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_1c6fb.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1c6fb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1c6fb.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_1c6fb.dir/CheckFunctionExists.c.o  -o cmTC_1c6fb  -lpthreads 
+/usr/bin/ld: -lpthreads が見つかりません
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_aef6b.dir/build.make:87: cmTC_aef6b] Error 1
-make[1]: Leaving directory '/home/kotoyah/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_aef6b/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_1c6fb.dir/build.make:87: cmTC_1c6fb] エラー 1
+make[1]: ディレクトリ '/home/kotoya/vs_ws/build/ur3_moveit_config/CMakeFiles/CMakeTmp' から出ます
+make: *** [Makefile:121: cmTC_1c6fb/fast] エラー 2
 
 
 

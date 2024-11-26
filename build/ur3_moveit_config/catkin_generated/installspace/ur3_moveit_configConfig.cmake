@@ -67,14 +67,14 @@ set(ur3_moveit_config_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ur3_moveit_config_SOURCE_PREFIX /home/kotoyah/vs_ws/src/universal_robot/ur3_moveit_config)
-  set(ur3_moveit_config_DEVEL_PREFIX /home/kotoyah/vs_ws/devel/.private/ur3_moveit_config)
+  set(ur3_moveit_config_SOURCE_PREFIX /home/kotoya/vs_ws/src/universal_robot/ur3_moveit_config)
+  set(ur3_moveit_config_DEVEL_PREFIX /home/kotoya/vs_ws/devel/.private/ur3_moveit_config)
   set(ur3_moveit_config_INSTALL_PREFIX "")
   set(ur3_moveit_config_PREFIX ${ur3_moveit_config_DEVEL_PREFIX})
 else()
   set(ur3_moveit_config_SOURCE_PREFIX "")
   set(ur3_moveit_config_DEVEL_PREFIX "")
-  set(ur3_moveit_config_INSTALL_PREFIX /home/kotoyah/vs_ws/install)
+  set(ur3_moveit_config_INSTALL_PREFIX /home/kotoya/vs_ws/install)
   set(ur3_moveit_config_PREFIX ${ur3_moveit_config_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/kotoyah/vs_ws/install/lib;/home/kotoyah/vs_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/kotoya/vs_ws/install/lib;/home/kotoya/vs_ws/devel/lib;/opt/ros/noetic/lib;/home/kotoya/kototya_ws/devel/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

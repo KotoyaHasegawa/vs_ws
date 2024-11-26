@@ -1,106 +1,58 @@
-[  0%] Built target sensor_msgs_generate_messages_cpp
-[  0%] Built target std_msgs_generate_messages_cpp
 [  0%] Built target geometry_msgs_generate_messages_cpp
 [  0%] Built target actionlib_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_cpp
 [  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyActionGoal
-[  0%] Built target geometry_msgs_generate_messages_py
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsFeedback
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyFeedback
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsActionGoal
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_GetCurrentCount
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyGoal
 [  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsAction
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsGoal
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsResult
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsActionResult
 [  0%] Built target _moveit_tutorials_generate_messages_check_deps_GettfPose
 [  0%] Built target _moveit_tutorials_generate_messages_check_deps_GetCurrentImage
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsActionFeedback
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsActionGoal
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_GetCurrentCount
 [  0%] Built target _moveit_tutorials_generate_messages_check_deps_GetCurrentJointVel
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyActionResult
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_GetCurrentImageData
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsActionFeedback
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsFeedback
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsResult
 [  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyActionFeedback
 [  0%] Built target sensor_msgs_generate_messages_py
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyResult
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyAction
-[  0%] Built target std_msgs_generate_messages_py
-[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_py
 [  0%] Built target actionlib_msgs_generate_messages_py
-[  0%] Built target geometry_msgs_generate_messages_nodejs
-[  0%] Built target sensor_msgs_generate_messages_lisp
-[  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_py
 [  0%] Built target geometry_msgs_generate_messages_lisp
-[  0%] Built target std_msgs_generate_messages_nodejs
-[  0%] Built target sensor_msgs_generate_messages_nodejs
-[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsGoal
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyFeedback
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyGoal
 [  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyActionResult
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_ValidJointsActionResult
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyResult
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[  0%] Built target _moveit_tutorials_generate_messages_check_deps_EmptyAction
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_eus
 [  0%] Built target actionlib_msgs_generate_messages_eus
-[35m[1mScanning dependencies of target ros_api_tutorial[0m
-[35m[1mScanning dependencies of target robot_model_and_robot_state_tutorial[0m
 [  0%] Built target std_msgs_generate_messages_eus
-[35m[1mScanning dependencies of target planning_scene_ros_api_tutorial[0m
-[35m[1mScanning dependencies of target planning_scene_tutorial[0m
-[35m[1mScanning dependencies of target motion_planning_pipeline_tutorial[0m
-[35m[1mScanning dependencies of target pick_place_tutorial[0m
-[35m[1mScanning dependencies of target state_display_tutorial[0m
-[35m[1mScanning dependencies of target interactivity_utils[0m
-[35m[1mScanning dependencies of target bag_publisher_maintain_time[0m
-[  0%] Built target _moveit_tutorials_generate_messages_check_deps_GetCurrentImageData
-[35m[1mScanning dependencies of target motion_planning_api_tutorial[0m
-[35m[1mScanning dependencies of target move_group_interface_tutorial[0m
-[35m[1mScanning dependencies of target detect_and_add_cylinder_collision_object_demo[0m
-[  1%] [32mBuilding CXX object doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/src/robot_model_and_robot_state_tutorial.cpp.o[0m
-[ 10%] [32mBuilding CXX object doc/kinematics/CMakeFiles/ros_api_tutorial.dir/src/ros_api_tutorial.cpp.o[0m
-[ 17%] Built target moveit_tutorials_generate_messages_lisp
-[ 30%] Built target moveit_tutorials_generate_messages_cpp
-[ 30%] [32mBuilding CXX object doc/perception_pipeline/CMakeFiles/bag_publisher_maintain_time.dir/src/bag_publisher_maintain_time.cpp.o[0m
-[ 30%] [32mBuilding CXX object doc/state_display/CMakeFiles/state_display_tutorial.dir/src/state_display_tutorial.cpp.o[0m
-[ 31%] Built target actionlib_msgs_generate_messages_nodejs
-[ 46%] Built target moveit_tutorials_generate_messages_eus
-[ 47%] [32mBuilding CXX object doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/src/planning_scene_tutorial.cpp.o[0m
-[ 64%] Built target moveit_tutorials_generate_messages_py
-[ 65%] [32mBuilding CXX object doc/pick_place/CMakeFiles/pick_place_tutorial.dir/src/pick_place_tutorial.cpp.o[0m
-[ 67%] [32mBuilding CXX object doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/src/motion_planning_pipeline_tutorial.cpp.o[0m
-[ 68%] [32mBuilding CXX object doc/move_group_interface/CMakeFiles/move_group_interface_tutorial.dir/src/move_group_interface_tutorial.cpp.o[0m
-[ 69%] [32mBuilding CXX object doc/interactivity/CMakeFiles/interactivity_utils.dir/src/imarker.cpp.o[0m
-[ 70%] [32mBuilding CXX object doc/interactivity/CMakeFiles/interactivity_utils.dir/src/interactive_robot.cpp.o[0m
-[ 71%] [32mBuilding CXX object doc/motion_planning_api/CMakeFiles/motion_planning_api_tutorial.dir/src/motion_planning_api_tutorial.cpp.o[0m
-[ 71%] [32mBuilding CXX object doc/planning_scene_ros_api/CMakeFiles/planning_scene_ros_api_tutorial.dir/src/planning_scene_ros_api_tutorial.cpp.o[0m
-[ 86%] Built target moveit_tutorials_generate_messages_nodejs
-[ 87%] [32mBuilding CXX object doc/perception_pipeline/CMakeFiles/detect_and_add_cylinder_collision_object_demo.dir/src/detect_and_add_cylinder_collision_object_demo.cpp.o[0m
-[ 87%] Built target moveit_tutorials_generate_messages
-[ 88%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/bag_publisher_maintain_time[0m
-[ 88%] Built target bag_publisher_maintain_time
-[ 89%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/planning_scene_tutorial[0m
-[ 89%] [32m[1mLinking CXX shared library /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/libinteractivity_utils.so[0m
-[ 89%] Built target planning_scene_tutorial
-[ 90%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/state_display_tutorial[0m
-[01m[K/home/kotoyah/vs_ws/src/moveit_tutorials/doc/move_group_interface/src/move_group_interface_tutorial.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
-[01m[K/home/kotoyah/vs_ws/src/moveit_tutorials/doc/move_group_interface/src/move_group_interface_tutorial.cpp:306:110:[m[K [01;35m[Kwarning: [m[K‘[01m[Kdouble moveit::planning_interface::MoveGroupInterface::computeCartesianPath(const std::vector<geometry_msgs::Pose_<std::allocator<void> > >&, double, double, moveit_msgs::RobotTrajectory&, bool, moveit_msgs::MoveItErrorCodes*)[m[K’ is deprecated: Drop jump_threshold [[01;35m[K-Wdeprecated-declarations[m[K]
-  306 |   double fraction = move_group_interface.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory[01;35m[K)[m[K;
-      |                                                                                                              [01;35m[K^[m[K
-In file included from [01m[K/home/kotoyah/vs_ws/src/moveit_tutorials/doc/move_group_interface/src/move_group_interface_tutorial.cpp:37[m[K:
-[01m[K/opt/ros/noetic/include/moveit/move_group_interface/move_group_interface.h:783:3:[m[K [01;36m[Knote: [m[Kdeclared here
-  783 |   [01;36m[KcomputeCartesianPath[m[K(const std::vector<geometry_msgs::Pose>& waypoints, double eef_step, double /*jump_threshold*/,
-      |   [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
-[ 91%] Built target interactivity_utils
-[35m[1mScanning dependencies of target visualizing_collisions_tutorial[0m
-[ 92%] [32mBuilding CXX object doc/visualizing_collisions/CMakeFiles/visualizing_collisions_tutorial.dir/src/visualizing_collisions_tutorial.cpp.o[0m
-[ 93%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/robot_model_and_robot_state_tutorial[0m
-[ 93%] Built target state_display_tutorial
-[ 94%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/pick_place_tutorial[0m
-[ 94%] Built target robot_model_and_robot_state_tutorial
-[ 94%] Built target pick_place_tutorial
-[ 95%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/ros_api_tutorial[0m
-[ 95%] Built target ros_api_tutorial
-[ 95%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/motion_planning_pipeline_tutorial[0m
-[ 96%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/planning_scene_ros_api_tutorial[0m
-[ 96%] Built target motion_planning_pipeline_tutorial
-[ 96%] Built target planning_scene_ros_api_tutorial
-[ 97%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/move_group_interface_tutorial[0m
-[ 97%] Built target move_group_interface_tutorial
-[ 98%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/visualizing_collisions_tutorial[0m
-[100%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/motion_planning_api_tutorial[0m
+[  1%] Built target robot_model_and_robot_state_tutorial
+[  3%] Built target ros_api_tutorial
+[  5%] Built target planning_scene_tutorial
+[  7%] Built target motion_planning_api_tutorial
+[  8%] Built target planning_scene_ros_api_tutorial
+[  9%] Built target motion_planning_pipeline_tutorial
+[ 10%] Built target state_display_tutorial
+[ 12%] Built target move_group_interface_tutorial
+[ 13%] Built target bag_publisher_maintain_time
+[ 60%] Built target moveit_tutorials_generate_messages_lisp
+[ 60%] Built target moveit_tutorials_generate_messages_py
+[ 63%] Built target interactivity_utils
+[ 60%] Built target moveit_tutorials_generate_messages_cpp
+[ 78%] Built target moveit_tutorials_generate_messages_nodejs
+[ 94%] Built target moveit_tutorials_generate_messages_eus
+[ 96%] Built target pick_place_tutorial
+[ 97%] Built target detect_and_add_cylinder_collision_object_demo
+[ 97%] Built target moveit_tutorials_generate_messages
 [100%] Built target visualizing_collisions_tutorial
-[100%] [32m[1mLinking CXX executable /home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/detect_and_add_cylinder_collision_object_demo[0m
-[100%] Built target motion_planning_api_tutorial
-[100%] Built target detect_and_add_cylinder_collision_object_demo

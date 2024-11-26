@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/motion_planning_pipeline_tutorial"
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/motion_planning_pipeline_tutorial.pdb"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/motion_planning_pipeline_tutorial"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/motion_planning_pipeline_tutorial.pdb"
   "CMakeFiles/motion_planning_pipeline_tutorial.dir/src/motion_planning_pipeline_tutorial.cpp.o"
 )
 

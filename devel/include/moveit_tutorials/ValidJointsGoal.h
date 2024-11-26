@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/include/moveit_tutorials/ValidJointsGoal.h
+/home/kotoya/vs_ws/devel/.private/moveit_tutorials/include/moveit_tutorials/ValidJointsGoal.h

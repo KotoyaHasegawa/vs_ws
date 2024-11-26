@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/ur5_moveit_config/share/ur5_moveit_config/cmake/ur5_moveit_configConfig-version.cmake
+/home/kotoya/kototya_ws/devel/.private/ur5_moveit_config/share/ur5_moveit_config/cmake/ur5_moveit_configConfig-version.cmake

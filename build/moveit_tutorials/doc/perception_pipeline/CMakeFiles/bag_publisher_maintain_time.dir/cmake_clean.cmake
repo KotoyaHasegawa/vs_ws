@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/bag_publisher_maintain_time"
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/bag_publisher_maintain_time.pdb"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/bag_publisher_maintain_time"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/bag_publisher_maintain_time.pdb"
   "CMakeFiles/bag_publisher_maintain_time.dir/src/bag_publisher_maintain_time.cpp.o"
 )
 

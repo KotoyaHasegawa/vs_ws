@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/ur_dashboard_msgs/share/roseus/ros/ur_dashboard_msgs/msg/SetModeGoal.l
+/home/kotoya/kototya_ws/devel/.private/ur_dashboard_msgs/share/roseus/ros/ur_dashboard_msgs/msg/SetModeGoal.l

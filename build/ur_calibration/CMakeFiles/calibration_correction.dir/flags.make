@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++17
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"ur_calibration\"
 
-CXX_INCLUDES = -I/home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration/include -I/home/kotoyah/vs_ws/devel/.private/ur_dashboard_msgs/include -I/home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/../../../../../include -isystem /opt/ros/noetic/include 
+CXX_INCLUDES = -I/home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/kotoya/kototya_ws/devel/.private/ur_dashboard_msgs/include -I/home/kotoya/kototya_ws/devel/.private/ur_msgs/include -I/home/kotoya/kototya_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include -I/usr/include/eigen3 -I/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/../../../../../include -isystem /home/kotoya/vs_ws/devel/include 
 

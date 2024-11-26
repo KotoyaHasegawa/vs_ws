@@ -1,4 +1,4 @@
-Symlinking /home/kotoyah/vs_ws/devel/share/ur_calibration/cmake/ur_calibrationConfig-version.cmake
-Symlinking /home/kotoyah/vs_ws/devel/share/ur_calibration/cmake/ur_calibrationConfig.cmake
-Symlinking /home/kotoyah/vs_ws/devel/lib/ur_calibration/calibration_correction
-Symlinking /home/kotoyah/vs_ws/devel/lib/pkgconfig/ur_calibration.pc
+Symlinking /home/kotoya/kototya_ws/devel/share/ur_calibration/cmake/ur_calibrationConfig.cmake
+Symlinking /home/kotoya/kototya_ws/devel/share/ur_calibration/cmake/ur_calibrationConfig-version.cmake
+Symlinking /home/kotoya/kototya_ws/devel/lib/pkgconfig/ur_calibration.pc
+Symlinking /home/kotoya/kototya_ws/devel/lib/ur_calibration/calibration_correction

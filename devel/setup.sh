@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/catkin_tools_prebuild/setup.sh
+/home/kotoya/kototya_ws/devel/.private/catkin_tools_prebuild/setup.sh

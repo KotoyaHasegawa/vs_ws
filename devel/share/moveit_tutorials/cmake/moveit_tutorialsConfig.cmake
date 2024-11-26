@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/share/moveit_tutorials/cmake/moveit_tutorialsConfig.cmake
+/home/kotoya/vs_ws/devel/.private/moveit_tutorials/share/moveit_tutorials/cmake/moveit_tutorialsConfig.cmake

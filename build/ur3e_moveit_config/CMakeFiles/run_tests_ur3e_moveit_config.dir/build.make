@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kotoyah/vs_ws/src/universal_robot/ur3e_moveit_config
+CMAKE_SOURCE_DIR = /home/kotoya/vs_ws/src/universal_robot/ur3e_moveit_config
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kotoyah/vs_ws/build/ur3e_moveit_config
+CMAKE_BINARY_DIR = /home/kotoya/vs_ws/build/ur3e_moveit_config
 
 # Utility rule file for run_tests_ur3e_moveit_config.
 
@@ -67,6 +67,6 @@ CMakeFiles/run_tests_ur3e_moveit_config.dir/clean:
 .PHONY : CMakeFiles/run_tests_ur3e_moveit_config.dir/clean
 
 CMakeFiles/run_tests_ur3e_moveit_config.dir/depend:
-	cd /home/kotoyah/vs_ws/build/ur3e_moveit_config && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kotoyah/vs_ws/src/universal_robot/ur3e_moveit_config /home/kotoyah/vs_ws/src/universal_robot/ur3e_moveit_config /home/kotoyah/vs_ws/build/ur3e_moveit_config /home/kotoyah/vs_ws/build/ur3e_moveit_config /home/kotoyah/vs_ws/build/ur3e_moveit_config/CMakeFiles/run_tests_ur3e_moveit_config.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kotoya/vs_ws/build/ur3e_moveit_config && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kotoya/vs_ws/src/universal_robot/ur3e_moveit_config /home/kotoya/vs_ws/src/universal_robot/ur3e_moveit_config /home/kotoya/vs_ws/build/ur3e_moveit_config /home/kotoya/vs_ws/build/ur3e_moveit_config /home/kotoya/vs_ws/build/ur3e_moveit_config/CMakeFiles/run_tests_ur3e_moveit_config.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run_tests_ur3e_moveit_config.dir/depend
 

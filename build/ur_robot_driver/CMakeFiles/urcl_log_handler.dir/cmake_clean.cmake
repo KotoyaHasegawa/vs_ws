@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoyah/vs_ws/devel/.private/ur_robot_driver/lib/liburcl_log_handler.pdb"
-  "/home/kotoyah/vs_ws/devel/.private/ur_robot_driver/lib/liburcl_log_handler.so"
+  "/home/kotoya/vs_ws/devel/.private/ur_robot_driver/lib/liburcl_log_handler.pdb"
+  "/home/kotoya/vs_ws/devel/.private/ur_robot_driver/lib/liburcl_log_handler.so"
   "CMakeFiles/urcl_log_handler.dir/src/urcl_log_handler.cpp.o"
 )
 

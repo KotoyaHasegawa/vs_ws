@@ -1,0 +1,36 @@
+[33m[1mCMake Warning[0m at /home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration/CMakeLists.txt:37 (add_executable):
+  Cannot generate a safe runtime search path for target
+  calibration_correction because there is a cycle in the constraint graph:
+
+    dir 0 is [/home/kotoya/kototya_ws/devel/.private/ur_robot_driver/lib]
+    dir 1 is [/opt/ros/noetic/lib/x86_64-linux-gnu]
+      dir 3 must precede it due to runtime library [liburcl.so]
+    dir 2 is [/opt/ros/noetic/lib]
+      dir 0 must precede it due to runtime library [libur_robot_driver_plugin.so]
+    dir 3 is [/home/kotoya/vs_ws/devel/lib]
+      dir 1 must precede it due to runtime library [liburcl.so]
+
+  Some of these libraries may not be found correctly.
+
+
+[33m[1mCMake Warning[0m at /opt/ros/noetic/share/catkin/cmake/test/gtest.cmake:180 (add_executable):
+  Cannot generate a safe runtime search path for target calibration_test
+  because there is a cycle in the constraint graph:
+
+    dir 0 is [/home/kotoya/vs_ws/build/ur_calibration/gtest]
+    dir 1 is [/home/kotoya/vs_ws/build/ur_calibration/gtest/lib]
+    dir 2 is [/home/kotoya/kototya_ws/devel/.private/ur_robot_driver/lib]
+    dir 3 is [/opt/ros/noetic/lib/x86_64-linux-gnu]
+      dir 5 must precede it due to runtime library [liburcl.so]
+    dir 4 is [/opt/ros/noetic/lib]
+      dir 2 must precede it due to runtime library [libur_robot_driver_plugin.so]
+    dir 5 is [/home/kotoya/vs_ws/devel/lib]
+      dir 3 must precede it due to runtime library [liburcl.so]
+
+  Some of these libraries may not be found correctly.
+[36mCall Stack (most recent call first):[0m
+  /opt/ros/noetic/share/catkin/cmake/test/gtest.cmake:89 (_catkin_add_executable_with_google_test)
+  /opt/ros/noetic/share/catkin/cmake/test/gtest.cmake:37 (_catkin_add_google_test)
+  CMakeLists.txt:61 (catkin_add_gtest)
+
+

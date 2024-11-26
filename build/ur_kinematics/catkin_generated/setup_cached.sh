@@ -7,10 +7,10 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/kotoyah/vs_ws/devel/.private/ur_kinematics:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/kotoyah/vs_ws/devel/.private/ur_kinematics/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/kotoyah/vs_ws/devel/.private/ur_kinematics/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD='/home/kotoyah/vs_ws/build/ur_kinematics'
-export PYTHONPATH="/home/kotoyah/vs_ws/devel/.private/ur_kinematics/lib/python3/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/kotoyah/vs_ws/devel/.private/ur_kinematics/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/kotoyah/vs_ws/src/universal_robot/ur_kinematics:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/kotoya/vs_ws/devel/.private/ur_kinematics:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/kotoya/vs_ws/devel/.private/ur_kinematics/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/kotoya/vs_ws/devel/.private/ur_kinematics/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PWD='/home/kotoya/vs_ws/build/ur_kinematics'
+export PYTHONPATH="/home/kotoya/vs_ws/devel/.private/ur_kinematics/lib/python3/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/kotoya/vs_ws/devel/.private/ur_kinematics/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/kotoya/kototya_ws/src/universal_robot/ur_kinematics:/home/kotoya/vs_ws/src/universal_robot/ur_kinematics:$ROS_PACKAGE_PATH"

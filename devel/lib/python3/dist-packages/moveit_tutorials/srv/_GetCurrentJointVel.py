@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/python3/dist-packages/moveit_tutorials/srv/_GetCurrentJointVel.py
+/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/python3/dist-packages/moveit_tutorials/srv/_GetCurrentJointVel.py
