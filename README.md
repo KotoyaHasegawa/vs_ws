@@ -30,6 +30,7 @@ roslaunch realsense2_camera rs_camera.launch color_width:=1920 color_height:=108
 ```
 
 **4th terminal**
+Adjust the Realsense here.
 ```
 rosrun rqt_reconfigure rqt_reconfigure
 ```
