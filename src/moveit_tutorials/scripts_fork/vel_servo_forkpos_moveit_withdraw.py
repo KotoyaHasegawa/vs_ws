@@ -57,6 +57,7 @@ I_dsr_vec = np.empty((nop, 1))
 lmbd = 0.04 #withdraw
 
 
+
 rmseth = 0.0 #6.0 #withdraw
 
 
@@ -195,7 +196,7 @@ def ik(initial_joint_values, go_pose, current_euler_x, current_euler_y, current_
 
     # Cartesian pathの計算
     waypoints = [current_pose]
-    (plan, fraction) = moveit_client.compute_cartesian_path(waypoints, eef_step=0.008, jump_threshold=0.0)
+    (plan, fraction) = moveit_client.compute_cartesian_path(waypoints, eef_step=0.008)
     # プランの実行
     success = moveit_client.execute(plan, wait=True)
     # ポーズターゲットを元に戻す
@@ -206,6 +207,59 @@ def ik(initial_joint_values, go_pose, current_euler_x, current_euler_y, current_
     moveit_client.clear_path_constraints()
 
     return success
+
+def ik_and_vel(go_pose_deff, moveit_client, dt):
+    """
+    手先速度から関節角速度を計算する関数
+    - go_pose_deff: 手先速度ベクトル [vx, vy, vz, wx, wy, wz]
+    - moveit_client: MoveItのMoveGroupCommander
+    - dt: 時間差
+    """
+    # 現在の手先位置を取得
+    current_pose = moveit_client.get_current_pose().pose
+
+    # 手先速度を考慮した目標手先位置を計算
+    goal_pose = Pose()
+    goal_pose.position.x = current_pose.position.x + go_pose_deff[0] * dt
+    goal_pose.position.y = current_pose.position.y + go_pose_deff[1] * dt
+    goal_pose.position.z = current_pose.position.z + go_pose_deff[2] * dt
+
+    # オイラー角速度を適用して目標の姿勢を計算
+    current_orientation = [
+        current_pose.orientation.x,
+        current_pose.orientation.y,
+        current_pose.orientation.z,
+        current_pose.orientation.w,
+    ]
+    goal_orientation_euler = [
+        go_pose_deff[3] * dt,  # roll角速度
+        go_pose_deff[4] * dt,  # pitch角速度
+        go_pose_deff[5] * dt,  # yaw角速度
+    ]
+    goal_orientation_quat = euler_to_quaternion(
+        goal_orientation_euler[0], goal_orientation_euler[1], goal_orientation_euler[2]
+    )
+    goal_pose.orientation.x = goal_orientation_quat[0]
+    goal_pose.orientation.y = goal_orientation_quat[1]
+    goal_pose.orientation.z = goal_orientation_quat[2]
+    goal_pose.orientation.w = goal_orientation_quat[3]
+
+    # MoveItで目標手先位置を設定して逆運動学を解く
+    moveit_client.set_pose_target(goal_pose)
+    success, plan, planning_time, error_code = moveit_client.plan()  # プランを生成
+    print(plan)
+
+    # 計画が正しいか確認
+    if plan and plan.joint_trajectory.points:
+        joint_velocities = plan.joint_trajectory.points[1].velocities  # 最終点の関節角度を取得
+    else:
+        rospy.logwarn("Planning failed or no trajectory points found.")
+        return [0.0] * len(moveit_client.get_current_joint_values())  # 速度ゼロを返す
+
+    # 現在の関節角度を取得
+
+
+    return joint_velocities
 
 
 def signal_handler(sig, frame):
@@ -310,20 +364,20 @@ def main(msg):
     
     # rmse = 100
     
-    # with open('./dsrth_result/desired_pose.csv', 'r') as f:
-    #     reader = csv.reader(f)
-    #     for row in reader:
-    #         desired_pose = [float(x) for x in row]
+    with open('./dsrth_result/desired_pose.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            desired_pose = [float(x) for x in row]
 
     # with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
     #     reader = csv.reader(f)
     #     for row in reader:
     #         desired_pose = [float(x) for x in row]
 
-    with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            desired_pose = [float(x) for x in row]
+    # with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+    #     reader = csv.reader(f)
+    #     for row in reader:
+    #         desired_pose = [float(x) for x in row]
 
     #withdraw
     if desired_pose[5] > 0 :
@@ -393,9 +447,23 @@ def main(msg):
         go_pose_deff = lmbd*(np.dot(pinv_int_mat_double, dI)) 
         go_pose_deff  =go_pose_deff.T     
         go_pose_deff  = go_pose_deff.flatten()
-        ik(initial_joint_values, go_pose_deff,euler_x, euler_y, euler_z ,moveit_client)	
+        ik(initial_joint_values, go_pose_deff,euler_x, euler_y, euler_z ,moveit_client)
+
+
+        current_time = time.time() - start_time
+
+        # if not time_series:  # time_series が空の場合
+        #     dt = current_time
+        # else:  # time_series にデータがある場合
+        #     previous_time = time_series[-1]  # 最後の時間を取得
+        #     dt = current_time - previous_time
+        # # 関節角速度を計算
+            
+        # joint_velocities = ik_and_vel(go_pose_deff, moveit_client, dt)
+
+
         # joint_deff = ik(go_pose_deff,euler_x, euler_y, euler_z ,moveit_client)	
-        # vel_input.data = 0.2*(joint_deff.T)        
+        # vel_input.data = joint_velocities
         # vel_pub.publish(vel_input) #プログラミングROS P109では速度の値だけf分岐させてpublish部分はif分岐の外においてた
 
 ##############################################################################################################################
@@ -446,7 +514,7 @@ def main(msg):
         error_rotation_angle = np.abs(np.arccos(desired_quaternion[3])*2- np.arccos(current_quaternion[3])*2)*180 / math.pi
 
         
-        current_time = time.time() - start_time
+        
         time_series.append(current_time)
         rmse_data.append(rmse)
 
