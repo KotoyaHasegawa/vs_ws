@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/ur_kinematics/lib/python3/dist-packages/ur_kinematics/__init__.py
+/home/kotoya/kototya_ws/devel/.private/ur_kinematics/lib/python3/dist-packages/ur_kinematics/__init__.py

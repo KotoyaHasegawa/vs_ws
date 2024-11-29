@@ -13,21 +13,21 @@ fi
 
 echo_and_run() { echo "+ $@" ; "$@" ; }
 
-echo_and_run cd "/home/kotoyah/vs_ws/src/universal_robot/ur_kinematics"
+echo_and_run cd "/home/kotoya/vs_ws/src/universal_robot/ur_kinematics"
 
 # ensure that Python install destination exists
-echo_and_run mkdir -p "$DESTDIR/home/kotoyah/vs_ws/install/lib/python3/dist-packages"
+echo_and_run mkdir -p "$DESTDIR/home/kotoya/vs_ws/install/lib/python3/dist-packages"
 
 # Note that PYTHONPATH is pulled from the environment to support installing
 # into one location when some dependencies were installed in another
 # location, #123.
 echo_and_run /usr/bin/env \
-    PYTHONPATH="/home/kotoyah/vs_ws/install/lib/python3/dist-packages:/home/kotoyah/vs_ws/build/ur_kinematics/lib/python3/dist-packages:$PYTHONPATH" \
-    CATKIN_BINARY_DIR="/home/kotoyah/vs_ws/build/ur_kinematics" \
+    PYTHONPATH="/home/kotoya/vs_ws/install/lib/python3/dist-packages:/home/kotoya/vs_ws/build/ur_kinematics/lib/python3/dist-packages:$PYTHONPATH" \
+    CATKIN_BINARY_DIR="/home/kotoya/vs_ws/build/ur_kinematics" \
     "/usr/bin/python3" \
-    "/home/kotoyah/vs_ws/src/universal_robot/ur_kinematics/setup.py" \
+    "/home/kotoya/vs_ws/src/universal_robot/ur_kinematics/setup.py" \
      \
-    build --build-base "/home/kotoyah/vs_ws/build/ur_kinematics" \
+    build --build-base "/home/kotoya/vs_ws/build/ur_kinematics" \
     install \
     --root="${DESTDIR-/}" \
-    --install-layout=deb --prefix="/home/kotoyah/vs_ws/install" --install-scripts="/home/kotoyah/vs_ws/install/bin"
+    --install-layout=deb --prefix="/home/kotoya/vs_ws/install" --install-scripts="/home/kotoya/vs_ws/install/bin"

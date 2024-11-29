@@ -7,10 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/kotoyah/vs_ws/devel/.private/moveit_tutorials:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD='/home/kotoyah/vs_ws/build/moveit_tutorials'
-export PYTHONPATH="/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/python3/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/kotoyah/vs_ws/src/moveit_tutorials:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/kotoya/vs_ws/devel/.private/moveit_tutorials:$CMAKE_PREFIX_PATH"
+export PWD='/home/kotoya/vs_ws/build/moveit_tutorials'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/kotoya/vs_ws/devel/.private/moveit_tutorials/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/kotoya/vs_ws/src/moveit_tutorials:$ROS_PACKAGE_PATH"

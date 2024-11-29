@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/libinteractivity_utils.pdb"
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/libinteractivity_utils.so"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/libinteractivity_utils.pdb"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/libinteractivity_utils.so"
   "CMakeFiles/interactivity_utils.dir/src/imarker.cpp.o"
   "CMakeFiles/interactivity_utils.dir/src/interactive_robot.cpp.o"
   "CMakeFiles/interactivity_utils.dir/src/pose_string.cpp.o"

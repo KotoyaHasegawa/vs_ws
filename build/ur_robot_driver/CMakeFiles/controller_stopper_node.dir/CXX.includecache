@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include/ur_robot_driver/controller_stopper.h
+/home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include/ur_robot_driver/controller_stopper.h
 ros/ros.h
 -
 std_msgs/Bool.h
 -
 
-/home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/src/controller_stopper.cpp
+/home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/src/controller_stopper.cpp
 ur_robot_driver/controller_stopper.h
 -
 controller_manager_msgs/SwitchController.h
@@ -22,7 +22,7 @@ controller_manager_msgs/ListControllers.h
 ios
 -
 
-/home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/src/controller_stopper_node.cpp
+/home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/src/controller_stopper_node.cpp
 ros/ros.h
 -
 ur_robot_driver/controller_stopper.h

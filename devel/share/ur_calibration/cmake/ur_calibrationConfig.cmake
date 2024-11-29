@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/ur_calibration/share/ur_calibration/cmake/ur_calibrationConfig.cmake
+/home/kotoya/kototya_ws/devel/.private/ur_calibration/share/ur_calibration/cmake/ur_calibrationConfig.cmake

@@ -1,0 +1,10 @@
+[ 64%] Built target urcl
+[ 68%] Built target dashboard_example
+[ 72%] Built target primary_pipeline_calibration_example
+[ 76%] Built target primary_pipeline_example
+[ 80%] Built target driver_example
+[ 84%] Built target freedrive_example
+[ 88%] Built target force_mode_example
+[ 92%] Built target tool_contact_example
+[ 96%] Built target rtde_client_example
+[100%] Built target spline_example

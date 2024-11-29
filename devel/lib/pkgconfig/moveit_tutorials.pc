@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/pkgconfig/moveit_tutorials.pc
+/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/pkgconfig/moveit_tutorials.pc

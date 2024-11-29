@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/kotoyah/vs_ws/src/moveit_tutorials/doc/motion_planning_api/src/motion_planning_api_tutorial.cpp
+/home/kotoya/vs_ws/src/moveit_tutorials/doc/motion_planning_api/src/motion_planning_api_tutorial.cpp
 pluginlib/class_loader.hpp
 -
 ros/ros.h

@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/ur_dashboard_msgs/share/ur_dashboard_msgs/cmake/ur_dashboard_msgsConfig.cmake
+/home/kotoya/kototya_ws/devel/.private/ur_dashboard_msgs/share/ur_dashboard_msgs/cmake/ur_dashboard_msgsConfig.cmake

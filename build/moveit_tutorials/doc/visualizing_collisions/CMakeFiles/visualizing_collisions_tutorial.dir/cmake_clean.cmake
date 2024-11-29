@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/visualizing_collisions_tutorial"
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/visualizing_collisions_tutorial.pdb"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/visualizing_collisions_tutorial"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/visualizing_collisions_tutorial.pdb"
   "CMakeFiles/visualizing_collisions_tutorial.dir/src/visualizing_collisions_tutorial.cpp.o"
 )
 

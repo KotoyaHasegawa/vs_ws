@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/kotoya/kototya_ws/devel/.private/ur20_moveit_config/setup.sh

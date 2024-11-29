@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/ur_robot_driver/share/ur_robot_driver/cmake/ur_robot_driverConfig-version.cmake
+/home/kotoya/kototya_ws/devel/.private/ur_robot_driver/share/ur_robot_driver/cmake/ur_robot_driverConfig-version.cmake

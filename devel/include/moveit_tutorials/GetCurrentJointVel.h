@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/include/moveit_tutorials/GetCurrentJointVel.h
+/home/kotoya/vs_ws/devel/.private/moveit_tutorials/include/moveit_tutorials/GetCurrentJointVel.h

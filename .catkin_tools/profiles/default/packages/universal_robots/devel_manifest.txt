@@ -1,2 +1,2 @@
 universal_robot/universal_robots
-/home/kotoyah/vs_ws/devel/.private/universal_robots/cmake.lock /home/kotoyah/vs_ws/devel/./cmake.lock
+/home/kotoya/vs_ws/devel/.private/universal_robots/cmake.lock /home/kotoya/vs_ws/devel/./cmake.lock

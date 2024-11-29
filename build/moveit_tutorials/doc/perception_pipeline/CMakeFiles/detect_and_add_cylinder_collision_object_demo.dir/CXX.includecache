@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/kotoyah/vs_ws/src/moveit_tutorials/doc/perception_pipeline/src/detect_and_add_cylinder_collision_object_demo.cpp
+/home/kotoya/vs_ws/src/moveit_tutorials/doc/perception_pipeline/src/detect_and_add_cylinder_collision_object_demo.cpp
 ros/ros.h
 -
 sensor_msgs/PointCloud2.h

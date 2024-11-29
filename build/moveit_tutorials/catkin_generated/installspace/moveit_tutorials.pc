@@ -1,4 +1,4 @@
-prefix=/home/kotoyah/vs_ws/install
+prefix=/home/kotoya/vs_ws/install
 
 Name: moveit_tutorials
 Description: Description of moveit_tutorials

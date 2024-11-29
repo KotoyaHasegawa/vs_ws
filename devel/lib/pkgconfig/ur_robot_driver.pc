@@ -1,1 +1,1 @@
-/home/kotoyah/vs_ws/devel/.private/ur_robot_driver/lib/pkgconfig/ur_robot_driver.pc
+/home/kotoya/kototya_ws/devel/.private/ur_robot_driver/lib/pkgconfig/ur_robot_driver.pc

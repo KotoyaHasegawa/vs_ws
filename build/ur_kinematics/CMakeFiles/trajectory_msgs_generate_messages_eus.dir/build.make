@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kotoyah/vs_ws/src/universal_robot/ur_kinematics
+CMAKE_SOURCE_DIR = /home/kotoya/vs_ws/src/universal_robot/ur_kinematics
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kotoyah/vs_ws/build/ur_kinematics
+CMAKE_BINARY_DIR = /home/kotoya/vs_ws/build/ur_kinematics
 
 # Utility rule file for trajectory_msgs_generate_messages_eus.
 
@@ -67,6 +67,6 @@ CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean:
 .PHONY : CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
 
 CMakeFiles/trajectory_msgs_generate_messages_eus.dir/depend:
-	cd /home/kotoyah/vs_ws/build/ur_kinematics && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kotoyah/vs_ws/src/universal_robot/ur_kinematics /home/kotoyah/vs_ws/src/universal_robot/ur_kinematics /home/kotoyah/vs_ws/build/ur_kinematics /home/kotoyah/vs_ws/build/ur_kinematics /home/kotoyah/vs_ws/build/ur_kinematics/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kotoya/vs_ws/build/ur_kinematics && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kotoya/vs_ws/src/universal_robot/ur_kinematics /home/kotoya/vs_ws/src/universal_robot/ur_kinematics /home/kotoya/vs_ws/build/ur_kinematics /home/kotoya/vs_ws/build/ur_kinematics /home/kotoya/vs_ws/build/ur_kinematics/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/trajectory_msgs_generate_messages_eus.dir/depend
 

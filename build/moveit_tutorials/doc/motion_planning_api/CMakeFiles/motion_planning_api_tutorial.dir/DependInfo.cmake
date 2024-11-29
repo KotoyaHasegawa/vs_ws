@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kotoyah/vs_ws/src/moveit_tutorials/doc/motion_planning_api/src/motion_planning_api_tutorial.cpp" "/home/kotoyah/vs_ws/build/moveit_tutorials/doc/motion_planning_api/CMakeFiles/motion_planning_api_tutorial.dir/src/motion_planning_api_tutorial.cpp.o"
+  "/home/kotoya/vs_ws/src/moveit_tutorials/doc/motion_planning_api/src/motion_planning_api_tutorial.cpp" "/home/kotoya/vs_ws/build/moveit_tutorials/doc/motion_planning_api/CMakeFiles/motion_planning_api_tutorial.dir/src/motion_planning_api_tutorial.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -23,8 +23,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/include"
-  "/home/kotoyah/vs_ws/src/moveit_tutorials/doc/interactivity/include"
+  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/include"
+  "/home/kotoya/vs_ws/src/moveit_tutorials/doc/interactivity/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/include/eigen3"
