@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/detect_and_add_cylinder_collision_object_demo"
-  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/detect_and_add_cylinder_collision_object_demo.pdb"
+  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/detect_and_add_cylinder_collision_object_demo"
+  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/detect_and_add_cylinder_collision_object_demo.pdb"
   "CMakeFiles/detect_and_add_cylinder_collision_object_demo.dir/src/detect_and_add_cylinder_collision_object_demo.cpp.o"
 )
 

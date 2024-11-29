@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kotoya/vs_ws/src/moveit_tutorials
+CMAKE_SOURCE_DIR = /home/kotoyah/vs_ws/src/moveit_tutorials
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kotoya/vs_ws/build/moveit_tutorials
+CMAKE_BINARY_DIR = /home/kotoyah/vs_ws/build/moveit_tutorials
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -103,8 +103,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -137,14 +137,14 @@ install/local/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -E cmake_progress_start /home/kotoya/vs_ws/build/moveit_tutorials/CMakeFiles /home/kotoya/vs_ws/build/moveit_tutorials/doc/interactivity/CMakeFiles/progress.marks
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/interactivity/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoya/vs_ws/build/moveit_tutorials/CMakeFiles 0
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -E cmake_progress_start /home/kotoyah/vs_ws/build/moveit_tutorials/CMakeFiles /home/kotoyah/vs_ws/build/moveit_tutorials/doc/interactivity/CMakeFiles/progress.marks
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/interactivity/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoyah/vs_ws/build/moveit_tutorials/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/interactivity/clean
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/interactivity/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/interactivity/preinstall
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/interactivity/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/interactivity/preinstall
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/interactivity/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 doc/interactivity/CMakeFiles/interactivity_utils.dir/rule:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/interactivity/CMakeFiles/interactivity_utils.dir/rule
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/interactivity/CMakeFiles/interactivity_utils.dir/rule
 .PHONY : doc/interactivity/CMakeFiles/interactivity_utils.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ interactivity_utils: doc/interactivity/CMakeFiles/interactivity_utils.dir/rule
 
 # fast build rule for target.
 interactivity_utils/fast:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/build
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/build
 .PHONY : interactivity_utils/fast
 
 src/imarker.o: src/imarker.cpp.o
@@ -188,7 +188,7 @@ src/imarker.o: src/imarker.cpp.o
 
 # target to build an object file
 src/imarker.cpp.o:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/imarker.cpp.o
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/imarker.cpp.o
 .PHONY : src/imarker.cpp.o
 
 src/imarker.i: src/imarker.cpp.i
@@ -197,7 +197,7 @@ src/imarker.i: src/imarker.cpp.i
 
 # target to preprocess a source file
 src/imarker.cpp.i:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/imarker.cpp.i
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/imarker.cpp.i
 .PHONY : src/imarker.cpp.i
 
 src/imarker.s: src/imarker.cpp.s
@@ -206,7 +206,7 @@ src/imarker.s: src/imarker.cpp.s
 
 # target to generate assembly for a file
 src/imarker.cpp.s:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/imarker.cpp.s
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/imarker.cpp.s
 .PHONY : src/imarker.cpp.s
 
 src/interactive_robot.o: src/interactive_robot.cpp.o
@@ -215,7 +215,7 @@ src/interactive_robot.o: src/interactive_robot.cpp.o
 
 # target to build an object file
 src/interactive_robot.cpp.o:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/interactive_robot.cpp.o
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/interactive_robot.cpp.o
 .PHONY : src/interactive_robot.cpp.o
 
 src/interactive_robot.i: src/interactive_robot.cpp.i
@@ -224,7 +224,7 @@ src/interactive_robot.i: src/interactive_robot.cpp.i
 
 # target to preprocess a source file
 src/interactive_robot.cpp.i:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/interactive_robot.cpp.i
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/interactive_robot.cpp.i
 .PHONY : src/interactive_robot.cpp.i
 
 src/interactive_robot.s: src/interactive_robot.cpp.s
@@ -233,7 +233,7 @@ src/interactive_robot.s: src/interactive_robot.cpp.s
 
 # target to generate assembly for a file
 src/interactive_robot.cpp.s:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/interactive_robot.cpp.s
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/interactive_robot.cpp.s
 .PHONY : src/interactive_robot.cpp.s
 
 src/pose_string.o: src/pose_string.cpp.o
@@ -242,7 +242,7 @@ src/pose_string.o: src/pose_string.cpp.o
 
 # target to build an object file
 src/pose_string.cpp.o:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/pose_string.cpp.o
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/pose_string.cpp.o
 .PHONY : src/pose_string.cpp.o
 
 src/pose_string.i: src/pose_string.cpp.i
@@ -251,7 +251,7 @@ src/pose_string.i: src/pose_string.cpp.i
 
 # target to preprocess a source file
 src/pose_string.cpp.i:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/pose_string.cpp.i
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/pose_string.cpp.i
 .PHONY : src/pose_string.cpp.i
 
 src/pose_string.s: src/pose_string.cpp.s
@@ -260,7 +260,7 @@ src/pose_string.s: src/pose_string.cpp.s
 
 # target to generate assembly for a file
 src/pose_string.cpp.s:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/pose_string.cpp.s
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/interactivity/CMakeFiles/interactivity_utils.dir/build.make doc/interactivity/CMakeFiles/interactivity_utils.dir/src/pose_string.cpp.s
 .PHONY : src/pose_string.cpp.s
 
 # Help Target
@@ -297,6 +297,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

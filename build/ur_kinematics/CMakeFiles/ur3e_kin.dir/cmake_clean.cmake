@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoya/vs_ws/devel/.private/ur_kinematics/lib/libur3e_kin.pdb"
-  "/home/kotoya/vs_ws/devel/.private/ur_kinematics/lib/libur3e_kin.so"
+  "/home/kotoyah/vs_ws/devel/.private/ur_kinematics/lib/libur3e_kin.pdb"
+  "/home/kotoyah/vs_ws/devel/.private/ur_kinematics/lib/libur3e_kin.so"
   "CMakeFiles/ur3e_kin.dir/src/ur_kin.cpp.o"
 )
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kotoya/vs_ws/src/moveit_tutorials
+CMAKE_SOURCE_DIR = /home/kotoyah/vs_ws/src/moveit_tutorials
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kotoya/vs_ws/build/moveit_tutorials
+CMAKE_BINARY_DIR = /home/kotoyah/vs_ws/build/moveit_tutorials
 
 # Utility rule file for pcl_ros_gencfg.
 
@@ -67,6 +67,6 @@ CMakeFiles/pcl_ros_gencfg.dir/clean:
 .PHONY : CMakeFiles/pcl_ros_gencfg.dir/clean
 
 CMakeFiles/pcl_ros_gencfg.dir/depend:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kotoya/vs_ws/src/moveit_tutorials /home/kotoya/vs_ws/src/moveit_tutorials /home/kotoya/vs_ws/build/moveit_tutorials /home/kotoya/vs_ws/build/moveit_tutorials /home/kotoya/vs_ws/build/moveit_tutorials/CMakeFiles/pcl_ros_gencfg.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kotoyah/vs_ws/src/moveit_tutorials /home/kotoyah/vs_ws/src/moveit_tutorials /home/kotoyah/vs_ws/build/moveit_tutorials /home/kotoyah/vs_ws/build/moveit_tutorials /home/kotoyah/vs_ws/build/moveit_tutorials/CMakeFiles/pcl_ros_gencfg.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/pcl_ros_gencfg.dir/depend
 

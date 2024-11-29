@@ -1,4 +1,4 @@
-prefix=/home/kotoya/vs_ws/devel/.private/ur16e_moveit_config
+prefix=/home/kotoyah/vs_ws/devel/.private/ur16e_moveit_config
 
 Name: ur16e_moveit_config
 Description: Description of ur16e_moveit_config

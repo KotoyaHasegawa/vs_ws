@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kotoya/vs_ws/src/moveit_tutorials
+CMAKE_SOURCE_DIR = /home/kotoyah/vs_ws/src/moveit_tutorials
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kotoya/vs_ws/build/moveit_tutorials
+CMAKE_BINARY_DIR = /home/kotoyah/vs_ws/build/moveit_tutorials
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -82,8 +82,8 @@ install/local/fast: preinstall/fast
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -137,14 +137,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -E cmake_progress_start /home/kotoya/vs_ws/build/moveit_tutorials/CMakeFiles /home/kotoya/vs_ws/build/moveit_tutorials/doc/robot_model_and_robot_state/CMakeFiles/progress.marks
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/robot_model_and_robot_state/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoya/vs_ws/build/moveit_tutorials/CMakeFiles 0
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -E cmake_progress_start /home/kotoyah/vs_ws/build/moveit_tutorials/CMakeFiles /home/kotoyah/vs_ws/build/moveit_tutorials/doc/robot_model_and_robot_state/CMakeFiles/progress.marks
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/robot_model_and_robot_state/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoyah/vs_ws/build/moveit_tutorials/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/robot_model_and_robot_state/clean
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/robot_model_and_robot_state/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/robot_model_and_robot_state/preinstall
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/robot_model_and_robot_state/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/robot_model_and_robot_state/preinstall
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/robot_model_and_robot_state/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/rule:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/rule
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/rule
 .PHONY : doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ robot_model_and_robot_state_tutorial: doc/robot_model_and_robot_state/CMakeFiles
 
 # fast build rule for target.
 robot_model_and_robot_state_tutorial/fast:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/build.make doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/build
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/build.make doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/build
 .PHONY : robot_model_and_robot_state_tutorial/fast
 
 src/robot_model_and_robot_state_tutorial.o: src/robot_model_and_robot_state_tutorial.cpp.o
@@ -188,7 +188,7 @@ src/robot_model_and_robot_state_tutorial.o: src/robot_model_and_robot_state_tuto
 
 # target to build an object file
 src/robot_model_and_robot_state_tutorial.cpp.o:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/build.make doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/src/robot_model_and_robot_state_tutorial.cpp.o
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/build.make doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/src/robot_model_and_robot_state_tutorial.cpp.o
 .PHONY : src/robot_model_and_robot_state_tutorial.cpp.o
 
 src/robot_model_and_robot_state_tutorial.i: src/robot_model_and_robot_state_tutorial.cpp.i
@@ -197,7 +197,7 @@ src/robot_model_and_robot_state_tutorial.i: src/robot_model_and_robot_state_tuto
 
 # target to preprocess a source file
 src/robot_model_and_robot_state_tutorial.cpp.i:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/build.make doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/src/robot_model_and_robot_state_tutorial.cpp.i
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/build.make doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/src/robot_model_and_robot_state_tutorial.cpp.i
 .PHONY : src/robot_model_and_robot_state_tutorial.cpp.i
 
 src/robot_model_and_robot_state_tutorial.s: src/robot_model_and_robot_state_tutorial.cpp.s
@@ -206,7 +206,7 @@ src/robot_model_and_robot_state_tutorial.s: src/robot_model_and_robot_state_tuto
 
 # target to generate assembly for a file
 src/robot_model_and_robot_state_tutorial.cpp.s:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/build.make doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/src/robot_model_and_robot_state_tutorial.cpp.s
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/build.make doc/robot_model_and_robot_state/CMakeFiles/robot_model_and_robot_state_tutorial.dir/src/robot_model_and_robot_state_tutorial.cpp.s
 .PHONY : src/robot_model_and_robot_state_tutorial.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

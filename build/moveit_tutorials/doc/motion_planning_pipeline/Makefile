@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kotoya/vs_ws/src/moveit_tutorials
+CMAKE_SOURCE_DIR = /home/kotoyah/vs_ws/src/moveit_tutorials
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kotoya/vs_ws/build/moveit_tutorials
+CMAKE_BINARY_DIR = /home/kotoyah/vs_ws/build/moveit_tutorials
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -115,8 +115,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -E cmake_progress_start /home/kotoya/vs_ws/build/moveit_tutorials/CMakeFiles /home/kotoya/vs_ws/build/moveit_tutorials/doc/motion_planning_pipeline/CMakeFiles/progress.marks
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/motion_planning_pipeline/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoya/vs_ws/build/moveit_tutorials/CMakeFiles 0
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -E cmake_progress_start /home/kotoyah/vs_ws/build/moveit_tutorials/CMakeFiles /home/kotoyah/vs_ws/build/moveit_tutorials/doc/motion_planning_pipeline/CMakeFiles/progress.marks
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/motion_planning_pipeline/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoyah/vs_ws/build/moveit_tutorials/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/motion_planning_pipeline/clean
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/motion_planning_pipeline/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/motion_planning_pipeline/preinstall
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/motion_planning_pipeline/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/motion_planning_pipeline/preinstall
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/motion_planning_pipeline/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/rule:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/rule
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/rule
 .PHONY : doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ motion_planning_pipeline_tutorial: doc/motion_planning_pipeline/CMakeFiles/motio
 
 # fast build rule for target.
 motion_planning_pipeline_tutorial/fast:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/build.make doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/build
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/build.make doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/build
 .PHONY : motion_planning_pipeline_tutorial/fast
 
 src/motion_planning_pipeline_tutorial.o: src/motion_planning_pipeline_tutorial.cpp.o
@@ -188,7 +188,7 @@ src/motion_planning_pipeline_tutorial.o: src/motion_planning_pipeline_tutorial.c
 
 # target to build an object file
 src/motion_planning_pipeline_tutorial.cpp.o:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/build.make doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/src/motion_planning_pipeline_tutorial.cpp.o
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/build.make doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/src/motion_planning_pipeline_tutorial.cpp.o
 .PHONY : src/motion_planning_pipeline_tutorial.cpp.o
 
 src/motion_planning_pipeline_tutorial.i: src/motion_planning_pipeline_tutorial.cpp.i
@@ -197,7 +197,7 @@ src/motion_planning_pipeline_tutorial.i: src/motion_planning_pipeline_tutorial.c
 
 # target to preprocess a source file
 src/motion_planning_pipeline_tutorial.cpp.i:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/build.make doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/src/motion_planning_pipeline_tutorial.cpp.i
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/build.make doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/src/motion_planning_pipeline_tutorial.cpp.i
 .PHONY : src/motion_planning_pipeline_tutorial.cpp.i
 
 src/motion_planning_pipeline_tutorial.s: src/motion_planning_pipeline_tutorial.cpp.s
@@ -206,7 +206,7 @@ src/motion_planning_pipeline_tutorial.s: src/motion_planning_pipeline_tutorial.c
 
 # target to generate assembly for a file
 src/motion_planning_pipeline_tutorial.cpp.s:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/build.make doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/src/motion_planning_pipeline_tutorial.cpp.s
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/build.make doc/motion_planning_pipeline/CMakeFiles/motion_planning_pipeline_tutorial.dir/src/motion_planning_pipeline_tutorial.cpp.s
 .PHONY : src/motion_planning_pipeline_tutorial.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

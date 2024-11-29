@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "actionlib_msgs;message_runtime;std_msgs".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "ur_dashboard_msgs"
-PROJECT_SPACE_DIR = "/home/kotoya/vs_ws/install"
+PROJECT_SPACE_DIR = "/home/kotoyah/vs_ws/install"
 PROJECT_VERSION = "2.1.5"

@@ -1,34 +1,34 @@
 
 "use strict";
 
-let EmptyAction = require('./EmptyAction.js');
-let ValidJointsFeedback = require('./ValidJointsFeedback.js');
-let EmptyResult = require('./EmptyResult.js');
-let EmptyFeedback = require('./EmptyFeedback.js');
-let ValidJointsActionGoal = require('./ValidJointsActionGoal.js');
-let ValidJointsActionFeedback = require('./ValidJointsActionFeedback.js');
-let ValidJointsAction = require('./ValidJointsAction.js');
-let ValidJointsActionResult = require('./ValidJointsActionResult.js');
-let EmptyActionGoal = require('./EmptyActionGoal.js');
-let EmptyActionFeedback = require('./EmptyActionFeedback.js');
 let ValidJointsGoal = require('./ValidJointsGoal.js');
-let EmptyActionResult = require('./EmptyActionResult.js');
-let ValidJointsResult = require('./ValidJointsResult.js');
+let EmptyResult = require('./EmptyResult.js');
+let ValidJointsAction = require('./ValidJointsAction.js');
 let EmptyGoal = require('./EmptyGoal.js');
+let EmptyActionGoal = require('./EmptyActionGoal.js');
+let EmptyFeedback = require('./EmptyFeedback.js');
+let EmptyAction = require('./EmptyAction.js');
+let EmptyActionFeedback = require('./EmptyActionFeedback.js');
+let ValidJointsResult = require('./ValidJointsResult.js');
+let ValidJointsActionGoal = require('./ValidJointsActionGoal.js');
+let EmptyActionResult = require('./EmptyActionResult.js');
+let ValidJointsActionResult = require('./ValidJointsActionResult.js');
+let ValidJointsFeedback = require('./ValidJointsFeedback.js');
+let ValidJointsActionFeedback = require('./ValidJointsActionFeedback.js');
 
 module.exports = {
-  EmptyAction: EmptyAction,
-  ValidJointsFeedback: ValidJointsFeedback,
-  EmptyResult: EmptyResult,
-  EmptyFeedback: EmptyFeedback,
-  ValidJointsActionGoal: ValidJointsActionGoal,
-  ValidJointsActionFeedback: ValidJointsActionFeedback,
-  ValidJointsAction: ValidJointsAction,
-  ValidJointsActionResult: ValidJointsActionResult,
-  EmptyActionGoal: EmptyActionGoal,
-  EmptyActionFeedback: EmptyActionFeedback,
   ValidJointsGoal: ValidJointsGoal,
-  EmptyActionResult: EmptyActionResult,
-  ValidJointsResult: ValidJointsResult,
+  EmptyResult: EmptyResult,
+  ValidJointsAction: ValidJointsAction,
   EmptyGoal: EmptyGoal,
+  EmptyActionGoal: EmptyActionGoal,
+  EmptyFeedback: EmptyFeedback,
+  EmptyAction: EmptyAction,
+  EmptyActionFeedback: EmptyActionFeedback,
+  ValidJointsResult: ValidJointsResult,
+  ValidJointsActionGoal: ValidJointsActionGoal,
+  EmptyActionResult: EmptyActionResult,
+  ValidJointsActionResult: ValidJointsActionResult,
+  ValidJointsFeedback: ValidJointsFeedback,
+  ValidJointsActionFeedback: ValidJointsActionFeedback,
 };

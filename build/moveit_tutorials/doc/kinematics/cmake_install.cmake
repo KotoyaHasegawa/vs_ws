@@ -1,8 +1,8 @@
-# Install script for directory: /home/kotoya/vs_ws/src/moveit_tutorials/doc/kinematics
+# Install script for directory: /home/kotoyah/vs_ws/src/moveit_tutorials/doc/kinematics
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kotoya/vs_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/kotoyah/vs_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,7 +44,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/moveit_tutorials/ros_api_tutorial"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/moveit_tutorials" TYPE EXECUTABLE FILES "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/ros_api_tutorial")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/moveit_tutorials" TYPE EXECUTABLE FILES "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/ros_api_tutorial")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/moveit_tutorials/ros_api_tutorial" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/moveit_tutorials/ros_api_tutorial")
     file(RPATH_CHANGE
@@ -58,6 +58,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/moveit_tutorials" TYPE DIRECTORY FILES "/home/kotoya/vs_ws/src/moveit_tutorials/doc/kinematics/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/moveit_tutorials" TYPE DIRECTORY FILES "/home/kotoyah/vs_ws/src/moveit_tutorials/doc/kinematics/launch")
 endif()
 

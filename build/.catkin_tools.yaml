@@ -1,6 +1,6 @@
-devel_space: /home/kotoya/vs_ws/devel
+devel_space: /home/kotoyah/vs_ws/devel
 install: false
-install_space: /home/kotoya/vs_ws/install
+install_space: /home/kotoyah/vs_ws/install
 profile: default
-source_space: /home/kotoya/vs_ws/src
-workspace: /home/kotoya/vs_ws
+source_space: /home/kotoyah/vs_ws/src
+workspace: /home/kotoyah/vs_ws

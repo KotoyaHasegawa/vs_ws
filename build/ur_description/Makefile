@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kotoya/vs_ws/src/universal_robot/ur_description
+CMAKE_SOURCE_DIR = /home/kotoyah/vs_ws/src/universal_robot/ur_description
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kotoya/vs_ws/build/ur_description
+CMAKE_BINARY_DIR = /home/kotoyah/vs_ws/build/ur_description
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -92,8 +92,8 @@ list_install_components/fast: list_install_components
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -137,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoya/vs_ws/build/ur_description/CMakeFiles /home/kotoya/vs_ws/build/ur_description/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoyah/vs_ws/build/ur_description/CMakeFiles /home/kotoyah/vs_ws/build/ur_description/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoya/vs_ws/build/ur_description/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoyah/vs_ws/build/ur_description/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

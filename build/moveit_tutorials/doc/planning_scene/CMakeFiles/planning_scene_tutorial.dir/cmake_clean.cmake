@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/planning_scene_tutorial"
-  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/planning_scene_tutorial.pdb"
+  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/planning_scene_tutorial"
+  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/planning_scene_tutorial.pdb"
   "CMakeFiles/planning_scene_tutorial.dir/src/planning_scene_tutorial.cpp.o"
 )
 

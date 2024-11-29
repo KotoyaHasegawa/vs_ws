@@ -1,1 +1,1 @@
-/home/kotoya/kototya_ws/devel/.private/ur_gazebo/share/ur_gazebo/cmake/ur_gazeboConfig.cmake
+/home/kotoyah/vs_ws/devel/.private/ur_gazebo/share/ur_gazebo/cmake/ur_gazeboConfig.cmake

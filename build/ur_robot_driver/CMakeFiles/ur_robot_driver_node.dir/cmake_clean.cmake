@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoya/vs_ws/devel/.private/ur_robot_driver/lib/ur_robot_driver/ur_robot_driver_node"
-  "/home/kotoya/vs_ws/devel/.private/ur_robot_driver/lib/ur_robot_driver/ur_robot_driver_node.pdb"
+  "/home/kotoyah/vs_ws/devel/.private/ur_robot_driver/lib/ur_robot_driver/ur_robot_driver_node"
+  "/home/kotoyah/vs_ws/devel/.private/ur_robot_driver/lib/ur_robot_driver/ur_robot_driver_node.pdb"
   "CMakeFiles/ur_robot_driver_node.dir/src/dashboard_client_ros.cpp.o"
   "CMakeFiles/ur_robot_driver_node.dir/src/hardware_interface.cpp.o"
   "CMakeFiles/ur_robot_driver_node.dir/src/hardware_interface_node.cpp.o"

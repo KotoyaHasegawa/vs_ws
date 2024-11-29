@@ -1,1 +1,1 @@
-/home/kotoya/kototya_ws/devel/.private/ur_calibration/lib/pkgconfig/ur_calibration.pc
+/home/kotoyah/vs_ws/devel/.private/ur_calibration/lib/pkgconfig/ur_calibration.pc

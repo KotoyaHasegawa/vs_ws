@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/pick_place_tutorial"
-  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/pick_place_tutorial.pdb"
+  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/pick_place_tutorial"
+  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/pick_place_tutorial.pdb"
   "CMakeFiles/pick_place_tutorial.dir/src/pick_place_tutorial.cpp.o"
 )
 

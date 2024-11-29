@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoya/vs_ws/devel/.private/ur_calibration/lib/ur_calibration/calibration_correction"
-  "/home/kotoya/vs_ws/devel/.private/ur_calibration/lib/ur_calibration/calibration_correction.pdb"
+  "/home/kotoyah/vs_ws/devel/.private/ur_calibration/lib/ur_calibration/calibration_correction"
+  "/home/kotoyah/vs_ws/devel/.private/ur_calibration/lib/ur_calibration/calibration_correction.pdb"
   "CMakeFiles/calibration_correction.dir/src/calibration.cpp.o"
   "CMakeFiles/calibration_correction.dir/src/calibration_consumer.cpp.o"
   "CMakeFiles/calibration_correction.dir/src/calibration_correction.cpp.o"

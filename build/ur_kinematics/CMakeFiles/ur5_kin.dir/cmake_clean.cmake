@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoya/vs_ws/devel/.private/ur_kinematics/lib/libur5_kin.pdb"
-  "/home/kotoya/vs_ws/devel/.private/ur_kinematics/lib/libur5_kin.so"
+  "/home/kotoyah/vs_ws/devel/.private/ur_kinematics/lib/libur5_kin.pdb"
+  "/home/kotoyah/vs_ws/devel/.private/ur_kinematics/lib/libur5_kin.so"
   "CMakeFiles/ur5_kin.dir/src/ur_kin.cpp.o"
 )
 

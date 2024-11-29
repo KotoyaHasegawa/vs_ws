@@ -7,9 +7,8 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/kotoya/vs_ws/devel/.private/ur5_moveit_config:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/kotoya/vs_ws/devel/.private/ur5_moveit_config/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/kotoya/vs_ws/devel/.private/ur5_moveit_config/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD='/home/kotoya/vs_ws/build/ur5_moveit_config'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/kotoya/vs_ws/devel/.private/ur5_moveit_config/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/kotoya/kototya_ws/src/universal_robot/ur5_moveit_config:/home/kotoya/vs_ws/src/universal_robot/ur5_moveit_config:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/kotoyah/vs_ws/devel/.private/ur5_moveit_config:$CMAKE_PREFIX_PATH"
+export PWD='/home/kotoyah/vs_ws/build/ur5_moveit_config'
+export PYTHONPATH="/home/kotoyah/vs_ws/devel/lib/python3/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/kotoyah/vs_ws/devel/.private/ur5_moveit_config/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/kotoyah/vs_ws/src/universal_robot/ur5_moveit_config:$ROS_PACKAGE_PATH"

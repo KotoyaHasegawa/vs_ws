@@ -1,1 +1,1 @@
-/home/kotoya/kototya_ws/devel/.private/ur_dashboard_msgs/include/ur_dashboard_msgs/GetRobotMode.h
+/home/kotoyah/vs_ws/devel/.private/ur_dashboard_msgs/include/ur_dashboard_msgs/GetRobotMode.h

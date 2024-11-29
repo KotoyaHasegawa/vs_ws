@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
 # Source directory: /usr/src/googletest
-# Build directory: /home/kotoya/vs_ws/build/ur5e_moveit_config/gtest
+# Build directory: /home/kotoyah/vs_ws/build/ur5e_moveit_config/gtest
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

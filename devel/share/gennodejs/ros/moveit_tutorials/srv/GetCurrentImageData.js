@@ -1,1 +1,1 @@
-/home/kotoya/vs_ws/devel/.private/moveit_tutorials/share/gennodejs/ros/moveit_tutorials/srv/GetCurrentImageData.js
+/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/share/gennodejs/ros/moveit_tutorials/srv/GetCurrentImageData.js

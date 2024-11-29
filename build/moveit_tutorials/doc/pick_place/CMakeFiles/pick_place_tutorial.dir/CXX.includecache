@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/kotoya/vs_ws/src/moveit_tutorials/doc/pick_place/src/pick_place_tutorial.cpp
+/home/kotoyah/vs_ws/src/moveit_tutorials/doc/pick_place/src/pick_place_tutorial.cpp
 ros/ros.h
 -
 moveit/planning_scene_interface/planning_scene_interface.h

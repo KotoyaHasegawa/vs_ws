@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kotoya/vs_ws/src/moveit_tutorials
+CMAKE_SOURCE_DIR = /home/kotoyah/vs_ws/src/moveit_tutorials
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kotoya/vs_ws/build/moveit_tutorials
+CMAKE_BINARY_DIR = /home/kotoyah/vs_ws/build/moveit_tutorials
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -115,8 +115,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -E cmake_progress_start /home/kotoya/vs_ws/build/moveit_tutorials/CMakeFiles /home/kotoya/vs_ws/build/moveit_tutorials/doc/planning_scene/CMakeFiles/progress.marks
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/planning_scene/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoya/vs_ws/build/moveit_tutorials/CMakeFiles 0
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -E cmake_progress_start /home/kotoyah/vs_ws/build/moveit_tutorials/CMakeFiles /home/kotoyah/vs_ws/build/moveit_tutorials/doc/planning_scene/CMakeFiles/progress.marks
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/planning_scene/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kotoyah/vs_ws/build/moveit_tutorials/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/planning_scene/clean
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/planning_scene/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/planning_scene/preinstall
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/planning_scene/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/planning_scene/preinstall
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/planning_scene/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/rule:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/rule
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f CMakeFiles/Makefile2 doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/rule
 .PHONY : doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ planning_scene_tutorial: doc/planning_scene/CMakeFiles/planning_scene_tutorial.d
 
 # fast build rule for target.
 planning_scene_tutorial/fast:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/build.make doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/build
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/build.make doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/build
 .PHONY : planning_scene_tutorial/fast
 
 src/planning_scene_tutorial.o: src/planning_scene_tutorial.cpp.o
@@ -188,7 +188,7 @@ src/planning_scene_tutorial.o: src/planning_scene_tutorial.cpp.o
 
 # target to build an object file
 src/planning_scene_tutorial.cpp.o:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/build.make doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/src/planning_scene_tutorial.cpp.o
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/build.make doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/src/planning_scene_tutorial.cpp.o
 .PHONY : src/planning_scene_tutorial.cpp.o
 
 src/planning_scene_tutorial.i: src/planning_scene_tutorial.cpp.i
@@ -197,7 +197,7 @@ src/planning_scene_tutorial.i: src/planning_scene_tutorial.cpp.i
 
 # target to preprocess a source file
 src/planning_scene_tutorial.cpp.i:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/build.make doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/src/planning_scene_tutorial.cpp.i
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/build.make doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/src/planning_scene_tutorial.cpp.i
 .PHONY : src/planning_scene_tutorial.cpp.i
 
 src/planning_scene_tutorial.s: src/planning_scene_tutorial.cpp.s
@@ -206,7 +206,7 @@ src/planning_scene_tutorial.s: src/planning_scene_tutorial.cpp.s
 
 # target to generate assembly for a file
 src/planning_scene_tutorial.cpp.s:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/build.make doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/src/planning_scene_tutorial.cpp.s
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(MAKE) -f doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/build.make doc/planning_scene/CMakeFiles/planning_scene_tutorial.dir/src/planning_scene_tutorial.cpp.s
 .PHONY : src/planning_scene_tutorial.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/kotoya/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/kotoyah/vs_ws/build/moveit_tutorials && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,4 +1,4 @@
-prefix=/home/kotoya/vs_ws/devel/.private/ur_gazebo
+prefix=/home/kotoyah/vs_ws/devel/.private/ur_gazebo
 
 Name: ur_gazebo
 Description: Description of ur_gazebo

@@ -1,1 +1,1 @@
-set(ORDERED_PATHS "/opt/ros/noetic/lib;/home/kotoya/kototya_ws/devel/.private/ur_robot_driver/lib")
+set(ORDERED_PATHS "/home/kotoyah/vs_ws/devel/.private/ur_robot_driver/lib;/opt/ros/noetic/lib")

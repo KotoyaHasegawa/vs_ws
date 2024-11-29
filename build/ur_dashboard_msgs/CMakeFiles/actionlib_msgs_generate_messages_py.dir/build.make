@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_dashboard_msgs
+CMAKE_SOURCE_DIR = /home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_dashboard_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kotoya/vs_ws/build/ur_dashboard_msgs
+CMAKE_BINARY_DIR = /home/kotoyah/vs_ws/build/ur_dashboard_msgs
 
 # Utility rule file for actionlib_msgs_generate_messages_py.
 
@@ -67,6 +67,6 @@ CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean
 
 CMakeFiles/actionlib_msgs_generate_messages_py.dir/depend:
-	cd /home/kotoya/vs_ws/build/ur_dashboard_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_dashboard_msgs /home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_dashboard_msgs /home/kotoya/vs_ws/build/ur_dashboard_msgs /home/kotoya/vs_ws/build/ur_dashboard_msgs /home/kotoya/vs_ws/build/ur_dashboard_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kotoyah/vs_ws/build/ur_dashboard_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_dashboard_msgs /home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_dashboard_msgs /home/kotoyah/vs_ws/build/ur_dashboard_msgs /home/kotoyah/vs_ws/build/ur_dashboard_msgs /home/kotoyah/vs_ws/build/ur_dashboard_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/actionlib_msgs_generate_messages_py.dir/depend
 

@@ -7,9 +7,8 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/kotoya/vs_ws/devel/.private/ur_gazebo:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/kotoya/vs_ws/devel/.private/ur_gazebo/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/kotoya/vs_ws/devel/.private/ur_gazebo/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD='/home/kotoya/vs_ws/build/ur_gazebo'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/kotoya/vs_ws/devel/.private/ur_gazebo/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/kotoya/kototya_ws/src/universal_robot/ur_gazebo:/home/kotoya/vs_ws/src/universal_robot/ur_gazebo:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/kotoyah/vs_ws/devel/.private/ur_gazebo:$CMAKE_PREFIX_PATH"
+export PWD='/home/kotoyah/vs_ws/build/ur_gazebo'
+export PYTHONPATH="/home/kotoyah/vs_ws/devel/lib/python3/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/kotoyah/vs_ws/devel/.private/ur_gazebo/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/kotoyah/vs_ws/src/universal_robot/ur_gazebo:$ROS_PACKAGE_PATH"

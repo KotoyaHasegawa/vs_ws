@@ -67,14 +67,14 @@ set(ur_calibration_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ur_calibration_SOURCE_PREFIX /home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration)
-  set(ur_calibration_DEVEL_PREFIX /home/kotoya/vs_ws/devel/.private/ur_calibration)
+  set(ur_calibration_SOURCE_PREFIX /home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration)
+  set(ur_calibration_DEVEL_PREFIX /home/kotoyah/vs_ws/devel/.private/ur_calibration)
   set(ur_calibration_INSTALL_PREFIX "")
   set(ur_calibration_PREFIX ${ur_calibration_DEVEL_PREFIX})
 else()
   set(ur_calibration_SOURCE_PREFIX "")
   set(ur_calibration_DEVEL_PREFIX "")
-  set(ur_calibration_INSTALL_PREFIX /home/kotoya/vs_ws/install)
+  set(ur_calibration_INSTALL_PREFIX /home/kotoyah/vs_ws/install)
   set(ur_calibration_PREFIX ${ur_calibration_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ur_calibration_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/../../../../../include;/home/kotoya/vs_ws/devel/include " STREQUAL " ")
+if(NOT "/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/../../../../../include;/opt/ros/noetic/include " STREQUAL " ")
   set(ur_calibration_INCLUDE_DIRS "")
-  set(_include_dirs "/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/../../../../../include;/home/kotoya/vs_ws/devel/include")
+  set(_include_dirs "/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/../../../../../include;/opt/ros/noetic/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -116,7 +116,7 @@ if(NOT "/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/../../../../../include;/home/ko
   endforeach()
 endif()
 
-set(libraries "/usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.6.2;/home/kotoya/vs_ws/devel/lib/liburcl.so")
+set(libraries "/usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.6.2;/opt/ros/noetic/lib/x86_64-linux-gnu/liburcl.so")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/kotoya/vs_ws/install/lib;/home/kotoya/vs_ws/devel/lib;/opt/ros/noetic/lib;/home/kotoya/kototya_ws/devel/lib)
+    foreach(path /home/kotoyah/vs_ws/install/lib;/home/kotoyah/vs_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

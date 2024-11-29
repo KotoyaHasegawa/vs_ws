@@ -67,14 +67,14 @@ set(ur_dashboard_msgs_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ur_dashboard_msgs_SOURCE_PREFIX /home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_dashboard_msgs)
-  set(ur_dashboard_msgs_DEVEL_PREFIX /home/kotoya/vs_ws/devel/.private/ur_dashboard_msgs)
+  set(ur_dashboard_msgs_SOURCE_PREFIX /home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_dashboard_msgs)
+  set(ur_dashboard_msgs_DEVEL_PREFIX /home/kotoyah/vs_ws/devel/.private/ur_dashboard_msgs)
   set(ur_dashboard_msgs_INSTALL_PREFIX "")
   set(ur_dashboard_msgs_PREFIX ${ur_dashboard_msgs_DEVEL_PREFIX})
 else()
   set(ur_dashboard_msgs_SOURCE_PREFIX "")
   set(ur_dashboard_msgs_DEVEL_PREFIX "")
-  set(ur_dashboard_msgs_INSTALL_PREFIX /home/kotoya/vs_ws/install)
+  set(ur_dashboard_msgs_INSTALL_PREFIX /home/kotoyah/vs_ws/install)
   set(ur_dashboard_msgs_PREFIX ${ur_dashboard_msgs_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/kotoya/vs_ws/install/lib;/home/kotoya/vs_ws/devel/lib;/opt/ros/noetic/lib;/home/kotoya/kototya_ws/devel/lib)
+    foreach(path /home/kotoyah/vs_ws/install/lib;/home/kotoyah/vs_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

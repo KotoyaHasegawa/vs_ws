@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/move_group_interface_tutorial"
-  "/home/kotoya/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/move_group_interface_tutorial.pdb"
+  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/move_group_interface_tutorial"
+  "/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/lib/moveit_tutorials/move_group_interface_tutorial.pdb"
   "CMakeFiles/move_group_interface_tutorial.dir/src/move_group_interface_tutorial.cpp.o"
 )
 

@@ -1,1 +1,1 @@
-/home/kotoya/vs_ws/devel/.private/moveit_tutorials/share/common-lisp/ros/moveit_tutorials/srv/moveit_tutorials-srv.asd
+/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/share/common-lisp/ros/moveit_tutorials/srv/moveit_tutorials-srv.asd

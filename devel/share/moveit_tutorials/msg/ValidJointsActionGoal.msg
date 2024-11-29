@@ -1,1 +1,1 @@
-/home/kotoya/vs_ws/devel/.private/moveit_tutorials/share/moveit_tutorials/msg/ValidJointsActionGoal.msg
+/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/share/moveit_tutorials/msg/ValidJointsActionGoal.msg

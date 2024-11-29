@@ -1,4 +1,4 @@
-prefix=/home/kotoya/vs_ws/install
+prefix=/home/kotoyah/vs_ws/install
 
 Name: ur_gazebo
 Description: Description of ur_gazebo

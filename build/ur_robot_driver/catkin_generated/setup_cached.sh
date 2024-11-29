@@ -7,9 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/kotoya/vs_ws/devel/.private/ur_robot_driver:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/kotoya/vs_ws/devel/.private/ur_robot_driver/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/kotoya/vs_ws/devel/.private/ur_robot_driver/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD='/home/kotoya/vs_ws/build/ur_robot_driver'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/kotoya/vs_ws/devel/.private/ur_robot_driver/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/kotoya/kototya_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver:/home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/kotoyah/vs_ws/devel/.private/ur_robot_driver:$CMAKE_PREFIX_PATH"
+export PWD='/home/kotoyah/vs_ws/build/ur_robot_driver'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/kotoyah/vs_ws/devel/.private/ur_robot_driver/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver:$ROS_PACKAGE_PATH"

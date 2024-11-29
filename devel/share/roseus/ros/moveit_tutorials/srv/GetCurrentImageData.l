@@ -1,1 +1,1 @@
-/home/kotoya/vs_ws/devel/.private/moveit_tutorials/share/roseus/ros/moveit_tutorials/srv/GetCurrentImageData.l
+/home/kotoyah/vs_ws/devel/.private/moveit_tutorials/share/roseus/ros/moveit_tutorials/srv/GetCurrentImageData.l

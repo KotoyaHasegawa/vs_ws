@@ -1,1 +1,1 @@
-/home/kotoya/kototya_ws/devel/.private/ur_dashboard_msgs/share/ur_dashboard_msgs/msg/SetModeFeedback.msg
+/home/kotoyah/vs_ws/devel/.private/ur_dashboard_msgs/share/ur_dashboard_msgs/msg/SetModeFeedback.msg

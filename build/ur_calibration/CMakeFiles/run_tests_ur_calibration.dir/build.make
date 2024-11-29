@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration
+CMAKE_SOURCE_DIR = /home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kotoya/vs_ws/build/ur_calibration
+CMAKE_BINARY_DIR = /home/kotoyah/vs_ws/build/ur_calibration
 
 # Utility rule file for run_tests_ur_calibration.
 
@@ -67,6 +67,6 @@ CMakeFiles/run_tests_ur_calibration.dir/clean:
 .PHONY : CMakeFiles/run_tests_ur_calibration.dir/clean
 
 CMakeFiles/run_tests_ur_calibration.dir/depend:
-	cd /home/kotoya/vs_ws/build/ur_calibration && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration /home/kotoya/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration /home/kotoya/vs_ws/build/ur_calibration /home/kotoya/vs_ws/build/ur_calibration /home/kotoya/vs_ws/build/ur_calibration/CMakeFiles/run_tests_ur_calibration.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kotoyah/vs_ws/build/ur_calibration && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration /home/kotoyah/vs_ws/src/Universal_Robots_ROS_Driver/ur_calibration /home/kotoyah/vs_ws/build/ur_calibration /home/kotoyah/vs_ws/build/ur_calibration /home/kotoyah/vs_ws/build/ur_calibration/CMakeFiles/run_tests_ur_calibration.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run_tests_ur_calibration.dir/depend
 

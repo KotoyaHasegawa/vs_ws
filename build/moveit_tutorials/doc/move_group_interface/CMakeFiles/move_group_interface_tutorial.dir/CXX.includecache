@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/kotoya/vs_ws/src/moveit_tutorials/doc/move_group_interface/src/move_group_interface_tutorial.cpp
+/home/kotoyah/vs_ws/src/moveit_tutorials/doc/move_group_interface/src/move_group_interface_tutorial.cpp
 moveit/move_group_interface/move_group_interface.h
 -
 moveit/planning_scene_interface/planning_scene_interface.h
