@@ -195,7 +195,7 @@ def ik(initial_joint_values, go_pose, current_euler_x, current_euler_y, current_
 
     # Cartesian pathの計算
     waypoints = [current_pose]
-    (plan, fraction) = moveit_client.compute_cartesian_path(waypoints, eef_step=0.008, jump_threshold=0.0)
+    (plan, fraction) = moveit_client.compute_cartesian_path(waypoints, eef_step=0.008)
     # プランの実行
     success = moveit_client.execute(plan, wait=True)
     # ポーズターゲットを元に戻す

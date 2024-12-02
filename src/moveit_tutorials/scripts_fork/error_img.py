@@ -69,7 +69,7 @@ def process_image(msg):
     video_writer_1_full.write(orig_full)
 
 
-    cv2.imshow('Difference Image', difference_full)
+    cv2.imshow('Difference Image', difference)
     if cv2.waitKey(1) & 0xff == 27:
         cv2.imwrite('./difference_image.jpg', orig)
         print('Image saved and exiting...')
