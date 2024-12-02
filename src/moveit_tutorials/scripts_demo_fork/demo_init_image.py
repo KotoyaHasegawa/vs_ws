@@ -9,8 +9,8 @@ from cv_bridge import CvBridge
 def process_image(msg):
     bridge = CvBridge()
     orig_full = bridge.imgmsg_to_cv2(msg, "bgr8")
-    orig = orig_full[ 250 : 610 ,720 : 1360 ]#withdraw
-    #orig = orig_full[ 83 : 145 ,470 : 1632 ] #input
+    #orig = orig_full[ 250 : 610 ,720 : 1360 ]#withdraw
+    orig = orig_full[ 83 : 145 ,470 : 1632 ] #input
     #orig = orig_full[ 0 : 1080 ,0 : 1920 ] #definet
     # gray = cv2.cvtColor(orig, cv2.COLOR_BGR2GRAY)#2values
     # gray   = cv2.threshold(gray  , 128, 255, cv2.THRESH_BINARY)#2values

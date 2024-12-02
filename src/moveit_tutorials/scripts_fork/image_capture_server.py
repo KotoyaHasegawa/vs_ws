@@ -29,8 +29,8 @@ def henkan(msg):
 	try: 
 		bridge = CvBridge()
 		drawImg = bridge.imgmsg_to_cv2(msg, "bgr8") ###for realsense
-		drawImg = drawImg[ 250 : 610 ,720 : 1360 ] #withdraw
-		# drawImg = drawImg[ 83 : 145 ,470 : 1632 ] #input       
+		# drawImg = drawImg[ 250 : 610 ,720 : 1360 ] #withdraw
+		drawImg = drawImg[ 83 : 145 ,470 : 1632 ] #input       
 		# drawImg = drawImg[ 422 : 678, 862 : 1118 ] 
 		# drawImg = drawImg[ 200 : 712, 750 : 1262 ]
 		# drawImg = bridge.imgmsg_to_cv2(msg, "mono8") ###for ui camera
