@@ -36,13 +36,11 @@ if __name__ == "__main__":
         # ("vel_servo_definet_fork_theta.py", True),
         ("vel_servo_forkpos_moveit_input.py", True),
         # ("vel_servo_forkpos_moveit_withdraw.py", True),
-
-        # ("withdraw.py", False),
-        # ("mokuhyo.py", False),
         ("input.py", False),
-        
+        ("mokuhyo.py", False),
+        ("withdraw.py", False),
 
-        
+           
     ]
     start_script = scripts[0][0]
     if len(sys.argv) > 1:
@@ -51,7 +49,7 @@ if __name__ == "__main__":
         print(f"Invalid start script: {start_script}")
         sys.exit(1)
     start_index = next(i for i, script in enumerate(scripts) if script[0] == start_script)
-    loop_count = 1
+    loop_count = 6
 
     for _ in range(loop_count):
         for script, with_error_img in scripts[start_index:]:

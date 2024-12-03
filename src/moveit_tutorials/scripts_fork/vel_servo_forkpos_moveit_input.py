@@ -59,7 +59,7 @@ I_dsr_vec = np.empty((nop, 1))
 lmbd = 0.035#input
 
 # rmseth = 5.0 #5.0 #withdraw
-rmseth = 0.0#8.0 #input
+rmseth = 8.0#8.0 #input
 
 
 iteration = 500
@@ -261,7 +261,7 @@ def signal_handler(sig, frame):
     bridge = CvBridge()
     bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
     # bgr = bgr[ 200 : 560 ,720 : 1360 ]#withdraw
-    bgr = bgr_full[ 83 : 145 ,470 : 1632 ]  #input
+    bgr = bgr_full[ 100 : 162,470 : 1632 ] #input
 
     get_data = DATA( bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
@@ -311,20 +311,20 @@ def main(msg):
     
     # rmse = 100
     
-    with open('./dsrth_result/desired_pose.csv', 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            desired_pose = [float(x) for x in row]
+    # with open('./dsrth_result/desired_pose.csv', 'r') as f:
+    #     reader = csv.reader(f)
+    #     for row in reader:
+    #         desired_pose = [float(x) for x in row]
 
     # with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
     #     reader = csv.reader(f)
     #     for row in reader:
     #         desired_pose = [float(x) for x in row]
 
-    # with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
-    #     reader = csv.reader(f)
-    #     for row in reader:
-    #         desired_pose = [float(x) for x in row]
+    with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            desired_pose = [float(x) for x in row]
 
     #withdraw
     # if desired_pose[5] > 0 :
@@ -334,7 +334,7 @@ def main(msg):
     bridge = CvBridge()
     bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
     # bgr= bgr[ 200 : 560 ,720 : 1360 ]
-    bgr= bgr_full[ 83 : 145 ,470 : 1632 ] #input
+    bgr= bgr_full[ 100 : 162,470 : 1632 ] #input
     # bgr = bridge.imgmsg_to_cv2(image_raw, 'mono8') ###UI camera6
     gry = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
     gry2 = np.array(gry, dtype = 'float64')
@@ -379,7 +379,7 @@ def main(msg):
         bridge = CvBridge()
         bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
         # bgr = bgr[ 200 : 560 ,720 : 1360 ]#withdraw
-        bgr= bgr_full[ 83 : 145 ,470 : 1632 ] #input
+        bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
 
         get_data = DATA(bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
