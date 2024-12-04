@@ -276,8 +276,8 @@ def signal_handler(sig, frame):
     bridge = CvBridge()
     bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
     # bgr = bgr_full[ 0 : 1080 ,0 : 1920 ]#withdrawts_full
-    bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdrawts
-    # bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
+    # bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdrawts
+    bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
     get_data = DATA( bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
                  time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
@@ -337,8 +337,8 @@ def main(msg):
     image_raw = msg
     bridge = CvBridge()
     bgr = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
-    bgr = bgr[ 250 : 610 ,720 : 1360 ] #withdraw
-    # bgr= bgr[ 100 : 162,470 : 1632 ]#input
+    # bgr = bgr[ 250 : 610 ,720 : 1360 ] #withdraw
+    bgr= bgr[ 100 : 162,470 : 1632 ]#input
     # bgr = bridge.imgmsg_to_cv2(image_raw, 'mono8') ###UI camera
 
     # image_tensor = F.to_tensor(bgr).float().to("cuda")
@@ -400,8 +400,8 @@ def main(msg):
         bridge = CvBridge()
         bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
         # bgr = bgr_full[ 0 : 1080 ,0 : 1920 ]#withdraw_full
-        bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdraw
-        # bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
+        # bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdraw
+        bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
 
         get_data = DATA(bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
