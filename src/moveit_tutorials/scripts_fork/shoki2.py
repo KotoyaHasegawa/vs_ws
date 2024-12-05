@@ -45,20 +45,20 @@ def Move():
 	current_pose = move_group.get_current_pose().pose
 	print(move_group.get_current_joint_values())
 
-	# with open('./dsrth_result/desired_pose.csv', 'r') as f:
-	# 	reader = csv.reader(f)
-	# 	for row in reader:
-	# 		desired_pose = [float(x) for x in row]
+	with open('./dsrth_result/desired_pose.csv', 'r') as f:
+		reader = csv.reader(f)
+		for row in reader:
+			desired_pose = [float(x) for x in row]
 
 	# with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
 	# 	reader = csv.reader(f)
 	# 	for row in reader:
 	# 		desired_pose = [float(x) for x in row]
 
-	with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
-		reader = csv.reader(f)
-		for row in reader:
-			desired_pose = [float(x) for x in row]
+	# with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+	# 	reader = csv.reader(f)
+	# 	for row in reader:
+	# 		desired_pose = [float(x) for x in row]
         
 
     # #本格

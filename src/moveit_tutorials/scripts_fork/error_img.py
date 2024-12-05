@@ -34,11 +34,11 @@ fourcc_1 = cv2.VideoWriter_fourcc(*'mp4v')
 # video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (1920, 1080))
 
 # #withdraw
-# video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (640, 360), False)
-# video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (640, 360))
+video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (640, 360), False)
+video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (640, 360))
 #input
-video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (1162, 62), False)
-video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (1162, 62))
+# video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (1162, 62), False)
+# video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (1162, 62))
 video_writer_full = cv2.VideoWriter('./servo_data/difference_full_video.mp4', fourcc, 30.0, (1920, 1080), False)
 video_writer_1_full = cv2.VideoWriter('./servo_data/outuput_full_video.mp4', fourcc_1, 30.0, (1920, 1080))
 
@@ -47,8 +47,8 @@ video_writer_1_full = cv2.VideoWriter('./servo_data/outuput_full_video.mp4', fou
 def process_image(msg):
     bridge = CvBridge()
     orig_full = bridge.imgmsg_to_cv2(msg, "bgr8")
-    # orig = orig_full[ 250 : 610 ,720 : 1360 ]#withdrraw
-    orig = orig_full[ 100 : 162,470 : 1632 ]#input
+    orig = orig_full[ 250 : 610 ,720 : 1360 ]#withdrraw
+    # orig = orig_full[ 100 : 162,470 : 1632 ]#input
     # orig = orig_full[ 0 : 1080 ,0 : 1920 ] #definet
     gry_full = cv2.cvtColor(orig_full, cv2.COLOR_BGR2GRAY)
     gry = cv2.cvtColor(orig , cv2.COLOR_BGR2GRAY)
@@ -69,7 +69,7 @@ def process_image(msg):
     video_writer_1_full.write(orig_full)
 
 
-    cv2.imshow('Difference Image', difference)
+    cv2.imshow('Difference Image', difference_full)
     if cv2.waitKey(1) & 0xff == 27:
         cv2.imwrite('./difference_image.jpg', orig)
         print('Image saved and exiting...')

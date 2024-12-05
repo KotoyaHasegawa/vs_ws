@@ -47,8 +47,8 @@ nop = 230400 #withdraw
 # nop = 72044
 pinv_int_mat_double = np.empty((6,6))
 I_dsr_vec = np.empty((nop, 1))
-# lmbd = 0.04 #withdraw
-lmbd = 0.035
+lmbd = 0.04 #withdraw
+# lmbd = 0.035
 ###########################  withdraw  ###############################################################
 device = torch.device("cuda")
 net = DefiNet(device=device, input_dim=(3,360,640),
@@ -56,7 +56,7 @@ net = DefiNet(device=device, input_dim=(3,360,640),
                         hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
 
 # params = torch.load('./definet/definet_params_withdraw_1000.pt', map_location=torch.device(device))
-params = torch.load('./definet/definet_params_withdraw_500_ROI.pt', map_location=torch.device(device))
+params = torch.load('./definet/definet_params_withdraw.pt', map_location=torch.device(device))
 
 
 ###########################  input  ###############################################################
@@ -65,13 +65,13 @@ params = torch.load('./definet/definet_params_withdraw_500_ROI.pt', map_location
 #                         conv_param = {'filter_num': 64, 'filter_size': 3, 'pad': 1, 'stride': 1},
 #                         hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
 
-# params = torch.load('./definet/definet_params_input_500_ROI.pt', map_location=torch.device(device))
+# params = torch.load('./definet/definet_params_input.pt', map_location=torch.device(device))
 
 net.load_state_dict(params)
 net.eval()
 
-# rmseth = 6.0#6.0
-rmseth = 0.0#20.0
+rmseth = 6.0#6.0
+# rmseth = 8.0#20.0
 iteration = 500
 
 time_series = []
@@ -212,7 +212,7 @@ def ik(initial_joint_values, go_pose, current_euler_x, current_euler_y, current_
 
     # Cartesian pathの計算
     waypoints = [current_pose]
-    (plan, fraction) = moveit_client.compute_cartesian_path(waypoints, eef_step=0.008, jump_threshold=0.0)
+    (plan, fraction) = moveit_client.compute_cartesian_path(waypoints, eef_step=0.008)
     # プランの実行
     success = moveit_client.execute(plan, wait=True)
     # ポーズターゲットを元に戻す
@@ -276,8 +276,8 @@ def signal_handler(sig, frame):
     bridge = CvBridge()
     bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
     # bgr = bgr_full[ 0 : 1080 ,0 : 1920 ]#withdrawts_full
-    # bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdrawts
-    bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
+    bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdrawts
+    # bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
     get_data = DATA( bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
                  time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
@@ -337,8 +337,8 @@ def main(msg):
     image_raw = msg
     bridge = CvBridge()
     bgr = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
-    # bgr = bgr[ 250 : 610 ,720 : 1360 ] #withdraw
-    bgr= bgr[ 100 : 162,470 : 1632 ]#input
+    bgr = bgr[ 250 : 610 ,720 : 1360 ] #withdraw
+    # bgr= bgr[ 100 : 162,470 : 1632 ]#input
     # bgr = bridge.imgmsg_to_cv2(image_raw, 'mono8') ###UI camera
 
     # image_tensor = F.to_tensor(bgr).float().to("cuda")
@@ -400,8 +400,8 @@ def main(msg):
         bridge = CvBridge()
         bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
         # bgr = bgr_full[ 0 : 1080 ,0 : 1920 ]#withdraw_full
-        # bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdraw
-        bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
+        bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdraw
+        # bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
 
         get_data = DATA(bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 

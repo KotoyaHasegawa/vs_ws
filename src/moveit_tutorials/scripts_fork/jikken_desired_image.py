@@ -9,8 +9,8 @@ def process_image(msg):
     bridge = CvBridge()
     orig_full = bridge.imgmsg_to_cv2(msg, "bgr8")
     # orig = orig_full [ 200 : 560 ,720 : 1360 ] #remove
-    # orig = orig_full [ 250 : 610 ,720 : 1360 ] #remove
-    orig = orig_full[ 100 : 162,470 : 1632 ] #input 
+    orig = orig_full [ 250 : 610 ,720 : 1360 ] #remove
+    # orig = orig_full[ 100 : 162,470 : 1632 ] #input 
     # orig = orig_full[ 78 : 140 ,470 : 1632 ] #input 
     # orig = orig_full[ 0 : 1080 ,0 : 1920 ] #definet
     # orig = bridge.imgmsg_to_cv2(msg, "mono8") ###for UI camera
