@@ -112,7 +112,7 @@ def zdescend():
     # Update Z coordinate(dist=300mm)
     target_pose = current_pose
     target_pose.position.x = current_pose.position.x + 0.0037 ###上段
-    target_pose.position.y = current_pose.position.y + 0.2947 ###上段
+    target_pose.position.y = current_pose.position.y + 0.2997 ###上段
     target_pose.position.z = current_pose.position.z - 0.00756
 
     current_pose_euler = [0, 0, 0]

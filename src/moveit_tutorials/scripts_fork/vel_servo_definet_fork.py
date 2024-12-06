@@ -56,7 +56,7 @@ net = DefiNet(device=device, input_dim=(3,360,640),
                         hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
 
 # params = torch.load('./definet/definet_params_withdraw_1000.pt', map_location=torch.device(device))
-params = torch.load('./definet/definet_params_withdraw.pt', map_location=torch.device(device))
+params = torch.load('./definet/definet_params_withdraw_200.pt', map_location=torch.device(device))
 
 
 ###########################  input  ###############################################################
