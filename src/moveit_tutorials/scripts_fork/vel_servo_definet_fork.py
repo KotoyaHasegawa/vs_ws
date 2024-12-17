@@ -43,37 +43,40 @@ from jikken_data import DATA
 
 #number of pixels
 # nop = 2073600 #full
-nop = 230400 #withdraw
-# nop = 72044
+# nop = 230400 #withdraw
+nop = 72044
 pinv_int_mat_double = np.empty((6,6))
 I_dsr_vec = np.empty((nop, 1))
-lmbd = 0.04 #withdraw
-# lmbd = 0.035
+# lmbd = 0.04 #withdraw
+lmbd = 0.035
 ###########################  withdraw  ###############################################################
-device = torch.device("cuda")
-net = DefiNet(device=device, input_dim=(3,360,640),
-                        conv_param = {'filter_num': 64, 'filter_size': 3, 'pad': 1, 'stride': 1},
-                        hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
-
-
-# params = torch.load('./definet/definet_params_withdraw_200.pt', map_location=torch.device(device)) #IBVS
-params = torch.load('./definet/definet_params_withdraw_pattern.pt', map_location=torch.device(device)) #AVS
-
-
-###########################  input  ###############################################################
 # device = torch.device("cuda")
-# net = DefiNet(device=device, input_dim=(3,62,1162),
+# net = DefiNet(device=device, input_dim=(3,360,640),
 #                         conv_param = {'filter_num': 64, 'filter_size': 3, 'pad': 1, 'stride': 1},
 #                         hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
 
+
+# # params = torch.load('./definet/definet_params_withdraw_200.pt', map_location=torch.device(device)) #IBVS
+# params = torch.load('./definet/definet_params_withdraw_pattern.pt', map_location=torch.device(device)) #AVS
+
+
+###########################  input  ###############################################################
+device = torch.device("cuda")
+net = DefiNet(device=device, input_dim=(3,62,1162),
+                        conv_param = {'filter_num': 64, 'filter_size': 3, 'pad': 1, 'stride': 1},
+                        hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
+
 # params = torch.load('./definet/definet_params_input.pt', map_location=torch.device(device))
+params = torch.load('./definet/definet_params_input_pattern.pt', map_location=torch.device(device)) #AVS
 
 net.load_state_dict(params)
 net.eval()
 
-# rmseth = 6.0#6.0withdraw IBVS
-rmseth = 0.0#6.5withdraw AVS
-# rmseth = 20.0#20.0
+# rmseth = 6.0#6.0#withdraw IBVS
+rmseth = 0.0#6.5#withdraw AVS?
+
+# rmseth = 20.0#20.0#input IBVS
+rmseth = 12.0#12.0#input IBVS
 iteration = 500
 
 time_series = []
@@ -278,8 +281,8 @@ def signal_handler(sig, frame):
     bridge = CvBridge()
     bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
     # bgr = bgr_full[ 0 : 1080 ,0 : 1920 ]#withdrawts_full
-    bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdrawts
-    # bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
+    # bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdrawts
+    bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
     get_data = DATA( bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
                  time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
@@ -321,26 +324,26 @@ def main(msg):
     # rmse = 100
 
     
-    # with open('./dsrth_result/desired_pose.csv', 'r') as f:
-    #     reader = csv.reader(f)
-    #     for row in reader:
-    #         desired_pose = [float(x) for x in row]
+    with open('./dsrth_result/desired_pose.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            desired_pose = [float(x) for x in row]
 
     # with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
     #     reader = csv.reader(f)
     #     for row in reader:
     #         desired_pose = [float(x) for x in row]
 
-    with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            desired_pose = [float(x) for x in row]
+    # with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+    #     reader = csv.reader(f)
+    #     for row in reader:
+    #         desired_pose = [float(x) for x in row]
         
     image_raw = msg
     bridge = CvBridge()
     bgr = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
-    bgr = bgr[ 250 : 610 ,720 : 1360 ] #withdraw
-    # bgr= bgr[ 100 : 162,470 : 1632 ]#input
+    # bgr = bgr[ 250 : 610 ,720 : 1360 ] #withdraw
+    bgr= bgr[ 100 : 162,470 : 1632 ]#input
     # bgr = bridge.imgmsg_to_cv2(image_raw, 'mono8') ###UI camera
 
     # image_tensor = F.to_tensor(bgr).float().to("cuda")
@@ -380,8 +383,8 @@ def main(msg):
     current_pose_z = respose.trans[2]
     rot = respose.rot 
     euler_x, euler_y, euler_z = quaternion_to_euler(rot)
-    if euler_z > 0 :
-        euler_z = euler_z - 6.283	
+    # if euler_z > 0 :
+    #     euler_z = euler_z - 6.283	
 
 
 
@@ -401,8 +404,8 @@ def main(msg):
         bridge = CvBridge()
         bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
         # bgr = bgr_full[ 0 : 1080 ,0 : 1920 ]#withdraw_full
-        bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdraw
-        # bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
+        # bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdraw
+        bgr= bgr_full[ 100 : 162,470 : 1632 ]#input
 
         get_data = DATA(bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
