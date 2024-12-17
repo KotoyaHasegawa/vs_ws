@@ -33,10 +33,10 @@ fourcc_1 = cv2.VideoWriter_fourcc(*'mp4v')
 # video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (1920, 1080), False)
 # video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (1920, 1080))
 
-# #withdraw
+#withdraw
 video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (640, 360), False)
 video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (640, 360))
-#input
+# #input
 # video_writer = cv2.VideoWriter('./servo_data/difference_video.mp4', fourcc, 30.0, (1162, 62), False)
 # video_writer_1 = cv2.VideoWriter('./servo_data/outuput_video.mp4', fourcc_1, 30.0, (1162, 62))
 video_writer_full = cv2.VideoWriter('./servo_data/difference_full_video.mp4', fourcc, 30.0, (1920, 1080), False)
@@ -69,7 +69,7 @@ def process_image(msg):
     video_writer_1_full.write(orig_full)
 
 
-    cv2.imshow('Difference Image', difference_full)
+    cv2.imshow('Difference Image', difference)
     if cv2.waitKey(1) & 0xff == 27:
         cv2.imwrite('./difference_image.jpg', orig)
         print('Image saved and exiting...')

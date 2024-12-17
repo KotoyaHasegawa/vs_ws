@@ -34,10 +34,10 @@ print('henkan start')
 
 
 
-# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avspos.csv', header=None)#取り出し
+csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_avspos.csv', header=None)#取り出し
 # csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_input_avspos.csv', header=None)#格納
 
-csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_ibvspos.csv', header=None)#取り出し
+# csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_remove_ibvspos.csv', header=None)#取り出し
 # csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_input_ibvspos.csv', header=None)#格納
 
 # csvdata = pd.read_csv('./pinv_int_mat/pinv_int_mat_double_IBVS_withdraw_theta.csv', header=None)#取り出し

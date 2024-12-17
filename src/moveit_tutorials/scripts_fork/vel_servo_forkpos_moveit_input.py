@@ -58,8 +58,9 @@ I_dsr_vec = np.empty((nop, 1))
 # lmbd = 0.075 #withdraw
 lmbd = 0.035#input
 
-# rmseth = 5.0 #5.0 #withdraw
-rmseth = 8.0#8.0 #input
+
+# rmseth = 20.0#20.0 #IBVS
+rmseth = 12.0 #12.0 #AVS
 
 
 iteration = 500

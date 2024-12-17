@@ -55,8 +55,9 @@ net = DefiNet(device=device, input_dim=(3,360,640),
                         conv_param = {'filter_num': 64, 'filter_size': 3, 'pad': 1, 'stride': 1},
                         hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
 
-# params = torch.load('./definet/definet_params_withdraw_1000.pt', map_location=torch.device(device))
-params = torch.load('./definet/definet_params_withdraw_200.pt', map_location=torch.device(device))
+
+# params = torch.load('./definet/definet_params_withdraw_200.pt', map_location=torch.device(device)) #IBVS
+params = torch.load('./definet/definet_params_withdraw_pattern.pt', map_location=torch.device(device)) #AVS
 
 
 ###########################  input  ###############################################################
@@ -70,8 +71,9 @@ params = torch.load('./definet/definet_params_withdraw_200.pt', map_location=tor
 net.load_state_dict(params)
 net.eval()
 
-rmseth = 6.0#6.0
-# rmseth = 8.0#20.0
+# rmseth = 6.0#6.0withdraw IBVS
+rmseth = 0.0#6.5withdraw AVS
+# rmseth = 20.0#20.0
 iteration = 500
 
 time_series = []
@@ -319,20 +321,20 @@ def main(msg):
     # rmse = 100
 
     
-    with open('./dsrth_result/desired_pose.csv', 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            desired_pose = [float(x) for x in row]
+    # with open('./dsrth_result/desired_pose.csv', 'r') as f:
+    #     reader = csv.reader(f)
+    #     for row in reader:
+    #         desired_pose = [float(x) for x in row]
 
     # with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
     #     reader = csv.reader(f)
     #     for row in reader:
     #         desired_pose = [float(x) for x in row]
 
-    # with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
-    #     reader = csv.reader(f)
-    #     for row in reader:
-    #         desired_pose = [float(x) for x in row]
+    with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            desired_pose = [float(x) for x in row]
         
     image_raw = msg
     bridge = CvBridge()
@@ -381,8 +383,7 @@ def main(msg):
     if euler_z > 0 :
         euler_z = euler_z - 6.283	
 
-    if desired_pose[5] > 0 :
-        desired_pose[5] = desired_pose[5] - 6.283
+
 
 
     
