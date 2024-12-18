@@ -317,15 +317,15 @@ def main(msg):
     #     for row in reader:
     #         desired_pose = [float(x) for x in row]
 
-    # with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
-    #     reader = csv.reader(f)
-    #     for row in reader:
-    #         desired_pose = [float(x) for x in row]
-
-    with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+    with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
         reader = csv.reader(f)
         for row in reader:
             desired_pose = [float(x) for x in row]
+
+    # with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+    #     reader = csv.reader(f)
+    #     for row in reader:
+    #         desired_pose = [float(x) for x in row]
 
     #withdraw
     # if desired_pose[5] > 0 :
