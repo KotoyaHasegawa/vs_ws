@@ -73,10 +73,10 @@ net.load_state_dict(params)
 net.eval()
 
 # rmseth = 6.0#6.0#withdraw IBVS
-rmseth = 0.0#6.5#withdraw AVS?
+# rmseth = 0.0#6.5#withdraw AVS
 
 # rmseth = 20.0#20.0#input IBVS
-rmseth = 12.0#12.0#input IBVS
+rmseth = 0.0#12.0#input IBVS
 iteration = 500
 
 time_series = []
@@ -324,20 +324,20 @@ def main(msg):
     # rmse = 100
 
     
-    with open('./dsrth_result/desired_pose.csv', 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            desired_pose = [float(x) for x in row]
+    # with open('./dsrth_result/desired_pose.csv', 'r') as f:
+    #     reader = csv.reader(f)
+    #     for row in reader:
+    #         desired_pose = [float(x) for x in row]
 
     # with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
     #     reader = csv.reader(f)
     #     for row in reader:
     #         desired_pose = [float(x) for x in row]
 
-    # with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
-    #     reader = csv.reader(f)
-    #     for row in reader:
-    #         desired_pose = [float(x) for x in row]
+    with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            desired_pose = [float(x) for x in row]
         
     image_raw = msg
     bridge = CvBridge()
