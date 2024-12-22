@@ -34,11 +34,12 @@ if __name__ == "__main__":
         # ("vel_servo_fork.py", True),
         # ("vel_servo_definet_fork.py", True),
         # ("vel_servo_definet_fork_theta.py", True),
-        ("vel_servo_forkpos_moveit_input.py", True),
-        # ("vel_servo_forkpos_moveit_withdraw.py", True),
-        ("input.py", False),
+        # ("vel_servo_forkpos_moveit_input.py", True),
+        ("vel_servo_forkpos_moveit_withdraw.py", True),
+        # ("withdraw.py", False),    
         # ("mokuhyo.py", False),
-        # ("withdraw.py", False),
+        # ("input.py", False),
+
 
 
 

@@ -59,7 +59,7 @@ lmbd = 0.04 #withdraw
 
 
 # rmseth = 0.0 #7.0 #IBVS
-rmseth = 6.5 #6.5 #AVS
+rmseth = 4.0 #6.5 #AVS
 
 
 

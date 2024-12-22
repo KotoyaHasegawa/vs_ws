@@ -111,15 +111,15 @@ def zdescend():
 
     # Update Z coordinate(dist=300mm)
     target_pose = current_pose
-    target_pose.position.x = current_pose.position.x + 0.0037 ###上段
-    target_pose.position.y = current_pose.position.y + 0.2997 ###上段
-    target_pose.position.z = current_pose.position.z - 0.00756
+    target_pose.position.x = current_pose.position.x + 0.0067 ###上段
+    target_pose.position.y = current_pose.position.y + 0.272 ###上段
+    target_pose.position.z = current_pose.position.z - 0.00456
 
     current_pose_euler = [0, 0, 0]
     current_pose_euler[0], current_pose_euler[1], current_pose_euler[2] = quaternion_to_euler(target_pose.orientation)
     rx = current_pose_euler[0] - 0.00267
     ry = current_pose_euler[1] - 0.01276
-    rz = current_pose_euler[2] + 0.00428 + 0.0028645111
+    rz = current_pose_euler[2] #+ 0.00428 + 0.0028645111
 
     if rz > 3.141592:
         rz = rz - 6.283   
