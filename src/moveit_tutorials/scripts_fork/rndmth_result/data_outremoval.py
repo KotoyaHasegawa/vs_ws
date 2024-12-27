@@ -48,10 +48,12 @@ def out_removal_pose(data,idx):
 def adjust_negative_values(data):
     xi=data.astype(float)
     for i in range(xi.shape[0]):
+        # print(xi[i, 5])
         if xi[i, 5] > 0:
             # print(i+1)
             # print(xi[i, 5])
             xi[i, 5] -= 2*math.pi
+            # print(xi[i, 5])
     return xi
 
 
@@ -69,8 +71,8 @@ data1=readfile('rndmth_result/random_pose.csv')
 data2=readfile('rndmth_result/random_poseor.csv')
 
 newdata,idx = out_removal(data)
+print(idx)
 
-# print(idx)
 write(newdata)
 
 data1 = out_removal_pose(data1,idx)
@@ -84,8 +86,8 @@ data2=out_removal_pose(data2,idx)
 # data2_adjusted = adjust_negative_values(data2)
 f2=open('rndmth_result/random_poseordel.csv','w')#newline=''
 writer=csv.writer(f2)
-# writer.writerows(data2_adjusted)
 writer.writerows(data2)
+# writer.writerows(data2)
 f2.closed
 
 

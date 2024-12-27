@@ -34,11 +34,12 @@ if __name__ == "__main__":
         # ("vel_servo_fork.py", True),
         # ("vel_servo_definet_fork.py", True),
         # ("vel_servo_definet_fork_theta.py", True),
-        # ("vel_servo_forkpos_moveit_input.py", True),
-        ("vel_servo_forkpos_moveit_withdraw.py", True),
-        # ("withdraw.py", False),    
+        ("vel_servo_forkpos_moveit_input.py", True),
+        # ("vel_servo_forkpos_moveit_withdraw.py", True),
+        ("input.py", False),
         # ("mokuhyo.py", False),
-        # ("input.py", False),
+        # ("withdraw.py", False),    
+
 
 
 
@@ -65,4 +66,4 @@ if __name__ == "__main__":
         for script, with_error_img in scripts[:start_index]:
             run_script(script, with_error_img)
 
-        time.sleep(5)
+        time.sleep(20)

@@ -85,16 +85,16 @@ def random_pose(goal):
     pose = Pose()
     
     #remove
-    with open('./dsrth_result/desired_pose.csv', 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            desired_pose = [float(x) for x in row]
-
-    # #input
     # with open('./dsrth_result/desired_pose.csv', 'r') as f:
     #     reader = csv.reader(f)
     #     for row in reader:
     #         desired_pose = [float(x) for x in row]
+
+    # #input
+    with open('./dsrth_result/desired_pose.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            desired_pose = [float(x) for x in row]
 
     # add box
     # plan.add_plane(name="plane",pose=pose,normal=(0,0,1),offset=0)
@@ -166,9 +166,9 @@ def random_pose(goal):
 
 
     #本格
-    pose.position.x = random.uniform(desired_pose[0] - 0.025, desired_pose[0] + 0.025) #差+-0.025
+    pose.position.x = random.uniform(desired_pose[0] - 0, desired_pose[0] + 0.02) #差+-0.025
     pose.position.y = random.uniform(desired_pose[1] - 0.01, desired_pose[1] + 0.01) #差0.02
-    pose.position.z = random.uniform(desired_pose[2] - 0.025, desired_pose[2] + 0.025)#差+-0.025
+    pose.position.z = random.uniform(desired_pose[2] - 0.02, desired_pose[2] + 0)#差+-0.025
 
     # #input
     # pose.position.x = random.uniform(-0.194880588, -0.144880588) #差0.05

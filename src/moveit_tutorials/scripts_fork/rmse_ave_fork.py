@@ -31,8 +31,8 @@ def process_image(msg):
     global rsme_data
     bridge = CvBridge()
     orig = bridge.imgmsg_to_cv2(msg, "bgr8")
-    orig = orig[ 250 : 610 ,720 : 1360 ]#withdraw
-    # orig = orig[ 100 : 162,470 : 1632 ] #input
+    # orig = orig[ 250 : 610 ,720 : 1360 ]#withdraw
+    orig = orig[ 78 : 140 ,470 : 1632 ] #input
     gray = cv2.cvtColor(orig, cv2.COLOR_BGR2GRAY)
     arr = np.array(gray, dtype = 'float64')
     vec = arr.reshape(-1,1)

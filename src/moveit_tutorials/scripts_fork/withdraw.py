@@ -112,14 +112,14 @@ def zdescend():
     # Update Z coordinate(dist=300mm)
     target_pose = current_pose
     target_pose.position.x = current_pose.position.x + 0.0067 ###上段
-    target_pose.position.y = current_pose.position.y + 0.272 ###上段
+    target_pose.position.y = current_pose.position.y + 0.27126 ###上段
     target_pose.position.z = current_pose.position.z - 0.00456
 
     current_pose_euler = [0, 0, 0]
     current_pose_euler[0], current_pose_euler[1], current_pose_euler[2] = quaternion_to_euler(target_pose.orientation)
     rx = current_pose_euler[0] - 0.00267
     ry = current_pose_euler[1] - 0.01276
-    rz = current_pose_euler[2] #+ 0.00428 + 0.0028645111
+    rz = current_pose_euler[2] #+ 0.034
 
     if rz > 3.141592:
         rz = rz - 6.283   
@@ -145,7 +145,7 @@ def zdescend():
     # Update Z coordinate
     current_pose = move_group.get_current_pose().pose
     target_pose = current_pose
-    target_pose.position.z = current_pose.position.z + 0.013#上段
+    target_pose.position.z = current_pose.position.z + 0.01#上段
     # target_pose.position.z = current_pose.position.z + 0.005##上段
     waypoints = [target_pose]
     (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06)
@@ -163,14 +163,14 @@ def zdescend():
     print(target_pose)
     move_group.set_pose_target(target_pose)
     move_group.go(wait=True)
-    ### taiki
-    # print('ascended to z=22.4mm')
+    ## taiki
+    print('ascended to z=22.4mm')
 
-    # joint_goal2_deg = [-21.80, -87.40, -97.90, -174.91, -109.56, -0.22] #moveplay
-    # joint_goal2 = [x * pi/180 for x in joint_goal2_deg]
-    # move_group.set_joint_value_target(joint_goal2)
-    # print(joint_goal2)
-    # move_group.go(wait=True)
+    # # joint_goal2_deg = [-21.80, -87.40, -97.90, -174.91, -109.56, -0.22] #moveplay
+    # # joint_goal2 = [x * pi/180 for x in joint_goal2_deg]
+    # # move_group.set_joint_value_target(joint_goal2)
+    # # print(joint_goal2)
+    # # move_group.go(wait=True)
 
 
     moveit_commander.roscpp_shutdown()    
