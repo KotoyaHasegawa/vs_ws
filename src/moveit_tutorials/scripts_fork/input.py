@@ -25,7 +25,7 @@ def zdescend():
 
     ##上段（治具変更）
     # target_pose.position.y = current_pose.position.y + 0.33063 ###一回目の中継地点
-    # target_pose.position.z = current_pose.position.z -0.010
+    target_pose.position.z = current_pose.position.z -0.002
 
     ##上段（変更）
     target_pose.position.y = current_pose.position.y + 0.253
@@ -50,7 +50,7 @@ def zdescend():
     move_group.go(wait=True)
 
     target_pose = current_pose
-    target_pose.position.z =  current_pose.position.z - 0.013 ###二回目の中継地点
+    target_pose.position.z =  current_pose.position.z - 0.0013#sita0.008 ###二回目の中継地点
     waypoints = [target_pose]
     (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06)
     move_group.execute(plan, wait=True)

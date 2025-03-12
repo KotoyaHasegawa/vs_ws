@@ -73,8 +73,8 @@ def random_pose(goal):
     move_group = moveit_commander.MoveGroupCommander(group_name)
     
     ###一旦desired pose に移動
-    joint_goal_deg =  [-31.18, -76.67, -115.35, -169.04, -30.93, 0.60] #remove
-    # joint_goal_deg = [-30.34, -75.81, -114.68, -170.82, -29.33, 2.11] #input
+    # joint_goal_deg =  [-31.19, -76.68, -115.36, -169.03, -30.93, 0.60] #remove
+    joint_goal_deg = [-27.60, -71.65, -118.28, -169.50, -26.60, -1.68] #input
 
     joint_goal = [x * pi/180 for x in joint_goal_deg]
     move_group.set_joint_value_target(joint_goal)
@@ -166,9 +166,9 @@ def random_pose(goal):
 
 
     #本格
-    pose.position.x = random.uniform(desired_pose[0] - 0, desired_pose[0] + 0.02) #差+-0.025
+    pose.position.x = random.uniform(desired_pose[0] - 0, desired_pose[0] + 0.025) #差+-0.025
     pose.position.y = random.uniform(desired_pose[1] - 0.01, desired_pose[1] + 0.01) #差0.02
-    pose.position.z = random.uniform(desired_pose[2] - 0.02, desired_pose[2] + 0)#差+-0.025
+    pose.position.z = random.uniform(desired_pose[2] - 0.025, desired_pose[2] + 0)#差+-0.025
 
     # #input
     # pose.position.x = random.uniform(-0.194880588, -0.144880588) #差0.05

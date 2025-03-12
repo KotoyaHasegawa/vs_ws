@@ -11,12 +11,13 @@ import  numpy as np
 import math
 import statistics
 # I_dsr_vec = np.empty((1105920, 1)) ###for UI
-I_dsr_vec = np.empty((92160, 1))
 rsme_data = []
+zncc_data = []
 # nop = 1105920 ###for UI
-# nop = 230400 # withdraw
-nop = 72044 # input 
+nop = 230400 # withdraw
+# nop = 72044 # input 
 # nop = 115200 ###realsense
+I_dsr_vec = np.empty((nop, 1))
 def gen_I_dsr_vec():
     global I_dsr_vec
     I_dsr_orig = cv2.imread('./input_dsrim/kensyo_desired_image.png')
@@ -26,13 +27,36 @@ def gen_I_dsr_vec():
     I_dsr_vec = I_dsr_arr.reshape(-1,1)
     return I_dsr_vec 
 
+def compute_zncc(img1, img2):
+    # Ensure the images are of the same size
+    if img1.shape != img2.shape:
+        raise ValueError("The images must have the same dimensions")
+    # Compute means
+    mean1 = np.mean(img1)
+    mean2 = np.mean(img2)
+    # Compute zero-mean images
+    img1_zero_mean = img1 - mean1
+    img2_zero_mean = img2 - mean2
+    # Compute numerator (sum of the product of zero-mean images)
+    numerator = np.sum(img1_zero_mean * img2_zero_mean)
+    # Compute denominators (product of standard deviations)
+    denominator = np.sqrt(np.sum(img1_zero_mean ** 2) * np.sum(img2_zero_mean ** 2))
+    # Avoid division by zero
+    if denominator == 0:
+        return 0
+    # Compute ZNCC
+    zncc = numerator / denominator
+    return zncc
+
+
 def process_image(msg):
     global I_dsr_vec
     global rsme_data
+    global zncc_data
     bridge = CvBridge()
     orig = bridge.imgmsg_to_cv2(msg, "bgr8")
-    # orig = orig[ 250 : 610 ,720 : 1360 ]#withdraw
-    orig = orig[ 78 : 140 ,470 : 1632 ] #input
+    orig = orig[ 250 : 610 ,720 : 1360 ]#withdraw
+    # orig = orig[ 78 : 140 ,470 : 1632 ] #input
     gray = cv2.cvtColor(orig, cv2.COLOR_BGR2GRAY)
     arr = np.array(gray, dtype = 'float64')
     vec = arr.reshape(-1,1)
@@ -43,7 +67,16 @@ def process_image(msg):
     rsme = math.sqrt(Isum / nop)
     # print(rsme)
     rsme_data.append(rsme)
-    return rsme_data
+
+    zncc_value = compute_zncc(I_dsr_vec , vec)
+    zncc_data.append(zncc_value)
+    # print(zncc_value)
+
+
+
+
+
+    return rsme_data, zncc_data
             
 def start_node():
     rospy.loginfo('rsme average node started')
@@ -52,10 +85,13 @@ def start_node():
         # rospy.Subscriber('/camera/image_raw', Image, process_image) #for UI camera
         sleep(1)
     rsme_ave = statistics.mean(rsme_data)
-    print(rsme_ave)
+    print(f"RSME: {rsme_ave}")
     rsme_var = statistics.variance(rsme_data)
     print(rsme_var)
-
+    zncc_ave = statistics.mean(zncc_data)
+    print(f"ZNCC: {zncc_ave}")
+    zncc_var = statistics.variance(zncc_data)
+    print(zncc_var)
 
 if __name__ == '__main__':
     try:

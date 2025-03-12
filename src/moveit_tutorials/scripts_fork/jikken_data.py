@@ -9,7 +9,7 @@ class DATA():
     def __init__(self, bgr_full, bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
                  time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
-                 rmseth, iteration):
+                 rmseth, iteration, zncc_data):
         self.bgr_full = bgr_full
         self.bgr= bgr
         self.dsr_img = dsr_img
@@ -41,6 +41,8 @@ class DATA():
 
         self.rmseth = rmseth
         self.iteration = iteration
+
+        self.zncc_data = zncc_data
 
     def hand_eye_last_img(self):
         #位置決め後￥ハンドアイ画像        
@@ -79,9 +81,11 @@ class DATA():
         filename5 = './servo_data/rotation_angle.csv'
         filename6 = './servo_data/last_position_traslation.csv'
         filename7 = './servo_data/time.csv'
+        filename8 = './servo_data/zncc.csv'
 
         with open (filename, 'w') as f, open(filename2, 'w')as f2, open(filename3, 'w')as f3, \
-        open(filename4, 'w')as f4, open(filename5, 'w')as f5, open(filename6, 'w')as f6, open(filename7, 'w')as f7:
+        open(filename4, 'w')as f4, open(filename5, 'w')as f5, open(filename6, 'w')as f6, open(filename7, 'w')as f7\
+            , open(filename8, 'w')as f8:
             writer = csv.writer(f)
             writer.writerow(self.rmse_data)
             writer2 = csv.writer(f2)
@@ -98,6 +102,8 @@ class DATA():
                                 self.dist_rot_x[-1], self.dist_rot_y[-1], self.dist_rot_z[-1]])
             writer7 = csv.writer(f7)
             writer7.writerow(self.time_series)
+            writer8 = csv.writer(f8)
+            writer8.writerow(self.zncc_data)
             
                 
     def joint_vel_data(self):
@@ -286,6 +292,17 @@ class DATA():
 
         ax1.grid()
         fig_rt_dist.savefig('./servo_data/trans_rot_dist_iteration.png') 
+
+
+        fig_zncc_it = plt.figure()
+        iteration1 = np.linspace(0, len(self.zncc_data), len(self.zncc_data))
+        plt.xlabel('iteration')
+        plt.ylabel('ZNCC')
+        plt.plot(iteration1, self.zncc_data, 'b-')
+        plt.xlim([0, self.iteration])
+        plt.ylim([0, 1])
+        plt.grid()
+        fig_zncc_it.savefig('./servo_data/zncc_iteration.png')        
 
 
     def main(self):

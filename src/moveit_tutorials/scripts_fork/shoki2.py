@@ -61,22 +61,22 @@ def Move():
 	# 		desired_pose = [float(x) for x in row]
         
 
-    # # #本格
-	current_pose.position.x = random.uniform(desired_pose[0] - 0.02, desired_pose[0] + 0.02) #差+-0.025
+    # # # #本格
+	current_pose.position.x = random.uniform(desired_pose[0] - 0.025, desired_pose[0] + 0.025) #差+-0.025
 	current_pose.position.y = desired_pose[1] #差0.02
-	current_pose.position.z = random.uniform(desired_pose[2] - 0.01, desired_pose[2] + 0.02)#差+-0.025
+	current_pose.position.z = random.uniform(desired_pose[2] - 0.025, desired_pose[2] + 0.025)#差+-0.025
 	# # euler_x = random.uniform(desired_pose[3] - 0.04366, desired_pose[3] + 0.04366)#差5度
 	# # euler_y = random.uniform(desired_pose[4] - 0.04366, desired_pose[4] + 0.04366)#差5度
 	# # euler_z = random.uniform(desired_pose[5] - 0.04366, desired_pose[5] + 0.04366)#差5度
 
 
 	# #position A
-	# current_pose.position.x = desired_pose[0] - 0.02#+ 0.01 #差+-0.025
+	# current_pose.position.x = desired_pose[0] - 0.025#+ 0.01 #差+-0.025
 	# current_pose.position.y = desired_pose[1] #差0.02
 	# current_pose.position.z = desired_pose[2] - 0.01#+ 0.01#差+-0.025
 	euler_x = desired_pose[3]#差5度
-	euler_y = desired_pose[4]#差5度
-	euler_z = desired_pose[5]#差5度
+	euler_y = desired_pose[4] #+ 0.01#差5度
+	euler_z = desired_pose[5]#+ 0.008#差5度
 			
 
 	# #position manua;

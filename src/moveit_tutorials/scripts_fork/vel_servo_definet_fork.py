@@ -43,44 +43,47 @@ from jikken_data import DATA
 
 #number of pixels
 # nop = 2073600 #full
-# nop = 230400 #withdraw
-nop = 72044
+nop = 230400 #withdraw
+# nop = 72044
 pinv_int_mat_double = np.empty((6,6))
 I_dsr_vec = np.empty((nop, 1))
-# lmbd = 0.04 #withdraw
-lmbd = 0.035
+lmbd = 0.04 #withdraw
+# lmbd = 0.035
 ###########################  withdraw  ###############################################################
-# device = torch.device("cuda")
-# net = DefiNet(device=device, input_dim=(3,360,640),
-#                         conv_param = {'filter_num': 64, 'filter_size': 3, 'pad': 1, 'stride': 1},
-#                         hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
+device = torch.device("cuda")
+net = DefiNet(device=device, input_dim=(3,360,640),
+                        conv_param = {'filter_num': 64, 'filter_size': 3, 'pad': 1, 'stride': 1},
+                        hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
 
 
-# # params = torch.load('./definet/definet_params_withdraw_200.pt', map_location=torch.device(device)) #IBVS
+params = torch.load('./definet/definet_params_withdraw_200.pt', map_location=torch.device(device)) #IBVS
 # params = torch.load('./definet/definet_params_withdraw_pattern.pt', map_location=torch.device(device)) #AVS
 
 
 ###########################  input  ###############################################################
-device = torch.device("cuda")
-net = DefiNet(device=device, input_dim=(3,62,1162),
-                        conv_param = {'filter_num': 64, 'filter_size': 3, 'pad': 1, 'stride': 1},
-                        hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
+# device = torch.device("cuda")
+# net = DefiNet(device=device, input_dim=(3,62,1162),
+#                         conv_param = {'filter_num': 64, 'filter_size': 3, 'pad': 1, 'stride': 1},
+#                         hidden_size=512, output_size=6,  loss_alfa=1, loss_beta=1).to(device)
 
-# params = torch.load('./definet/definet_params_input.pt', map_location=torch.device(device))
-params = torch.load('./definet/definet_params_input_pattern.pt', map_location=torch.device(device)) #AVS
+# # params = torch.load('./definet/definet_params_input.pt', map_location=torch.device(device))
+# params = torch.load('./definet/definet_params_input_pattern.pt', map_location=torch.device(device)) #AVS
 
 net.load_state_dict(params)
 net.eval()
 
-# rmseth = 6.0#6.0#withdraw IBVS
+rmseth = 6.0#6.0#withdraw IBVS
 # rmseth = 0.0#6.5#withdraw AVS
+znccth = 0.95
 
 # rmseth = 20.0#20.0#input IBVS
-rmseth = 0.0#12.0#input IBVS
+# rmseth = 0.0#12.0#input IBVS
 iteration = 500
 
 time_series = []
 rmse_data = []
+
+zncc_data= []
 
 
 base_joint_data = []
@@ -229,6 +232,28 @@ def ik(initial_joint_values, go_pose, current_euler_x, current_euler_y, current_
 
     return success
 
+def compute_zncc(img1, img2):
+    # Ensure the images are of the same size
+    if img1.shape != img2.shape:
+        raise ValueError("The images must have the same dimensions")
+    # Compute means
+    mean1 = np.mean(img1)
+    mean2 = np.mean(img2)
+    # Compute zero-mean images
+    img1_zero_mean = img1 - mean1
+    img2_zero_mean = img2 - mean2
+    # Compute numerator (sum of the product of zero-mean images)
+    numerator = np.sum(img1_zero_mean * img2_zero_mean)
+    # Compute denominators (product of standard deviations)
+    denominator = np.sqrt(np.sum(img1_zero_mean ** 2) * np.sum(img2_zero_mean ** 2))
+    # Avoid division by zero
+    if denominator == 0:
+        return 0
+    # Compute ZNCC
+    zncc = numerator / denominator
+    return zncc
+
+
 def signal_handler(sig, frame):
     global pinv_int_mat_double
     global pinv_int_manip
@@ -247,6 +272,7 @@ def signal_handler(sig, frame):
     
     global time_series
     global rmse_data
+    global zncc_data
     global pose_data
     global dist_data
 
@@ -281,12 +307,12 @@ def signal_handler(sig, frame):
     bridge = CvBridge()
     bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
     # bgr = bgr_full[ 0 : 1080 ,0 : 1920 ]#withdrawts_full
-    # bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdrawts
-    bgr= bgr_full[ 78 : 140 ,470 : 1632 ] #input
-    get_data = DATA( bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
-                 dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
-                 time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
-                 rmseth, iteration)
+    bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdrawts
+    # bgr= bgr_full[ 78 : 140 ,470 : 1632 ] #input
+    get_data = DATA(bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
+                dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
+                time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
+                rmseth, iteration, zncc_data)
     
     get_data.main()
 
@@ -309,7 +335,7 @@ def main(msg):
     
     global time_series
     global rmse_data
-
+    global zncc_data
     global pose_data
     global dist_data
 
@@ -324,26 +350,26 @@ def main(msg):
     # rmse = 100
 
     
-    # with open('./dsrth_result/desired_pose.csv', 'r') as f:
-    #     reader = csv.reader(f)
-    #     for row in reader:
-    #         desired_pose = [float(x) for x in row]
+    with open('./dsrth_result/desired_pose.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            desired_pose = [float(x) for x in row]
 
     # with open('./dsrth_result/desired_pose_mid.csv', 'r') as f:
     #     reader = csv.reader(f)
     #     for row in reader:
     #         desired_pose = [float(x) for x in row]
 
-    with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            desired_pose = [float(x) for x in row]
+    # with open('./dsrth_result/desired_pose_down.csv', 'r') as f:
+    #     reader = csv.reader(f)
+    #     for row in reader:
+    #         desired_pose = [float(x) for x in row]
         
     image_raw = msg
     bridge = CvBridge()
     bgr = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
-    # bgr = bgr[ 250 : 610 ,720 : 1360 ] #withdraw
-    bgr= bgr[ 78 : 140 ,470 : 1632 ] #input
+    bgr = bgr[ 250 : 610 ,720 : 1360 ] #withdraw
+    # bgr= bgr[ 78 : 140 ,470 : 1632 ] #input
     # bgr = bridge.imgmsg_to_cv2(image_raw, 'mono8') ###UI camera
 
     # image_tensor = F.to_tensor(bgr).float().to("cuda")
@@ -372,7 +398,17 @@ def main(msg):
     dI2 = dI**2
     Isum = np.sum(dI2)
     rmse = math.sqrt(Isum / nop)
+    print("\n-----------------------------\n")
+    print("\n-----------------------------\n")
     print('rmse = %f' % rmse)
+
+
+
+    zncc_value = compute_zncc(I_dsr_vec , I_vec)
+    print(f"ZNCC: {zncc_value}")
+    print("\n-----------------------------\n")
+    print("\n-----------------------------\n")
+
     
     rospy.wait_for_service('getpose')
     getpose_client = rospy.ServiceProxy('getpose', GettfPose)
@@ -383,14 +419,14 @@ def main(msg):
     current_pose_z = respose.trans[2]
     rot = respose.rot 
     euler_x, euler_y, euler_z = quaternion_to_euler(rot)
-    # if euler_z > 0 :
-    #     euler_z = euler_z - 6.283	
+    if euler_z > 0 :
+        euler_z = euler_z - 6.283	
 
 
 
 
     
-    if rmse < rmseth or len(rmse_data) > iteration:# (time.time() - start_time) > 33:
+    if zncc_value > znccth or len(rmse_data) > iteration:# (time.time() - start_time) > 33:
      # if abs(desired_pose[0] - current_pose_x) < 0.0002 and abs(desired_pose[1] - current_pose_y) < 0.0002:
         print('stop')
         # vel_input.data = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
@@ -404,13 +440,14 @@ def main(msg):
         bridge = CvBridge()
         bgr_full = bridge.imgmsg_to_cv2(image_raw, 'bgr8') 
         # bgr = bgr_full[ 0 : 1080 ,0 : 1920 ]#withdraw_full
-        # bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdraw
-        bgr= bgr_full[ 78 : 140 ,470 : 1632 ] #input
+        bgr = bgr_full[ 250 : 610 ,720 : 1360 ]#withdraw
+        # bgr= bgr_full[ 78 : 140 ,470 : 1632 ] #input
+
 
         get_data = DATA(bgr_full,bgr, dsr_img, init_img, rmse_data, dist_trans_x, dist_trans_y, dist_trans_z, 
                  dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, dist_data, 
                  time_series, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, 
-                 rmseth, iteration)
+                 rmseth, iteration, zncc_data)
         
         get_data.main()
 
@@ -478,6 +515,8 @@ def main(msg):
         time_series.append(current_time)
         rmse_data.append(rmse)
 
+        zncc_data.append(zncc_value)
+
         base_joint_data.append(current_base_vel)
         shoulder_joint_data.append(current_shoulder_vel)
         elbow_joint_data.append(current_elbow_vel)
@@ -502,7 +541,7 @@ def main(msg):
 
         
         return rmse, time_series, rmse_data, base_joint_data, shoulder_joint_data, elbow_joint_data, wrist1_joint_data, wrist2_joint_data, wrist3_joint_data, joint_vel_values_data, 
-    pose_data, dist_data,dist_trans_x, dist_trans_y, dist_trans_z, dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang
+    pose_data, dist_data,dist_trans_x, dist_trans_y, dist_trans_z, dist_rot_x, dist_rot_y, dist_rot_z, error_rot_axis, error_rot_ang, zncc_data
 
     
 if __name__ == '__main__':

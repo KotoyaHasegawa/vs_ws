@@ -111,15 +111,15 @@ def zdescend():
 
     # Update Z coordinate(dist=300mm)
     target_pose = current_pose
-    target_pose.position.x = current_pose.position.x + 0.0067 ###上段
-    target_pose.position.y = current_pose.position.y + 0.27126 ###上段
-    target_pose.position.z = current_pose.position.z - 0.00456
+    target_pose.position.x = current_pose.position.x + 0.003 ###上段
+    target_pose.position.y = current_pose.position.y + 0.27326 ###上段
+    target_pose.position.z = current_pose.position.z + 0.005
 
     current_pose_euler = [0, 0, 0]
     current_pose_euler[0], current_pose_euler[1], current_pose_euler[2] = quaternion_to_euler(target_pose.orientation)
-    rx = current_pose_euler[0] - 0.00267
-    ry = current_pose_euler[1] - 0.01276
-    rz = current_pose_euler[2] #+ 0.034
+    rx = current_pose_euler[0]# - 0.00267
+    ry = current_pose_euler[1] #- 0.01276
+    rz = current_pose_euler[2]# + 0.034
 
     if rz > 3.141592:
         rz = rz - 6.283   
@@ -145,7 +145,7 @@ def zdescend():
     # Update Z coordinate
     current_pose = move_group.get_current_pose().pose
     target_pose = current_pose
-    target_pose.position.z = current_pose.position.z + 0.01#上段
+    target_pose.position.z = current_pose.position.z + 0.007#上段
     # target_pose.position.z = current_pose.position.z + 0.005##上段
     waypoints = [target_pose]
     (plan, fraction) =move_group.compute_cartesian_path(waypoints , eef_step=0.06)

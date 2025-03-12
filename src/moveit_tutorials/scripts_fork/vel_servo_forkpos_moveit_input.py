@@ -61,7 +61,7 @@ lmbd = 0.035#0.035#input
 
 # rmseth = 20.0#20.0 #IBVS
 # rmseth = 12.0 #12.0 #AVS
-rmseth = 5.0 #5.0 #AVS
+rmseth = 10.0 #10.0 #AVS
 
 
 iteration = 500
@@ -361,9 +361,9 @@ def main(msg):
     rot = respose.rot 
     euler_x, euler_y, euler_z = quaternion_to_euler(rot)
 
-    #withdraw
-    # if euler_z > 0 :
-    #     euler_z = euler_z - 6.283
+    # withdraw
+    if euler_z < 0 :
+        euler_z = euler_z + 6.283
 
 
 

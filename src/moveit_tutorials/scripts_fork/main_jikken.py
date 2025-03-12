@@ -32,13 +32,18 @@ if __name__ == "__main__":
         ("shoki2.py", False),
         ("demo_init_image.py", False),
         # ("vel_servo_fork.py", True),
-        # ("vel_servo_definet_fork.py", True),
+        ("vel_servo_definet_fork.py", True),
         # ("vel_servo_definet_fork_theta.py", True),
-        ("vel_servo_forkpos_moveit_input.py", True),
+        # ("vel_servo_forkpos_moveit_input.py", True),
         # ("vel_servo_forkpos_moveit_withdraw.py", True),
-        ("input.py", False),
+        # ("withdraw.py", False),  
         # ("mokuhyo.py", False),
-        # ("withdraw.py", False),    
+  
+        # ("input.py", False),
+
+
+
+
 
 
 
@@ -57,7 +62,7 @@ if __name__ == "__main__":
         print(f"Invalid start script: {start_script}")
         sys.exit(1)
     start_index = next(i for i, script in enumerate(scripts) if script[0] == start_script)
-    loop_count = 9
+    loop_count = 5
 
     for _ in range(loop_count):
         for script, with_error_img in scripts[start_index:]:

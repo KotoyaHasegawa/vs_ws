@@ -52,15 +52,14 @@ def Move():
 	print(move_group.get_current_joint_values())
 
 
-	# joint_goal2_deg = [-31.19, -76.68, -115.36, -169.03, -30.93, 0.60] #remove
-	joint_goal2_deg = [-30.74, -86.41, -130.22, -144.46, -30.45,  0.62] #remove2fromimg	
-	# joint_goal2_deg = [-32.13, -106.53, -138.06, -117.63, -31.81, 1.32] #remove3
-	# joint_goal2_deg = [-31.46, -106.63, -138.96, -114.79, -31.35,  -0.53] #remove3fromimg	
+	joint_goal2_deg = [-31.19, -76.68, -115.36, -169.03, -30.93, 0.60] #remove
+	# joint_goal2_deg = [-30.82, -86.41, -130.33, -144.34, -30.53,  0.62] #remove2fromimg	
+	# joint_goal2_deg = [-30.86, -107.27, -138.50, -115.26, -30.53,  0.55] #remove3fromimg	
 
       
-	joint_goal2_deg = [-27.01, -71.53, -118.61, -169.37, -26.00, 0.63] #input
-	# joint_goal2_deg = [-26.75, -80.97, -134.47, -144.07, -25.71, 0.62] #input2_img0  
-	# joint_goal2_deg = [-26.55, -103.79, -143.34, -112.28, -25.46, 0.52] #input3_imgs
+	# joint_goal2_deg = [-27.60, -71.65, -118.28, -169.50, -26.60, -1.68] #input
+	# joint_goal2_deg = [-27.59, -80.72, -134.37, -144.35, -26.55, -1.69] #input2_img0  
+	# joint_goal2_deg = [-27.16, -103.70, -143.18, -112.48, -26.08, -1.78] #input3_imgs
 
 
 	# joint_goal2_deg = [-30.34, -75.84, -114.86, -170.59, -29.35, 1.27] #input?
